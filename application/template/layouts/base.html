@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+  <html lang="fr" class="" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>
+        {% block title %}Dakar{% endblock %}
+      </title>
+      {#<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">#}
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="imagemode" content="force" /><link rel="dns-prefetch" href="https://i.roamcdn.net"><link rel="preconnect" href="https://i.roamcdn.net"><link rel="dns-prefetch" href="https://adservice.google.com"><link rel="preconnect" href="https://adservice.google.com"><link rel="dns-prefetch" href="https://cdn.onesignal.com"><link rel="preconnect" href="https://cdn.onesignal.com"><link rel="dns-prefetch" href="https://connect.facebook.net"><link rel="preconnect" href="https://connect.facebook.net"><link rel="dns-prefetch" href="https://creativecdn.com"><link rel="preconnect" href="https://creativecdn.com"><link rel="dns-prefetch" href="https://googleads.g.doubleclick.net"><link rel="preconnect" href="https://googleads.g.doubleclick.net"><link rel="dns-prefetch" href="https://insights.hotjar.com"><link rel="preconnect" href="https://insights.hotjar.com"><link rel="dns-prefetch" href="https://lib.onet.pl"><link rel="preconnect" href="https://lib.onet.pl"><link rel="dns-prefetch" href="https://onesignal.com"><link rel="preconnect" href="https://onesignal.com"><link rel="dns-prefetch" href="https://pagead2.googlesyndication.com"><link rel="preconnect" href="https://pagead2.googlesyndication.com"><link rel="dns-prefetch" href="https://script.hotjar.com"><link rel="preconnect" href="https://script.hotjar.com"><link rel="dns-prefetch" href="https://securepubads.g.doubleclick.net"><link rel="preconnect" href="https://securepubads.g.doubleclick.net"><link rel="dns-prefetch" href="https://sgqcvfjvr.onet.pl"><link rel="preconnect" href="https://sgqcvfjvr.onet.pl"><link rel="dns-prefetch" href="https://static.hotjar.com"><link rel="preconnect" href="https://static.hotjar.com"><link rel="dns-prefetch" href="https://stats.g.doubleclick.net"><link rel="preconnect" href="https://stats.g.doubleclick.net"><link rel="dns-prefetch" href="https://tpc.googlesyndication.com"><link rel="preconnect" href="https://tpc.googlesyndication.com"><link rel="dns-prefetch" href="https://vars.hotjar.com"><link rel="preconnect" href="https://vars.hotjar.com"><link rel="dns-prefetch" href="https://www.facebook.com"><link rel="preconnect" href="https://www.facebook.com"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.google-analytics.com"><link rel="dns-prefetch" href="https://www.googleadservices.com"><link rel="preconnect" href="https://www.googleadservices.com"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://www.googletagservices.com"><link rel="preconnect" href="https://www.googletagservices.com"><link rel="preload" href="https://www.expat-dakar.com/assets/ed-site/css/main.a41ae2bf.css" as="style">
+      <link rel="preload" href="https://www.expat-dakar.com/assets/ed-site/scripts/jquery.min.cf2fbbf8.js" as="script">
+      <link rel="preload" href="https://www.expat-dakar.com/assets/ed-site/scripts/dependencies-modern.min.da508805.js" as="script">
+      <link rel="preload" href="https://www.expat-dakar.com/assets/ed-site/scripts/slider.min.18b6dc45.js" as="script">
+      <title>Petites annonces au Sénégal | Expat-Dakar</title>
+      <meta name="description" content="Achetez et vendez en ligne sur le plus grand site de petites annonces neuf &amp; occasion au Sénégal. Déposez une annonce gratuitement ou trouvez la bonne affaire.">
+      <meta name="robots" content="INDEX, FOLLOW">
+      <link rel="canonical" href="https://www.expat-dakar.com">
+      <meta property="fb:app_id" content="327636980609388">
+      <meta property="og:locale" content="fr_FR">
+      <meta property="og:site_name" content="Expat-Dakar">
+      <meta property="og:title" content="Petites annonces au Sénégal">
+      <meta property="og:description" content="Le site de confiance pour acheter et vendre en ligne.">
+      <meta property="og:url" content="https://www.expat-dakar.com">
+      <meta property="og:type" content="Website">
+      <meta property="og:image" content="https://www.expat-dakar.com/assets/ed-site/img/og-image.f81c32fa.jpg">
+      <meta property="og:image" content="1200">
+      <meta property="og:image" content="630">
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@expatdakar">
+      <link rel="shortcut icon" sizes="any" href="https://www.expat-dakar.com/assets/ed-site/favicon/favicon.0795cb8f.ico">
+      <link rel="icon" type="image/svg+xml" href="https://www.expat-dakar.com/assets/ed-site/favicon/favicon.93deaea8.svg">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://www.expat-dakar.com/assets/ed-site/favicon/apple-touch-icon.425661e1.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="https://www.expat-dakar.com/assets/ed-site/favicon/favicon-32x32.c9de7d21.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="https://www.expat-dakar.com/assets/ed-site/favicon/favicon-16x16.5f6e5a6a.png">
+      <link rel="manifest" href="https://www.expat-dakar.com/assets/ed-site/favicon/site.dd3006d3.webmanifest">
+      <link rel="mask-icon" href="https://www.expat-dakar.com/assets/ed-site/favicon/safari-pinned-tab.55ebbf4c.svg" color="#4292d0">
+      <meta name="apple-mobile-web-app-title" content="Expat-Dakar">
+      <meta name="application-name" content="Expat-Dakar">
+      <meta name="msapplication-TileColor" content="#4292d0">
+      <meta name="msapplication-TileImage" content="https://www.expat-dakar.com/assets/ed-site/favicon/mstile-144x144.a2299ec3.png">
+      <meta name="msapplication-config" content="https://www.expat-dakar.com/assets/ed-site/favicon/browserconfig.53064ebb.xml">
+      <meta name="theme-color" content="#4292d0">
+      <meta name="csrf-token" content="PwhhBe4xZWUiwbvnuZO2XBGd5ym6Zpnf2EYg5M3v">
+      <meta name="csrf-param" content="_token">
+      <meta name="msvalidate.01" content="00619A2EA4B7B725F327200FCDEC7622">
+      <meta name="smartbanner:title" content="Téléchargez maintenant pour acheter et vendre en ligne">
+      <meta name="smartbanner:icon" content="https://www.expat-dakar.com/assets/ed-site/favicon/smart-banner-icon.340e9aab.png">
+      <meta name="smartbanner:button" content="AVOIR">
+      <meta name="google-play-app" content="app-id=com.expat_dakar">
+      <img width="99999" height="99999" style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+" />
+      <link media="all" type="text/css" rel="stylesheet" href="https://www.expat-dakar.com/assets/ed-site/css/main.a41ae2bf.css">
+      <script type="text/javascript">
+          !function(o){var e,t,a=o.$LAB,g="UseLocalXHR",h="AlwaysPreserveOrder",m="AllowDuplicates",v="CacheBust",_="BasePath",w=/^[^?#]*\//.exec(location.href)[0],b=/^\w+\:\/\/\/?[^\/]+/.exec(w)[0],S=document.head||document.getElementsByTagName("head"),n=o.opera&&"[object Opera]"==Object.prototype.toString.call(o.opera)||"MozAppearance"in document.documentElement.style,r=document.createElement("script"),x="boolean"==typeof r.preload,A=x||r.readyState&&"uninitialized"==r.readyState,E=!A&&!0===r.async,s=!A&&!E&&!n;function L(e){return"[object Function]"==Object.prototype.toString.call(e)}function O(e){return"[object Array]"==Object.prototype.toString.call(e)}function B(e,t){for(var n in e)e.hasOwnProperty(n)&&(t[n]=e[n]);return t}function Q(e,t,n,r){e.onload=e.onreadystatechange=function(){e.readyState&&"complete"!=e.readyState&&"loaded"!=e.readyState||t[n]||(e.onload=e.onreadystatechange=null,r())}}function C(e){e.ready=e.finished=!0;for(var t=0;t<e.finished_listeners.length;t++)e.finished_listeners[t]();e.ready_listeners=[],e.finished_listeners=[]}o.$LAB=function e(){var r,t={},f=A||s,i=[],p={};function y(o,a,e,t){function n(){a.ready_cb(a,function(){function e(){null!=i&&(i=null,C(r))}var t,n,r,i;t=o,r=s,p[(n=a).src].finished||(t[m]||(p[n.src].finished=!0),i=r.elem||document.createElement("script"),n.type&&(i.type=n.type),n.charset&&(i.charset=n.charset),Q(i,r,"finished",e),r.elem?r.elem=null:r.text?(i.onload=i.onreadystatechange=null,i.text=r.text):i.src=n.real_src,S.insertBefore(i,S.firstChild),r.text&&e())})}function r(){a.finished_cb(a,e)}var s,i,c,l,d,u,f,y,h;a.src=(i=a.src,c=o[_],l=/^\w+\:\/\//,/^\/\/\/?/.test(i)?i=location.protocol+i:l.test(i)||"/"==i.charAt(0)||(i=(c||"")+i),l.test(i)?i:("/"==i.charAt(0)?b:w)+i),a.real_src=a.src+(o[v]?(/\?.*$/.test(a.src)?"&_":"?_")+~~(1e9*Math.random())+"=":""),p[a.src]||(p[a.src]={items:[],finished:!1}),c=p[a.src].items,o[m]||0==c.length?(s=c[c.length]={ready:!1,finished:!1,ready_listeners:[n],finished_listeners:[r]},d=o,u=a,f=s,y=t?function(){s.ready=!0;for(var e=0;e<s.ready_listeners.length;e++)s.ready_listeners[e]();s.ready_listeners=[]}:function(){C(s)},h=t,setTimeout(function(){var e,t,n=u.real_src;if("item"in S){if(!S[0])return void setTimeout(arguments.callee,25);S=S[0]}e=document.createElement("script"),u.type&&(e.type=u.type),u.charset&&(e.charset=u.charset),h?A?(f.elem=e,x?(e.preload=!0,e.onpreload=y):e.onreadystatechange=function(){"loaded"==e.readyState&&y()},e.src=n):h&&0==n.indexOf(b)&&d[g]?((t=new XMLHttpRequest).onreadystatechange=function(){4==t.readyState&&(t.onreadystatechange=function(){},f.text=t.responseText+"\n//@ sourceURL="+n,y())},t.open("GET",n),t.send()):(e.type="text/cache-script",Q(e,f,"ready",function(){S.removeChild(e),y()}),e.src=n,S.insertBefore(e,S.firstChild)):(E&&(e.async=!1),Q(e,f,"finished",y),e.src=n,S.insertBefore(e,S.firstChild))},0)):(s=c[0]).finished?r():s.finished_listeners.push(r)}function n(){var o,a,s=B(t,{}),c=[],e=0,l=!1;function d(e,t){e.ready=!0,e.exec_trigger=t,r()}function u(e,t){e.ready=e.finished=!0,e.exec_trigger=null;for(var n=0;n<t.scripts.length;n++)if(!t.scripts[n].finished)return;t.finished=!0,r()}function r(){for(;e<c.length;)if(L(c[e]))try{c[e++]()}catch(e){}else{if(!c[e].finished){if(function(e){for(var t=!1,n=0;n<e.scripts.length;n++)e.scripts[n].ready&&e.scripts[n].exec_trigger&&(t=!0,e.scripts[n].exec_trigger(),e.scripts[n].exec_trigger=null);return t}(c[e]))continue;break}e++}e==c.length&&(a=l=!1)}return{script:(o={script:function(){for(var e=0;e<arguments.length;e++){i=t=void 0;var t,n=arguments[e],r=arguments[e];O(n)||(r=[n]);for(var i=0;i<r.length;i++)a&&a.scripts||c.push(a={scripts:[],finished:!0}),(n=L(n=r[i])?n():n)&&(O(n)?((t=[].slice.call(n)).unshift(i,1),[].splice.apply(r,t),i--):(n=B(n="string"==typeof n?{src:n}:n,{ready:!1,ready_cb:d,finished:!1,finished_cb:u}),a.finished=!1,a.scripts.push(n),y(s,n,a,f&&l),l=!0,s[h]&&o.wait()))}return o},wait:function(){if(0<arguments.length){for(var e=0;e<arguments.length;e++)c.push(arguments[e]);a=c[c.length-1]}else a=!1;return r(),o}}).script,wait:o.wait,setOptions:function(e){return B(e,s),o}}}return t[g]=!0,t[h]=!1,t[m]=!1,t[v]=!1,t[_]="",r={setGlobalDefaults:function(e){return B(e,t),r},setOptions:function(){return n().setOptions.apply(null,arguments)},script:function(){return n().script.apply(null,arguments)},wait:function(){return n().wait.apply(null,arguments)},queueScript:function(){return i[i.length]={type:"script",args:[].slice.call(arguments)},r},queueWait:function(){return i[i.length]={type:"wait",args:[].slice.call(arguments)},r},runQueue:function(){for(var e,t=r,n=i.length;0<=--n;)t=t[(e=i.shift()).type].apply(null,e.args);return t},noConflict:function(){return o.$LAB=a,r},sandbox:e}}(),r="addEventListener",e="DOMContentLoaded",null==document.readyState&&document[r]&&(document.readyState="loading",document[r](e,t=function(){document.removeEventListener(e,t,!1),document.readyState="complete"},!1))}(this),function(f){"use strict";function e(e,t,n,r){var i,o,a=f.document,s=a.createElement("link"),c=(o=t||(i=(a.body||a.getElementsByTagName("head")[0]).childNodes)[i.length-1],a.styleSheets);if(r)for(var l in r)r.hasOwnProperty(l)&&s.setAttribute(l,r[l]);function d(e){for(var t=s.href,n=c.length;n--;)if(c[n].href===t)return e();setTimeout(function(){d(e)})}function u(){s.addEventListener&&s.removeEventListener("load",u),s.media=n||"all"}return s.rel="stylesheet",s.href=e,s.media="only x",function e(t){if(a.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(s,t?o:o.nextSibling)}),s.addEventListener&&s.addEventListener("load",u),s.onloadcssdefined=d,d(u),s}"undefined"!=typeof exports?exports.loadCSS=e:f.loadCSS=e}("undefined"!=typeof global?global:this),$LAB.setGlobalDefaults({AllowDuplicates:!1}),window.OAM=window.OAM||{},function(r,n,i){i.readyQueue=[],i.loadQueue=[],i._onload=!1,i._readyQueueProcessed=!1,i.ready=function(e){function t(){setTimeout(e,1)}i._readyQueueProcessed?jQuery(n).ready(t):i.readyQueue.push(t)},i.processReadyQueue=function(){for(i._readyQueueProcessed=!0;i.readyQueue.length;)jQuery(n).ready(i.readyQueue.shift())},i.later=function(t,n){n=n||1;function e(){function e(){setTimeout(t,n)}r.requestIdleCallback?requestIdleCallback(e):e()}i.ready(function(){i._onload?i.ready(e):jQuery(r).on("load",e)})},i.arriveOnceAndLoad=function(e,t){i.ready(function(){$(n).arrive(e,{onceOnly:!0,existing:!1},function(){i.script(t)})})},i.script=$LAB.script,i.style=loadCSS}(window,document,window.OAM),function(e,t,n){function r(){n._onload=!0}var i;"complete"===t.readyState?n._onload=!0:t.addEventListener?e.addEventListener("load",r,!1):e.attachEvent?e.attachEvent("onload",r):(i=e.onload,"function"!=typeof e.onload?e.onload=r:e.onload=function(){i&&i(),r()})}(window,document,window.OAM);</script><script>
+              window.dataLayer = [{"domain_code":"ed","env":"production","route_name":"home","locale":"fr","version":"master-2215","service_worker":"service-worker.js","service_worker_updater":"service-worker-updater.js","guest_has_saved_searches":false,"dfp_targeting_key":"URL_Expat-Dakar.com","dfp_targeting_value":"\/home","pageview_count":1,"session_hash":"0729ae7826539d314a0e80cd4fba599b","request_id":"eae53098581828c961e264cc5fd6a5b9","timestamp":1677375309,"url_path":"\/","url_path_with_query":"\/","url_path_with_query_without_utm":"\/","onesignal_url_path":"\/","ga_optimize_exp":"","experiments_running":"","experiments":[]}];
+                  </script><script>
+              (function(w,d,s,l,i){
+                  w[l] = w[l] || [];
+                  w[l].push(
+                      {
+                          'gtm.start': new Date().getTime(),
+                          event:'gtm.js'
+                      }
+                  );
+                  var f = d.getElementsByTagName(s)[0],
+                      j = d.createElement(s),
+                      dl = l != 'dataLayer'
+                          ? '&l=' + l
+                          : '';
+                  j.async = true;
+                  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                  f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5D5748K');
+      </script>
+    </head>
+    <body class="category-root--default">
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D5748K"
+  height="0" width="0" style="display:none;visibility:hidden">
+</iframe>
+</noscript><div class="wrap">
+  <ins class="bn bn--970-90 home-bn home-bn--desktop-header">
+    <div class="bn__outer">
+      <a class="bn__inner" data-bn target="_blank" rel="noopener noindex nofollow" data-bn-impression data-bn-impression-label="1xbet" data-bn-impression-action="impressions" data-bn-impression-category="home_desktop_header" data-bn-click data-bn-click-label="1xbet" data-bn-click-action="clicks" data-bn-click-category="home_desktop_header" href="https://affpa.top/L?tag=d_128389m_97c_&amp;site=128389&amp;ad=97">
+        <img src="https://i.roamcdn.net/sdc-bn/default/7e86caaa8fbf4cfd5b8f68b7cf8e64f2/97c031c10acdd8cb07d6a785085188e4/-/cde-bn-production/client-8/nbgCxFi1TwicgFwT0CInfV8yVKkFPRVJiSnM7rNr.gif" loading="lazy" />
+      </a>
+    </div>
+  </ins>
+  <ins class="bn bn--320-50 home-bn home-bn--mobile-header">
+    <div class="bn__outer">
+      <a class="bn__inner" data-bn target="_blank" rel="noopener noindex nofollow" data-bn-impression data-bn-impression-label="khadija-fasse-immo" data-bn-impression-action="impressions" data-bn-impression-category="home_mobile_header" data-bn-click data-bn-click-label="khadija-fasse-immo" data-bn-click-action="clicks" data-bn-click-category="home_mobile_header" href="#">
+        <img src="https://i.roamcdn.net/sdc-bn/default/e3858a108f45d640f7048ebadff3bbd4/05aef1ac976347116ace293dd8f8f7a4/-/cde-bn-production/client-8/0EZ8XeBgcd3io0ncGUgwKIZR8dmy0fmZRUzLTGww.png" loading="lazy" />
+      </a>
+    </div>
+  </ins>
+  <header class="header" data-sticky="{&quot;type&quot;:&quot;header&quot;}">
+    <div class="header__inner">
+      <a href="#" class="header-logo">
+        <span class="header-logo__brand">
+      Expat-Dakar
+      </span>
+      <img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar">
+    </a>
+    <span class="header-locale-spacer">&nbsp;
+
+    </span>
+    <span class="header-menu-toggle">
+      <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle aria-label="Menu">
+        <svg class="i i-menu header-menu-toggle__button-icon" aria-hidden="true">
+          <use href="#"></use>
+        </svg>
+      </a>
+    </span>
+    <div class="header-cta">
+      <a href="#" class="btn btn-primary header-cta__button">
+        <span class="header-cta__button-title">
+      Vendre
+      </span>
+    </a>
+  </div>
+  <div class="header__buttons-section ">
+    <div class="header-auth">
+      <a href="#" class="btn btn-default header-auth__item">
+    login/register
+    </a>
+  </div>
+</div>
+<div class="global-search">
+  <div class="global-search__inner">
+    <form method="GET" action="" accept-charset="UTF-8" class="global-search__form">
+      <div class="global-search__query">
+        <label for="q" class="sr-only">Mots cl&eacute;s
+
+        </label>
+        <input placeholder="Je recherche..." class="form-control autocomplete global-search__query-input" name="q" type="text" id="">
+        <svg class="i i-magnify global-search__query-icon" aria-hidden="true">
+          <use href="#"></use>
+        </svg>
+      </div>
+      <button type="submit" class="btn global-search__button">
+        <svg class="i i-magnify global-search__button__icon" aria-hidden="true">
+          <use href"#"></use>
+        </svg>
+        <span hidden>
+        Rechercher
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+</div>
+</header>
+  <nav class="header-nav" data-header-nav>
+    <div class="header-nav__inner-container">
+      <ul class="header-nav__inner">
+        <li class="header-nav__inner__item">
+          <a href="{{ url_for('index_vehicules') }}" class="header-nav__inner__item__link">
+            Véhicules
+          </a>
+        </li>
+        <li class="header-nav__inner__item">
+          <a href="{{ url_for('index_emplois')}}" class="header-nav__inner__item__link">
+          Offres d&#039;emploi
+          </a>
+        </li>
+        <li class="header-nav__inner__item">
+          <a href="{{ url_for('index_immobilier') }}" class="header-nav__inner__item__link">
+          Immobilier
+          </a>
+        </li>
+        <li class="header-nav__inner__item">
+          <a href="{{ url_for('index_multimedia') }}" class="header-nav__inner__item__link">
+          Multimédia
+        </a>
+      </li>
+      <li class="header-nav__inner__item">
+        <a href="{{ url_for('index_maison') }}" class="header-nav__inner__item__link">
+        Maison
+        </a>
+      </li>
+    </ul>
+    <ul class="header-nav__inner__right">
+      <li class="header-nav__inner__item header-nav__inner__item--all">
+        <a href="#" class="header-nav__inner__item__link">
+          <svg class="i i-categories header-nav__inner__item__category-icon" aria-hidden="true">
+            <use href="#"></use>
+          </svg>
+          Autres Catégories
+        </a>
+      </li>
+      <li class="header-nav__inner__item header-nav__inner__item--businesses">
+        <a href="#" class="header-nav__inner__item__link header-nav__inner__item__link--businesses">
+          <svg class="i i-briefcase header-nav__inner__item__category-icon" aria-hidden="true">
+            <use href="#"></use>
+          </svg>
+            Les Boutiques
+        </a>
+      </li>
+      <li class="header-nav__inner__item header-nav__inner__item--businesses">
+        <a href="#" class="header-nav__inner__item__link header-nav__inner__item__link--deals">
+          <svg class="i i-handshake header-nav__inner__item__category-icon" aria-hidden="true">
+            <use href="#">
+            </use>
+          </svg>
+            Promo
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+{% block container %}
+{% endblock %}
+
+
+
+
+<section class="home-product">
+  <div class="home-product__container">
+    <div class="home-product__inner">
+      <div class="home-product__content">
+        <h5 class="home-product__title">
+      Développez votre business. Commencez à vendre dès aujourd&#039;hui avec Expat-Dakar !
+      </h5>
+      <p class="home-product__subtitle">
+      Nous vous offrons des solutions adaptées à vos besoins pour vous permettre d’accélérer votre business.
+      </p>
+      <div class="home-product__btn">
+        <a href="https://www.expat-dakar.com/vendre-en-ligne" class="home-product__btn-link btn btn-secondary">
+        En savoir plus
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section></div>
+<section class="home-newsletter">
+  <div class="home-newsletter__container">
+    <div class="home-newsletter__inner">
+      <div class="home-newsletter__content">
+        <div class="home-newsletter__title">
+          Restez informés avec notre newsletter 
+        </div>
+        <p class="home-newsletter__subtitle">
+        Recevez notre sélection hebdomadaire des meilleures offres !
+        </p>
+      </div>
+      <div class="home-newsletter__form-container">
+        <form method="POST" action="" accept-charset="UTF-8" class="home-newsletter__form" >
+          <input name="_token" type="hidden">
+          <input name="source" type="hidden" value="newsletter">
+          <div id="user_details_Hcqyuyd9tBZ0D1mc_wrap" style="display: none" aria-hidden="true">
+            <input id="" name="" type="text" value="" autocomplete="nope" tabindex="-1">
+            <input name="valid_from" type="text" value="" autocomplete="nope" tabindex="-1">
+          </div>
+          <div class="home-newsletter__form__inner">
+            <div class="home-newsletter__form__email">
+              <label for="email_newsletter" class="sr-only">Adresse e-mail</label>
+              <input id="email_newsletter" placeholder="Adresse e-mail" class="form-control home-newsletter__form__email-input" required name="email" type="email">
+            </div>
+            <div class="home-newsletter__form__submit">
+              <button type="submit" class="btn btn-secondary btn-block" id="newsletter-subscribe">
+              Je m&#039;abonne
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer footer--has-app">
+  <div class="footer__container">
+    <div class="footer__row">
+      <div class="footer-group">
+        <div class="footer-group__inner">
+          <div class="footer-links footer-links--links">
+            <ul class="footer-links__list">
+              <li class="footer-links__list-item">
+                <a href="https://www.expat-dakar.com/qui-sommes-nous" class="footer-links__list-item__link">
+                Qui sommes-nous ?
+                </a>
+              </li>
+              <li class="footer-links__list-item">
+                <a href="https://www.expat-dakar.com/contact" class="footer-links__list-item__link">
+                Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links footer-links--partners">
+            <div class="footer-links__header">
+          Sites internationaux
+          </div>
+          <ul class="footer-links__list">
+            <li class="footer-links__list-item">
+              <a href="https://roam.africa" class="footer-links__list-item__link" target="_blank" rel="noopener">
+              ROAM
+              </a>
+            </li>
+            <li class="footer-links__list-item">
+              <a href="https://qefira.com" class="footer-links__list-item__link" target="_blank" rel="noopener">
+              Qefira
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links footer-links--app">
+        <div class="footer-links__header">
+        Téléchargez notre appli
+        </div>
+        <a href="#" class="footer-links__app">
+          <img class="footer-links__app__img" alt="Téléchargez notre appli" src="https://www.expat-dakar.com/assets/ed-site/img/app-badge/google/fr.49bcd27f.svg" loading="lazy" />
+        </a>
+      </div>
+      <div class="footer-links footer-links--social">
+        <div class="footer-links__header">
+          Suivre Expat-Dakar
+        </div>
+        <ul class="footer-links__list footer-links__list-social">
+          <li class="footer-links__list-social-item">
+            <a href="#" class="ic ic--facebook footer-links__list-social-item__network footer-links__list-social-item__network--facebook" target="_blank" rel="noopener nofollow">
+              <svg class="i i-facebook " aria-hidden="true">
+                <use href="#"></use>
+              </svg>
+              <span class="footer-links__list-social-item__network-title">
+              Suivez Expat-Dakar on Facebook
+              </span>
+            </a>
+          </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright">
+  <div class="footer-copyright__container">
+    <div class="footer-copyright__inner">
+      <div class="footer-copyright__notice">
+      Tous droits réservés &copy; 2016-2023 Expat-Dakar
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+</div>
+<nav class="menu-nav">
+  <div class="menu-nav__inner">
+    <div class="menu-nav__header">
+      <span class="menu-nav-toggle">
+        <a href="#" class="btn menu-nav-toggle__button" data-menu-nav-toggle>
+          <svg class="i i-close menu-nav-toggle__button-icon" aria-hidden="true">
+            <use href="#"></use>
+          </svg>
+        </a>
+      </span>
+    </div>
+    <ul class="menu-nav__list">
+      <li class="menu-nav__list-item">
+        <div class="menu-nav__list-item__header">
+        Mon Profil
+        </div>
+      </li>
+      <li class="menu-nav__list-item">
+        <a href="#" class="menu-nav__list-item__link">
+      Connexion / Inscription
+        </a>
+      </li>
+      <hr class="menu-nav__list-item__divider">
+      <li class="menu-nav__list-item">
+        <div class="menu-nav__list-item__header">
+        Catégories
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script type="application/ld+json">
+{"@context":"http://www.schema.org","@type":"Organization","@id":"https://www.expat-dakar.com#organisation","name":"Expat-Dakar","url":"https://www.expat-dakar.com","logo":"https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg","address":{"@type":"PostalAddress","streetAddress":"Sacr\u00e9 Coeur 3 Villa 9343, VDN Dakar BP: 49 940","addressLocality":"Dakar","addressRegion":"","addressCountry":"S\u00e9n\u00e9gal"},"contactPoint":[{"@type":"ContactPoint","telephone":"+221785242093","contactType":"Service Clients"},{"@type":"ContactPoint","telephone":"+221766448613","contactType":"Service Commercial"}],"sameAs":["https://www.facebook.com/expatdakar/","https://twitter.com/expatdakar","https://www.instagram.com/expatdakar/","https://www.linkedin.com/company/expat-dakar/"]}
+</script><script type="application/ld+json">
+{"@context":"http://schema.org","@type":"WebSite","name":"Expat-Dakar","url":"https://www.expat-dakar.com","potentialAction":{"@type":"SearchAction","target":"https://www.expat-dakar.com/annonces?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script><script type="application/ld+json">
+{"@context":"http://schema.org","@type":"SoftwareApplication","name":"Expat-Dakar","downloadUrl":"https://play.google.com/store/apps/details?id=com.expat_dakar","operatingSystem":"ANDROID","applicationCategory":"http://schema.org/MobileApplication","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","ratingCount":"169"},"offers":{"@type":"Offer","price":"0","priceCurrency":"XOF"}}
+</script><script type="application/ld+json">
+[{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Multim\u00e9dia","url":"https://www.expat-dakar.com/multimedia"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"V\u00e9hicules","url":"https://www.expat-dakar.com/vehicules"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Maison","url":"https://www.expat-dakar.com/maison"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Immobilier","url":"https://www.expat-dakar.com/immobilier"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Mode & beaut\u00e9","url":"https://www.expat-dakar.com/mode-beaute"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Mat\u00e9riaux, outils & \u00e9quipements","url":"https://www.expat-dakar.com/materiaux-outils-equipements"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Demandes d\u2019emploi","url":"https://www.expat-dakar.com/demandes-demploi"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Animaux","url":"https://www.expat-dakar.com/animaux"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Services","url":"https://www.expat-dakar.com/offres-de-services"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Sport, loisirs & voyages","url":"https://www.expat-dakar.com/sport-loisirs-voyages"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Agroalimentaire","url":"https://www.expat-dakar.com/agroalimentaire"},{"@context":"http://schema.org","@type":"SiteNavigationElement","name":"Offres d'emploi","url":"https://www.expat-dakar.com/emploi"}]
+</script><div id="modal-view" class="modal-workflow modal" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title">
+Title
+</div></div><div class="modal-body">
+Body
+</div>
+</div>
+</div>
+</div>
+<div class="backdrop">&nbsp;
+</div>
+<div class="backdrop-transition">&nbsp;</div>
+  <script>
+      OAM.scripts = {
+          'jquery': 'https://www.expat-dakar.com/assets/ed-site/scripts/jquery.min.cf2fbbf8.js',
+          'notify': 'https://www.expat-dakar.com/assets/ed-site/scripts/notify.min.84816396.js',
+          'slider': 'https://www.expat-dakar.com/assets/ed-site/scripts/slider.min.18b6dc45.js',
+          'toggle': 'https://www.expat-dakar.com/assets/ed-site/scripts/toggle.min.adc02a12.js'
+      };
+  
+      OAM.styles = {
+          'datepicker': 'https://www.expat-dakar.com/assets/ed-site/css/datepicker.072a3f33.css',
+          'fileUpload': 'https://www.expat-dakar.com/assets/ed-site/css/file-upload.9f07c603.css',
+          'notify': 'https://www.expat-dakar.com/assets/ed-site/css/notify.3571aee9.css',
+          'pagedown': 'https://www.expat-dakar.com/assets/ed-site/css/pagedown.96d40b27.css',
+          'smartbanner': 'https://www.expat-dakar.com/assets/ed-site/css/smartbanner.05022d01.css'
+      };
+  
+      OAM.svgs = {
+          'map': 'https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg',
+          'category': 'https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg',
+          'scs': 'https://www.expat-dakar.com/assets/ed-site/icons/scs.5429fd6d.svg'
+      };
+      OAM.fonts = ["Roboto","Montserrat"];
+      OAM
+          .script(OAM.scripts.jquery).wait()
+          .script("/assets/ed-site/scripts/dependencies-modern.min.da508805.js")
+          .wait(OAM.processReadyQueue);
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/form-validation.min.c71b4f9b.js");  
+      OAM.arriveOnceAndLoad('[data-datepicker]', "https://www.expat-dakar.com/assets/ed-site/scripts/datepicker.min.42ef1544.js");
+      OAM.arriveOnceAndLoad('[data-filter-select]', "https://www.expat-dakar.com/assets/ed-site/scripts/select.min.3f04c8a8.js");
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/smartbanner.min.a4350a54.js");  
+      OAM.arriveOnceAndLoad('[data-listing-card-show-email]', "https://www.expat-dakar.com/assets/ed-site/scripts/contact-methods.min.c9cf9232.js");
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/recaptcha.min.3b3fb8be.js");
+      OAM.arriveOnceAndLoad('[data-user-notice]', "https://www.expat-dakar.com/assets/ed-site/scripts/message.min.39dd848a.js");
+      OAM.arriveOnceAndLoad('[data-message-truncate]', "https://www.expat-dakar.com/assets/ed-site/scripts/message-truncate.min.c45ca4a6.js");
+      OAM.arriveOnceAndLoad('[data-depends-on]', "https://www.expat-dakar.com/assets/ed-site/scripts/data-depends.min.16315424.js");
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/home-category.min.2d40b173.js");
+      OAM.arriveOnceAndLoad('[data-form-template]', "https://www.expat-dakar.com/assets/ed-site/scripts/form-template.min.34328a55.js");
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/fonts.min.3f043630.js");
+      OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/timezone.min.a2530f14.js");
+    </script>
+  </body>
+</html>
+  
