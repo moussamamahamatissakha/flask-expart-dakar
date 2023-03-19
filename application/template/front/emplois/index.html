@@ -5,7 +5,569 @@
 {% endblock %}
 
 {% block container %}
-    <h1>welcome to emplois</h1>
+<div class="search">
+    <div class="search__container">
+        <div class="search__row">
+            <div class="search__content-row-container">
+                <div class="search__content-row">
+                    <div class="search__content">
+                        <div id="listings">
+                            <div class="listings-header">
+                                <div class="listings-header__inner">
+                                    <div class="listings-header__nav">
+                                        <div class="listings-header-breadcrumbs">
+                                            <div class="breadcrumbs" data-cy="breadcrumbs">
+                                                <ul class="breadcrumbs__list">
+                                                    <li class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">
+                                                        Accueil
+                                                        </a>
+                                                    </li>
+                                                    <li id="breadcrumbs-category-annonces" class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">Annonces</a>
+                                                    </li>
+                                                    <li id="breadcrumbs-category-multimedia" class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">Multim&eacute;dia</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="listings-header__filter-tags">
+
+                                    </div>
+                                    <div class="listings-header__title">
+                                        <div class="listings-header-title">
+                                            <h1 class="listings-header-title__title">
+                                            Multimédia - Sénégal
+                                            </h1>
+                                            <span class="listings-header-title__count">
+                                            14590 résultats trouvés
+                                            </span>
+                                        </div>
+                                        <div class="listings-header-refine-search">
+                                            <a href="#" class="btn btn-primary btn-sm listings-header-refine-search__button" data-search-filter-toggle>
+                                                <svg class="i i-filter " aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                            Filtrer
+                                            </a>
+                                        </div>
+                                        <div class="listings-header-alert listings-header-alert--guest">
+                                            <span class="btn btn-sm btn-primary listings-header-alert__button" data-alert-form-toggle>
+                                                <svg class="i i-email " aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                                Sauvegarder la recherche
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="listings-header-alert-form" data-alert-form>
+                                            <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
+                                                <input name="_token" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <div class="listings-header-alert-form__email">
+                                                    <label for="email" class="sr-only">Email</label>
+                                                    <input class="form-control" autocomplete="email" placeholder="Email" required name="email" type="email" id="email">
+                                                    <div class="errors"></div>
+                                                </div>
+                                                <div class="listings-header-alert-form__submit">
+                                                    <button class="btn btn-primary btn-block listings-header-alert-form__button" type="submit" id="create-alert">
+                                                        Souscrire
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+
+
+                            {% for article in articles %}
+
+
+
+
+                            <div class="listings-cards">
+                                <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
+                                    <div class="listings-cards__list-item ">
+                                        <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
+                                            <a href="#" class="listing-card__inner" id=""  >
+                                            <div class="listing-card__aside">
+                                                <div class="listing-card__image">
+                                                    <div class="listing-card__image__inner-container">
+                                                        <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
+                                                            <use href="#"></use>
+                                                        </svg>
+                                                        <div class="listing-card__image__inner">
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="listing-card__priority">
+                                                    <span class="listing-priority listing-priority--gold">
+                                                        <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
+                                                            <use href="#"></use>
+                                                        </svg>
+                                                        <span class="listing-priority__title">
+                                                        A La Une
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {{ loop.index + pagination.skip }}
+                                            <div class="listing-card__content 1">
+                                                <div class="listing-card__content__inner">
+                                                    <div class="listing-card__header">
+                                                        <div class="listing-card__header-content">
+                                                            <div class="listing-card__header__title">
+                                                                {{article.description}}
+                                                            </div><div class="listing-card__header__tags">
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                    {{article.etat}}
+                                                                </span>
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
+                                                                    {{article.title}}
+                                                                </span>
+                                                            </div>
+                                                            <div class="listing-card__header__location">
+                                                                <svg class="i i-gmaps " aria-hidden="true">
+                                                                    <use href="#"></use>
+                                                                </svg>
+                                                                {{article.quartier}}, {{article.ville}}
+                                                                <p>{{article.published_date}} 
+                                                            </div>
+                                                        </div>
+                                                        <div class="listing-card__header-aside">
+                                                            <div class="listing-card__header__business-image">
+                                                                <object class="listing-card__business-image" alt="">
+                                                                    <a href="#" class="listing-card__business-image__inner-container">
+                                                                        <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
+                                                                            <use href="#"></use>
+                                                                        </svg>
+                                                                        <div class="listing-card__business-image__inner">
+
+                                                                           
+                                                                        </div>
+                                                                        <div class="listing-card__image__inner">
+                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                                          
+                                                                        </div>
+                                                                        
+                                                                    
+                                                                      
+                                                                    </div>
+                                                                    </a>
+                                                                </object>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="listing-card__info-bar">
+                                                        <div class="listing-card__info-bar__price">
+                                                            <span class="listing-card__price">
+                                                                <span class="listing-card__price__value 1">
+                                                                    {{article.prix}} F Cfa
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <!--googleoff: index-->
+                                                        <div class="listing-card__info-bar__contact">
+                                                            <object class="listing-card__contact listing-card__contact--phone" alt="Contacter par Téléphone">
+                                                                <form method="POST" action="" accept-charset="UTF-8" class="listing-card__contact__container" >
+                                                                    <input name="_token" type="hidden" value="PwhhBe4xZWUiwbvnuZO2XBGd5ym6Zpnf2EYg5M3v">
+                                                                    <button type="submit" class="listing-card__contact__icon-outer" aria-label="Contacter par Téléphone">
+                                                                        <svg class="i i-phone listing-card__contact__icon" aria-hidden="true">
+                                                                            <use href="#"></use>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <div class="listing-card__contact__number">
+                                                                <a >
+                                                                    778097550
+                                                                </a>
+                                                                <a >
+                                                                    778097550
+                                                                </a>
+                                                                <a >
+                                                                    778097550
+                                                                    
+                                                                </a>
+                                                                </div>
+                                                            </form>
+                                                        </object>
+                                                        <object class="listing-card__contact listing-card__contact--whatsapp" alt="Contacter par WhatsApp">
+                                                            <div class="listing-card__contact__container">
+                                                                <a class="listing-card__contact__icon-outer" rel="noopener noindex nofollow" href="#" >
+                                                                    <svg class="i i-whatsapp listing-card__contact__icon" aria-hidden="true">
+                                                                        <use href="#">
+
+                                                                        </use>
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                        </object>
+                                                        <object class="listing-card__contact listing-card__contact--chat" alt="">
+                                                            <form method="GET" action="" accept-charset="UTF-8" class="listing-card__contact__container">
+                                                            <input name="redirect" type="hidden" value="">
+                                                            <input name="require_mobile_verified" type="hidden" value="1">
+                                                            <input name="trigger_contact[id]" type="hidden" value="5502425">
+                                                            <input name="trigger_contact[type]" type="hidden" value="chat">
+                                                            <button type="submit" class="listing-card__contact__icon-outer" aria-label="Contacter via Chat">
+                                                                <svg class="i i-chat listing-card__contact__icon" aria-hidden="true">
+                                                                    <use href="#"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </form>
+                                                    </object>
+   
+                                                </div>
+                                                
+                                                <!--googleon: index-->
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </a>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+
+                    
+                </div>
+              
+               
+                {% endfor %}
+                <a href=""> {{ pagination.links }}</a>
+             
+
+                                                    
+                
+            </div>
+           
+
+           
+
+
+
+
+
+            <div class="search__filter" id="filters" data-search-filter>
+                <form method="GET" action="" accept-charset="UTF-8" >
+                    <div class="filters">
+                        <div class="filters-overlay__header">
+                            <a href="#filters" class="filters-overlay__header__button" >
+                            Fermer
+                            <svg class="i i-close filters-overlay__header__button-icon" aria-hidden="true">
+                                <use href="#">
+
+                                </use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="filters__inner">
+                        <div class="filter-group" style="order: 10">
+                            <div class="filter-group__title">
+                                <label for="search-filter">
+                                    Filtrer les r&eacute;sultats
+                                </label></div><div class="filter-group__content">
+                                    <div class="filter">
+                                        <div class="filter__text">
+                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="q" type="search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-group" style="order: 20">
+                                <div class="filter-group__title">
+                                Trier par
+                                </div>
+                                <div class="filter_group__content">
+                                    <div class="filter">
+                                        <div class="filter__text">
+                                            <label for="sort" class="sr-only">
+                                                Trier par
+                                            </label>
+                                            <select class="form-control custom-select"  name="sort">
+                                                <option value="offers" selected="selected">Offres spéciales</option>
+                                                <option value="latest">Plus récentes</option>
+                                                <option value="lowest-price">Prix décroissants</option>
+                                                <option value="highest-price">Prix croissants</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-group" style="order: 60">
+                                <div class="filter-group__title">
+                                Catégories
+                                </div>
+                                <div class="filter-group__content">
+                                    <div class="filter">
+                                        <ul class="filter__category-list filter__category-list--level-0">
+                                            <li id="parent-category-annonces" class="filter__category-list-item filter__category-list-item--level-0 filter__category-list-item--has-content">
+                                                <svg class="i i-categories filter__category-list-item__icon" aria-hidden="true">
+                                                    <use href="#">
+
+                                                    </use>
+                                                </svg>
+                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-0">
+                                                Annonces
+                                                </a>
+                                            </li>
+                                            <li id="parent-category-multimedia" class="filter__category-list-item filter__category-list-item--level-1 filter__category-list-item--has-content">
+                                                <svg class="i i-electronics filter__category-list-item__icon" aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                                <a href="#" class="filter__list-item__cancel-link">
+                                                    <svg class="i i-close filter__list-item__cancel-icon" aria-hidden="true">
+                                                        <use href="#"></use>
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-1">
+                                                Multimédia
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="filter__category-list filter__category-list--level-0">
+                                            <li id="category-annonces" class="filter__category-list-item filter__category-list-item--level-0 ">
+                                                <ul class="filter__category-list filter__category-list--level-1">
+                                                    <li id="category-multimedia" class="filter__category-list-item filter__category-list-item--level-1 ">
+                                                        <ul class="filter__category-list filter__category-list--level-2">
+                                                            <li id="" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    5480
+                                                                    </span>
+                                                                    <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-2">
+                                                                    Emploi vente et Commercial
+                                                                    </a>
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                        Emploi Marketing et Communication
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                        Emploi Social
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-group" style="order: 70">
+                                <div class="filter-group__title">
+                            Lieux
+                            </div>
+                            <div class="filter-group__content">
+                                <div class="filter">
+                                    <ul id="filter-country" class="filter__list">
+                                        <li id="country" class="filter__list-item filter__list-item--has-content active">
+                                            <a href="#" class="filter__list-item__title">
+                                            Sénégal
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul id="filter-region" class="filter__list filter__list--level-1" data-search-filter-group data-search-filter-group-count="11">
+                                        <li id="region-autres" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content" >
+                                            <span class="filter__list-item__count">
+                                            2
+                                            </span>
+                                            <a href="#" class="filter__list-item__title">
+                                            Autres
+                                            </a>
+                                        </li>
+                                        <li id="region-dakar" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">
+                                            14413
+                                            </span>
+                                            <a href="#" class="filter__list-item__title">
+                                            Dakar
+                                            </a>
+                                        </li>
+                                        <li id="region-diourbel" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">
+                                            10
+                                            </span>
+                                            <a href="#" class="filter__list-item__title">
+                                            Diourbel
+                                            </a>
+                                        </li>
+                                        <li id="region-fatick" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">1
+                                            </span>
+                                            <a href="#" class="filter__list-item__title">
+                                            Fatick
+                                            </a>
+                                        </li>
+                                        <li class="filter__list-expander" data-search-filter-expander><span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
+                                            Afficher plus
+                                            <svg class="i i-chevron-down filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                            </svg>
+                                            </span>
+                                            <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
+                                            Afficher moins
+                                            <svg class="i i-chevron-up filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-up"></use>
+                                            </svg>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="filter-price" class="filter-group" style="order: 1000">
+                            <input type="checkbox" id="toggle-price" class="toggle-input" />
+                            <div id="label-price" class="filter-group__header">
+                                <label class="filter-group__title" for="toggle-price">
+                                 Prix
+                                <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
+                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                </svg></label></div><div id="filter-items-price" class="toggle-input-target filter-group__content">
+                                    <div class="filter">
+                                        <div class="filter__range">
+                                            <div class="filter__range__inner">
+                                                <div class="filter__range__min">
+                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="min-price" type="number">
+                                                </div>
+                                                <div class="filter__range__max">
+                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="max-price" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter-condition" class="filter-group" style="order: 1000">
+                                <input type="checkbox" id="toggle-condition" class="toggle-input" />
+                                <div id="label-condition" class="filter-group__header">
+                                    <label class="filter-group__title" for="toggle-condition">
+                                            Etat
+                                        <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
+                                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div id="filter-items-condition" class="toggle-input-target filter-group__content">
+                                    <div class="filter">
+                                        <ul id="filter-list-condition" class="filter__list" data-search-filter-group data-search-filter-group-count="4">
+                                            <li id="condition-used" class="filter__list-item " data-search-filter-item data-search-filter-item-count="1311" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                1311
+                                                </span>
+                                                <a href="https://www.expat-dakar.com/multimedia?condition=used" class="filter__list-item__title">
+                                                    D&#039;occasion
+                                                </a>
+                                            </li>
+                                            <li id="condition-new" class="filter__list-item " data-search-filter-item data-search-filter-item-count="7895" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                7895
+                                                </span>
+                                                <a href="https://www.expat-dakar.com/multimedia?condition=new" class="filter__list-item__title">
+                                                Neuf
+                                                </a>
+                                            </li>
+                                            <li id="condition-refurbished" class="filter__list-item " data-search-filter-item data-search-filter-item-count="157" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                157
+                                                </span>
+                                                <a href="https://www.expat-dakar.com/multimedia?condition=refurbished" class="filter__list-item__title">
+                                                Réconditionné
+                                                </a>
+                                            </li>
+                                            <li id="condition-used-abroad" class="filter__list-item " data-search-filter-item data-search-filter-item-count="5167" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                5167
+                                                </span>
+                                                <a href="https://www.expat-dakar.com/multimedia?condition=used-abroad" class="filter__list-item__title">
+                                                Venant
+                                                </a>
+                                            </li>
+                                            <li class="filter__list-expander" data-search-filter-expander>
+                                                <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
+                                                Afficher plus
+                                                <svg class="i i-chevron-down filter__list-expander__item__icon" aria-hidden="true">
+                                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down">
+                                                    </use>
+                                                </svg>
+                                            </span>
+                                            <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
+                                                    Afficher moins
+                                            <svg class="i i-chevron-up filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-up">
+
+                                                </use>
+                                            </svg>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filters__submit">
+                        <button type="submit" class="btn btn-primary btn-block filters__submit-button">
+                            <svg class="i i-filter " aria-hidden="true">
+                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#filter"></use>
+                            </svg>
+                                            Filtrer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+                                    </ul>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                 </div> 
+            </div> 
+           
+        </div>
+        
+    </div>
+</div>
+    
+</div>
+
 
 
 {% endblock %}

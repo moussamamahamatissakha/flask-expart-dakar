@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% block tete %}
   <html lang="fr" class="" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <head>
       <meta charset="UTF-8">
@@ -79,6 +80,7 @@
               })(window,document,'script','dataLayer','GTM-5D5748K');
       </script>
     </head>
+  
     <body class="category-root--default">
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D5748K"
   height="0" width="0" style="display:none;visibility:hidden">
@@ -117,17 +119,29 @@
       </a>
     </span>
     <div class="header-cta">
-      <a href="#" class="btn btn-primary header-cta__button">
+      {% if current_user.is_authenticated %}
+      <a href="{{url_for('create_task')}}" class="btn btn-primary header-cta__button">
         <span class="header-cta__button-title">
       Vendre
       </span>
     </a>
+    {% endif %}
+
   </div>
   <div class="header__buttons-section ">
     <div class="header-auth">
-      <a href="#" class="btn btn-default header-auth__item">
-    login/register
+      {% if not current_user.is_authenticated %}
+      <a href="{{url_for('create_user')}}" class="btn btn-default header-auth__item">
+      register
     </a>
+    <a href="{{url_for('login')}}" class="btn btn-default header-auth__item">
+      login
+    </a>
+    {% else %}
+    <a href="{{url_for('logout')}}" class="btn btn-default header-auth__item">
+      logout
+    </a>
+    {% endif %}
   </div>
 </div>
 <div class="global-search">
@@ -183,6 +197,12 @@
         Maison
         </a>
       </li>
+      <li class="header-nav__inner__item">
+        <a href="{{ url_for('index_contact') }}" class="header-nav__inner__item__link">
+        contact
+        </a>
+      </li>
+
     </ul>
     <ul class="header-nav__inner__right">
       <li class="header-nav__inner__item header-nav__inner__item--all">
@@ -214,7 +234,33 @@
   </div>
 </nav>
 
+{% block a %}
+  
 
+<div class="category-sponsor ">
+  <div class="category-sponsor__container">
+      <a href="#" class="category-sponsor__inner" >
+          <div class="category-sponsor__aside" ></div><div class="category-sponsor__content">
+              <div class="category-sponsor__content__inner">
+                  <div class="category-sponsor__header">
+                  ISM
+                  </div>
+                  <div class="category-sponsor__description">
+                      <p>Vente de matériels informatiques, électroniques, accessoires multimédia et sonorisation.<br>
+                          Contacter nous vite au <b> 77777777 /333333333 </b>
+                      
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </a>
+  </div>
+</div>
+{% endblock a %}
+
+
+
+{% endblock tete %}
 
 
 
@@ -223,7 +269,7 @@
 {% endblock %}
 
 
-
+{% block footer %}
 
 <section class="home-product">
   <div class="home-product__container">
@@ -444,7 +490,9 @@ Body
       OAM.arriveOnceAndLoad('[data-form-template]', "https://www.expat-dakar.com/assets/ed-site/scripts/form-template.min.34328a55.js");
       OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/fonts.min.3f043630.js");
       OAM.script("https://www.expat-dakar.com/assets/ed-site/scripts/timezone.min.a2530f14.js");
+  
     </script>
+{% endblock footer %}
   </body>
 </html>
   

@@ -5,25 +5,6 @@
 {% endblock %}
 
 {% block container %}
-<div class="category-sponsor ">
-    <div class="category-sponsor__container">
-        <a href="#" class="category-sponsor__inner" >
-            <div class="category-sponsor__aside" ></div><div class="category-sponsor__content">
-                <div class="category-sponsor__content__inner">
-                    <div class="category-sponsor__header">
-                    ACT
-                    </div>
-                    <div class="category-sponsor__description">
-                        <p>Vente de matériels informatiques, électroniques, accessoires multimédia et sonorisation.<br>
-                            Contacter nous vite au <b> 775573199 /338686474 </b>
-                        
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
 <div class="search">
     <div class="search__container">
         <div class="search__row">
@@ -122,7 +103,7 @@
                                                             <use href="#"></use>
                                                         </svg>
                                                         <div class="listing-card__image__inner">
-                                                            <img class="listing-card__image__resource vh-img"  src="{% if not article.img_url %}{{ article.img_url }}{% else %}{{ article.img_url }} {% endif %}" alt="" loading="lazy">
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
                                                           
                                                         </div>
                                                     </div>
@@ -145,21 +126,21 @@
                                                     <div class="listing-card__header">
                                                         <div class="listing-card__header-content">
                                                             <div class="listing-card__header__title">
-                                                            Hp EliteBook Folio 1040 Core i7
+                                                                {{article.description}}
                                                             </div><div class="listing-card__header__tags">
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                    Venant
+                                                                    {{article.etat}}
                                                                 </span>
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
-                                                                    HP
+                                                                    {{article.title}}
                                                                 </span>
                                                             </div>
                                                             <div class="listing-card__header__location">
                                                                 <svg class="i i-gmaps " aria-hidden="true">
                                                                     <use href="#"></use>
                                                                 </svg>
-                                                                Médina, Dakar
-                                                                <p>{{article.title}}</p>
+                                                                {{article.quartier}}, {{article.ville}}
+                                                                <p>{{article.published_date}} 
                                                             </div>
                                                         </div>
                                                         <div class="listing-card__header-aside">
@@ -172,6 +153,10 @@
                                                                         <div class="listing-card__business-image__inner">
 
                                                                            
+                                                                        </div>
+                                                                        <div class="listing-card__image__inner">
+                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                                          
                                                                         </div>
                                                                         
                                                                     
@@ -187,7 +172,7 @@
                                                         <div class="listing-card__info-bar__price">
                                                             <span class="listing-card__price">
                                                                 <span class="listing-card__price__value 1">
-                                                                235 000 F Cfa
+                                                                    {{article.prix}} F Cfa
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -376,6 +361,62 @@
                                                                             filter__category-list-item__title--level-2
                                                                         ">
                                                                     Téléphones
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Accessoires
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Tv
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Tablettes
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                    3385
+                                                                    </span>
+                                                                    <a href="#" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Imprimantes
                                                                     </a>
 
                                                                 </h2>

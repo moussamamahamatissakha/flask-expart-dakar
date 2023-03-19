@@ -1,0 +1,66 @@
+{% extends "layouts/connexion.html" %}
+{% block content %}
+<section class="auth-page">
+    <div class="auth-page__container">
+        <div class="auth-page__row">
+            <article class="auth-page__col">
+                <div class="auth">
+                    <h1 class="auth__header">Bienvenue !</h1>
+                    <div class="auth__title">
+                    Veuillez saisir votre mot de passe
+                    </div>
+                    <form method="POST" action="{{url_for('login')}}" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        <input name="_token" type="hidden" value="tCnr4DnGm66TEmvVaOqOt1W6D7R93ru0jSjwh1RF">
+                        <div id="user_details_uxgqRp49FW9K8eBm_wrap" style="display: none" aria-hidden="true">
+                            <input id="user_details_uxgqRp49FW9K8eBm" name="user_details_uxgqRp49FW9K8eBm" type="text" value="" autocomplete="nope" tabindex="-1">
+                            <input name="valid_from" type="text" value="eyJpdiI6IkVqaEVLQmtQYU1qQXhkZDVQQ3ZINVE9PSIsInZhbHVlIjoiUk5GNkNOeHhiLzdSdUF6eHUvTDFVQT09IiwibWFjIjoiMjVlODYxN2U3OGRkN2RiMzIwZDY4YTY1NjIzZjExZjQxMDcxNjVmOTcyNDZmMjY3OWE5NTk2MjdkNGI0NTAwOSIsInRhZyI6IiJ9" autocomplete="nope" tabindex="-1">
+                        </div>
+                        
+                        <div class="form-group">
+                            {{ form.email.label(class="form-label") }} {{ form.email(class="form-control") }}
+                        </div>
+
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" checked="checked" name="remember_me" type="checkbox" value="1">
+                                <span class="custom-control-label">
+                                Gardez-moi connecté
+                                </span>
+                            </label>
+                            <div class="errors"></div>
+                        </div> 
+                        <div class="auth__submit"  >
+                            <button class="btn btn-primary btn-block btn-tall" >{{ form.submit() }}</button>
+                        </div>
+                    </form>
+
+
+                  
+
+
+
+
+                    <div class="auth__terms">
+                    En créant un compte et en vous connectant, vous acceptez nos <a href="#" target="_blank">Conditions et Charte d&#039;utilisation</a>.
+                    </div>
+                    <div class="auth__footer">
+                        <form method="POST" action="#" accept-charset="UTF-8" data-validate-form data-form-blocking>
+                            <input name="_token" type="hidden" value="tCnr4DnGm66TEmvVaOqOt1W6D7R93ru0jSjwh1RF">
+                            <div id="user_details_Kfsua1zAlRaZKnH4_wrap" style="display: none" aria-hidden="true">
+                                <input id="user_details_Kfsua1zAlRaZKnH4" name="user_details_Kfsua1zAlRaZKnH4" type="text" value="" autocomplete="nope" tabindex="-1">
+                                <input name="valid_from" type="text" value="eyJpdiI6IlpKbEFUdktrVWhYdHNHK3h2ZVhWeUE9PSIsInZhbHVlIjoiU21ZaVUrZFg5MjVvTzNVRE1mcDJvQT09IiwibWFjIjoiMjE1OTI4NmJmM2ZhNjkyMTBkNjVlMTdlMWYzMDRhMTAyMmRiODNkNDkwYWM1Zjg2ZDIwMjJjNzhkZTc2YjkzMSIsInRhZyI6IiJ9" autocomplete="nope" tabindex="-1">
+                            </div>
+                            <button class="btn btn-link">
+                            Mot de passe oublié ?
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+    
+{% endblock content %} 

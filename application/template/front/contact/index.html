@@ -1,0 +1,111 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    {{super()}} | Home
+{% endblock %}
+
+{% block container %}
+    <h1>welcome to emplois</h1>
+
+    <form action="{{url_for('index_contact') }}" method="post" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <input type="file" name="photo">
+        <input type="submit" value="Upload">
+    </form>
+
+
+
+    <form action="{{url_for('create_task')}}" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="libelle">Libelle</label>
+          <select class="form-control" name="libelle">
+            <option value="Multimedia">Multimedia</option>
+            <option value="Immeuble">Immeuble</option>
+            <option value="Maison">Maison</option>
+            <option value="Vehicule">Vehicule</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Titre</label>
+          <div class="col-sm-10">
+              <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre">
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+              <input type="textarea" class="form-control" id="description" name="description" placeholder="Description">
+          </div>
+      </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Etat</label>
+          <select class="form-control" id="etat" name="etat">
+            <option>Occasion</option>
+            <option>Neuf</option>
+            <option>Reconditionné</option>
+            <option>Venant</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Ville</label>
+          <select class="form-control" id="ville" name="ville">
+            <option>Dakar</option>
+            <option>Thies</option>
+            <option>x</option>
+            <option>y</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Quartier</label>
+          <select class="form-control" id="quartier" name="quartier">
+            <option>Dakar</option>
+            <option>Thies</option>
+            <option>x</option>
+            <option>y</option>
+          </select>
+        </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">prix</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control"  id="prix" name="prix" min="1" max="10" step="1" value="1" increment="2"> 
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="image">image</label>
+          <input  type="file" name="photo">
+      </div>
+      <div class="d-flex justify-content-center" >
+          <button  class="btn btn-secondary btn-lg d-flex justify-content-end" data-toggle="button"   type="submit">ok</button>
+      </div>
+      
+    </form>
+  
+
+   
+
+
+ 
+    <hr>
+    <hr>
+    
+<table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in contacts %}
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.email }}</td>
+        <td><img src="{{ url_for('static', filename='images/' + product.image) }}" height="50"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
