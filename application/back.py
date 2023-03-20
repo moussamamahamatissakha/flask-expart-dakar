@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for,Blueprint,request,flash,session
+from flask import Flask, render_template, redirect, url_for,Blueprint,request,flash,session,abort
 import os
 from flask_paginate import Pagination, get_page_parameter 
 from functools import wraps
@@ -19,6 +19,7 @@ def password():
 
 
 @app.route("/create_task",methods=['GET', 'POST'])
+@login_required
 def create_task():
     print(current_user.id)
     form=TaskType()
@@ -26,6 +27,7 @@ def create_task():
         file = request.files['file']
         libelle = form.libelle.data
         titre = form.titre.data
+        text = form.text.data
         description = form.description.data
         etat = form.etat.data
         ville = form.ville.data
@@ -35,7 +37,7 @@ def create_task():
         file.save(os.path.join('./application/static/images', filename))
         user=User(id=10,name="nom",email="email",password="password",role="role",image="filename")
        
-        task=Task(libelle=libelle,title=titre,description=description,pays="senegal",ville=ville,quartier=quartier,etat=etat,image=filename,prix=prix,user_id=current_user.id)
+        task=Task(libelle=libelle,title=titre,text=text,description=description,pays="senegal",ville=ville,quartier=quartier,etat=etat,image=filename,prix=prix,user_id=current_user.id)
         
         #(libelle={self.libelle}, title={self.title}, description={self.description},pays={self.pays}, ville={self.ville}, quartier={self.quartier}, etat={self.etat}, image={self.image})
         add_task(task)
@@ -95,6 +97,21 @@ def admin():
 @user_permission.require(http_exception=403)
 def user():
     return 'Welcome to the user page.'
+
+#=============================================
+#accees interdit
+@app.errorhandler(401)
+def forbidden(error):
+    return render_template('errors/403.html')
+
+@app.errorhandler(404)
+def forbidden(error):
+    return render_template('errors/404.html')
+
+
+@app.errorhandler(403)
+def forbidden(error):
+    return render_template('errors/403.html')
 
 # Vue pour l'authentification
 @app.route("/login",methods=['GET', 'POST'])

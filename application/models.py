@@ -62,11 +62,7 @@ def add_task(task: Task):
 
 #tous les multimetia
 
-def getAllMultimedia():
-    #multimedias = session.query(Task).all()
-    #models = session.query.filter_by(Tasklibelle="Multimedia").all()
-    multimedias=session.query(Task).filter_by(libelle="Multimedia").all()
-    return multimedias
+
 def getAllImmobilier():
     immobiliers=session.query(Task).filter_by(libelle="Immobilier").all()
     return immobiliers
@@ -84,6 +80,35 @@ def getUserBuEmail(email:String):
 def getUserById(id:int):
     user=session.query(User).get(int(id))
     return user
+
+#=====================Multimedia===================================
+#all multimedia
+def getAllMultimedia():
+    #multimedias = session.query(Task).all()
+    #models = session.query.filter_by(Tasklibelle="Multimedia").all()
+    multimedias=session.query(Task).filter_by(libelle="Multimedia").all()
+    return multimedias
+#all ordinateurs
+def getAllOrdinateurs():
+    ordinateurs=session.query(Task).filter_by(title="Ordinateur").all()
+    return ordinateurs
+#all tablettes
+def getAllTablettes():
+    tablettes=session.query(Task).filter_by(title="Tablettes").all()
+    return tablettes
+#all imprimantes
+def getAllImprimante():
+    imprimantes=session.query(Task).filter_by(title="Imprimante").all()
+    return imprimantes
+#all tv
+def getAllTV():
+    tvs=session.query(Task).filter_by(title="TV").all()
+    return tvs
+#all tv
+def getAllTelephones():
+    telephones=session.query(Task).filter_by(title="Telephones").all()
+    return telephones
+
 
 """
 ----------upload

@@ -36,7 +36,8 @@ search = False
 
 app = Flask(__name__,template_folder='template/')
 
-from .models import getAllMultimedia,getAllImmobilier,getAllMaison,getAllVehicule
+from .models import (getAllMultimedia,getAllTablettes,getAllImprimante,getAllTV,getAllTelephones,
+                     getAllImmobilier,getAllMaison,getAllVehicule,getAllOrdinateurs)
 #
 @app.route("/")
 def index():
@@ -91,7 +92,9 @@ def index_maison():
     page = request.args.get(get_page_parameter(), type=int, default=1)
     pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
     return render_template("front/immobilier/index.html", articles=articles,pagination=pagination,)
-#le index to emplois
+
+#==========================================Multimedia==================================================
+#index
 @app.route("/index_multimedia")
 def index_multimedia():
     articles=getAllMultimedia()
@@ -102,6 +105,77 @@ def index_multimedia():
     page = request.args.get(get_page_parameter(), type=int, default=1)
     pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
     return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+#all ordinateurs
+@app.route("/ordinateurs")
+def ordinateurs():
+    articles=getAllOrdinateurs()
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
+    return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+#all tablettes
+@app.route("/tablettes")
+def tablettes():
+    articles=getAllTablettes()
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
+    return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+#AllImprimante
+@app.route("/imprimantes")
+def imprimantes():
+    articles=getAllImprimante()
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
+    return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+#AllTV
+@app.route("/tvs")
+def tvs():
+    articles=getAllTV()
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
+    return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+#AllTelephones
+@app.route("/telephones")
+def telephones():
+    articles=getAllTelephones()
+    search = False
+    q = request.args.get('q')
+    if q:
+        search = True
+    page = request.args.get(get_page_parameter(), type=int, default=1)
+    pagination = Pagination(page=page, total=len(articles) ,search=search, record_name='articles')
+    return render_template("front/multimedia/index.html", articles=articles,pagination=pagination,)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #le index to emplois
 @app.route("/index_vehicules")
 def index_vehicules():

@@ -63,58 +63,39 @@
                                 Pour acheter et vendre en toute sécurité, créez un compte ou connnectez-vous.
                                 </div>
 
-                                <form method="POST" action="#" accept-charset="UTF-8" data-validate-form data-form-blocking>
-                                    <input name="_token" type="hidden" value="tCnr4DnGm66TEmvVaOqOt1W6D7R93ru0jSjwh1RF">
-                                    <div class="form-group">
-                                        <label for="mobile_number">Num&eacute;ro de t&eacute;l&eacute;phone</label>
-                                        <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <input name="mobile_number_country" type="hidden" value="SN">
-                                                    SN (+221)
-                                                </span>
-                                            </span>
-                                            <input class="form-control" placeholder="Saisissez le numéro de mobile" autocomplete="mobile tel-national" required name="mobile_number" type="tel" id="mobile_number">
-                                        </div>
-                                        <div class="errors">
-
-                                        </div>
-                                        <div class="errors">
-                                        </div>
-                                    </div>
-                                    <div class="auth__submit">
-                                        <button type="submit" class="btn btn-primary btn-block btn-tall">
-                                        Continuer
-                                        </button>
-                                    </div>
-                                </form>
-
-
+                                
                                 <form method="POST" action="{{url_for('create_user')}}" enctype="multipart/form-data">
                                     {{ form.hidden_tag() }}
                                    
-                                
-                                    
-                                    <div class="form-group">
-                                        {{ form.name.label(class="form-label") }} {{ form.name(class="form-control") }}
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        {{ form.email.label(class="form-label") }} {{ form.email(class="form-control") }}
-                                    </div>
-                                  
-                                    <div class="form-group">
-                                        {{ form.password.label(class="form-label") }} {{ form.password(class="form-control") }}
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <input type="file" name="file">
-                                    </div>
-                                    <div class="d-flex justify-content-center" >
-                                        <p>{{ form.submit() }}</p>
-                                    </div>
-                                
+
+                                    <input name="_token" type="hidden" value="tCnr4DnGm66TEmvVaOqOt1W6D7R93ru0jSjwh1RF">
                                    
+                                       
+                                        <div class="form-group">
+                                            {{ form.name.label(class="form-label") }} {{ form.name(class="form-control") }}
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            {{ form.email.label(class="form-label") }} {{ form.email(class="form-control") }}
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                            {{ form.password.label(class="form-label") }} {{ form.password(class="form-control") }}
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <input type="file" name="file">
+                                        </div>
+                                        <div class="d-flex justify-content-center" >
+                                           
+                                        </div>
+                                    <div class="auth__submit">
+                                        <button type="submit" class="btn btn-primary btn-block btn-tall">
+                                            <p>{{ form.submit() }}</p>
+                                        </button>
+                                    </div>
+                              
                                    
                                     
                                   </form>
