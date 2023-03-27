@@ -1,0 +1,233 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    {{super()}} | Home
+{% endblock %}
+
+{% block container %}
+
+
+<div class="listing-page listing-page--has-sidebar">
+    <div class="listing-page__container">
+        <div class="listing-page__row">
+            <div class="listing-page__header">
+                <div class="listing-page-header">
+                    <div class="listing-page-header__back">
+                        <a href="https://www.expat-dakar.com/immobilier" class="listing-page-header__back__link">
+                            <svg class="i i-chevron-left " aria-hidden="true">
+                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-left"></use>
+                            </svg>
+                                Précédent
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+
+
+            <div class="listing-page__content">
+                <div class="listing-item">
+
+
+                    <div class="listing-item__gallery">
+                        <div class="gallery-container" data-listing-gallery>
+                            <div class="gallery-inner gallery-inner--main gallery-inner--main-has-thumbs gallery-inner--priority-default" data-listing-gallery-main data-slider-container>
+                                <ul class="gallery gallery--main " data-slider-wrapper>
+                                    <li class="gallery__image gallery__image--main swiper-slide-active" data-slider-item="0">
+                                        <div class="gallery__image__inner-container gallery__image__inner-container--main">
+                                            <svg class="i i-home gallery__image__placeholder gallery__image__placeholder--custom" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#home"></use>
+                                            </svg>
+                                            <div class="gallery__image__inner">
+                                                <img class="gallery__image__resource vh-img"   src="{{ url_for('static', filename='images/' + article.image) }}" loading="eager" alt="Chambre meublée image 1" >
+                                                          
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+                                <span class="gallery__slider-nav gallery__slider-nav--prev" data-slider-prev-arrow>
+                                    <svg class="i i-chevron-left gallery__slider-nav__icon" aria-hidden="true">
+                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-left"></use>
+                                    </svg>
+                                </span>
+                                <span class="gallery__slider-nav gallery__slider-nav--next" data-slider-next-arrow>
+                                    <svg class="i i-chevron-right gallery__slider-nav__icon" aria-hidden="true">
+                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-right"></use>
+                                    </svg>
+                                </span>
+                                <span class="gallery__close" data-listing-gallery-close>
+                                    <svg class="i i-close gallery__close__icon" aria-hidden="true">
+                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#close"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                        
+                    
+                    <div class="listing-item__info"><div class="listing-item__details">
+                        <div class="listing-item__details__inner"><div class="listing-item__details__date">
+                            {{date}}
+                                </div>
+
+                                <div class="listing-item__details__ad-id">
+Référence de l&#039;annonce :
+{{article.id}}
+</div></div></div><span class="listing-item__price"><span class="listing-card__price__value 1">
+    {{article.prix}} F Cfa
+</span>
+</span>
+<h1 class="listing-item__header">
+    {{article.description}}
+</h1>
+<div class="listing-item__address"><svg class="i i-gmaps listing-item__address__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#gmaps"></use></svg><span class="listing-item__address-location">
+    {{article.quartier}}
+</span><span class="listing-item__address-region">
+    {{article.ville}}
+</span></div><div class="listing-item__title">
+Description
+</div><div class="listing-item__description"><p>Des chambres meublées à louer à Ouakam vers le mon prix non loin du monument de la renaissance. Dans un endroit très calme et sécurisé.</p></div><div class="listing-item__safety-tips"><h3>Conseils de sécurité</h3><ul><li>Évitez de payer des frais d’inspection.</li><li>Si possible, allez voir avec des amis.</li><li>Vérifiez tout attentivement pour vous assurer que c’est ce dont vous avez besoin.</li><li>Ne payez pas d’avance s’il est impossible d’emménager immédiatement.</li></ul><a href="https://www.expat-dakar.com/qui-sommes-nous" class="listing-item-safety__link" target="_blank">
+Lisez nos conseils de sécurité
+</a></div></div><div class="listing-item-share listing-item__share"><span class="listing-item-share__title">
+Partager
+</span><a class="ic ic--whatsapp listing-item-share__network listing-item-share__network--whatsapp" title="Partager sur WhatsApp" rel="noopener noindex nofollow" href="whatsapp://send?text=https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574%3Futm_campaign%3Dshare-button%26utm_medium%3Dsocial%26utm_source%3Dwhatsapp" target="_blank" data-whatsapp="https://wa.me/?text=https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574%3Futm_campaign%3Dshare-button%26utm_medium%3Dsocial%26utm_source%3Dwhatsapp" data-t-share data-t-share_service="whatsapp" data-t-share_url="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><svg class="i i-whatsapp " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#whatsapp"></use></svg></a>
+&nbsp;
+<a class="ic ic--copy-link listing-item-share__network listing-item-share__network--copy-link" title="Copier le lien" rel="noopener noindex nofollow" href="javascript:;" data-clipboard-text="https://www.expat-dakar.com/annonce/chambre-meublee-5255574?utm_campaign=share-button&amp;utm_medium=crm&amp;utm_source=copy-link" data-clipboard-success="Link copied to clipboard" data-t-share data-t-share_service="copy-link" data-t-share_url="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><svg class="i i-copy-link " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#copy-link"></use></svg></a>
+&nbsp;
+<a class="ic ic--email listing-item-share__network listing-item-share__network--email" title="Partager par Email" rel="noopener noindex nofollow" href="/cdn-cgi/l/email-protection#e2dd91978088878196dfb287968b9687c7d0d2838c8c8d8c8187c7d0d2919790c7d0d2a79a928396cfa683898390c4838f92d9808d869bdfa08d8c888d9790c7d0a1c7d2a3c7d2a3a8c7d0d5838bc7d0d29497c7d0d28187969687c7d0d29287968b9687c7d0d2838c8d8c8187c7d0d2919790c7d0d2a79a928396cfa683898390c7d0d28796c7d0d288c7d0d5838bc7d0d292878c91c7a1d1c7a3dbc7d0d2939787c7d0d2c7a1d1c7a3d583c7d0d2928d979090838b96c7d0d296c7d0d58b8c96c7a1d1c7a3db908791918790c7d0d2c7d1a3c7d0d28a96969291c7d1a3c7d0a4c7d0a4959595cc879a928396cf8683898390cc818d8fc7d0a4838c8c8d8c8187c7d0a4818a838f809087cf8f8797808e8787cfd7d0d7d7d7d5d6c7d1a497968fbd81838f92838b858cc7d1a6918a839087cf809796968d8cc7d0d497968fbd8f87868b978fc7d1a69690838c918381968b8d8c838ec7d0d497968fbd918d97908187c7d1a6878f838b8e" target="_blank" data-t-share data-t-share_service="email" data-t-share_url="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><svg class="i i-email " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#email"></use></svg></a>
+&nbsp;
+<a class="ic ic--facebook listing-item-share__network listing-item-share__network--facebook" title="Partager sur Facebook" rel="noopener noindex nofollow" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574%3Futm_campaign%3Dshare-button%26utm_medium%3Dsocial%26utm_source%3Dfacebook" target="_blank" data-t-share data-t-share_service="facebook" data-t-share_url="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><svg class="i i-facebook " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#facebook"></use></svg></a>
+&nbsp;
+<a class="ic ic--twitter listing-item-share__network listing-item-share__network--twitter" title="Partager sur Twitter" rel="noopener noindex nofollow" href="https://twitter.com/intent/tweet?hashtags=expatdakar&amp;related=expatdakar&amp;url=https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574%3Futm_campaign%3Dshare-button%26utm_medium%3Dsocial%26utm_source%3Dtwitter" target="_blank" data-t-share data-t-share_service="twitter" data-t-share_url="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><svg class="i i-twitter " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#twitter"></use></svg></a>
+&nbsp;
+</div></div></div><div class="listing-page__sidebar"><div class="listing-page__sidebar__container"><div class="listing-page__sidebar__inner listing-page__sidebar__inner--transparency" id="transparency"><div class="listing-item-transparency"><div class="listing-item-transparency__member"><div class="listing-item-transparency__image"><span class="avatar"><svg class="i i-account avatar__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use></svg></span></div><div class="listing-item-transparency__title">
+    {{article.users.name}}
+</div><span class="listing-item-transparency__member-since">
+Membre depuis
+{{date}}
+</span></div><div class="listing-item-transparency__verified"><div class="listing-item-transparency__verified__title">
+Vérifié via :
+</div><div class="listing-item-transparency__verified__list"><svg class="i i-check listing-item-transparency__verified__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#check"></use></svg>
+Adresse email : {{article.users.email}}
+</div></div></div></div>
+<div class="listing-page__sidebar__inner listing-page__sidebar__inner--more">
+</div><!--googleoff: index-->
+<div class="listing-page__sidebar__inner listing-page__sidebar__inner--contact" id="contact">
+    <div class="listing-item-contact">
+        <div class="listing-item-contact__header">
+            <div class="listing-item-contact__header__title">
+            Contacter Vendeur
+            </div>
+        </div>
+        <div class="listing-item-contact__contact-phone">
+            <div class="listing-item-contact__contact-phone__title">
+                Contacter par Téléphone
+            </div>
+            <div class="listing-item-contact__contact-phone__container listing-item-contact__contact-phone__container--visible">
+                <a class="btn btn-whatsapp btn-block" rel="noopener noindex nofollow" href="whatsapp://send?abid=%2B221779736681&amp;phone=%2B221779736681&amp;text=Salut%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20annonce%20%3A%20https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574%20sur%20Expat-Dakar" data-whatsapp="https://wa.me/221779736681?text=Salut%2C+je+suis+int%C3%A9ress%C3%A9+par+votre+annonce+%3A+https%3A%2F%2Fwww.expat-dakar.com%2Fannonce%2Fchambre-meublee-5255574+sur+Expat-Dakar" data-whatsapp-track="https://www.expat-dakar.com/annonce/chambre-meublee-5255574/view-whatsapp" data-t-enquiry-submit data-t-contact_type="whatsapp" data-t-contact_context="listing" data-t-listing_id="5255574" data-t-listing_title="Chambre meublée" data-t-listing_type="classified" data-t-listing_category_title="Appartements meublés" data-t-listing_category_slug="appartements-meubles" data-t-listing_slug="chambre-meublee" data-t-listing_price="12500.00" data-t-listing_currency="XOF" data-t-listing_location_title="Ouakam" data-t-listing_source="ed_sn" data-t-listing_product_slugs="boost-extends|listing" data-t-listing_context="view"><svg class="i i-whatsapp btn__i btn__i--left" aria-hidden="true">
+                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#whatsapp"></use></svg>
+                    WhatsApp
+                </a>
+            </div>
+            <div class="listing-item-contact__contact-phone__container listing-item-contact__contact-phone__container--phone ">
+                <svg class="i i-phone listing-item-contact__contact-phone__icon" aria-hidden="true">
+                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#phone"></use>
+                </svg>
+                <div class="listing-item-contact__contact-phone__container-inner">
+                    <a href="tel:+221779736681" class="listing-item-contact__contact-phone__number" rel="noopener noindex nofollow" data-t-enquiry-submit data-t-contact_type="phone" data-t-contact_context="listing" data-t-listing_id="5255574" data-t-listing_title="Chambre meublée" data-t-listing_type="classified" data-t-listing_category_title="Appartements meublés" data-t-listing_category_slug="appartements-meubles" data-t-listing_slug="chambre-meublee" data-t-listing_price="12500.00" data-t-listing_currency="XOF" data-t-listing_location_title="Ouakam" data-t-listing_source="ed_sn" data-t-listing_product_slugs="boost-extends|listing" data-t-listing_context="view">
+                    779736681
+                    </a>
+                </div>
+                <div class="listing-item-contact__contact-phone__container-inner">
+                    <a href="tel:+221782426623" class="listing-item-contact__contact-phone__number" rel="noopener noindex nofollow" data-t-enquiry-submit data-t-contact_type="phone" data-t-contact_context="listing" data-t-listing_id="5255574" data-t-listing_title="Chambre meublée" data-t-listing_type="classified" data-t-listing_category_title="Appartements meublés" data-t-listing_category_slug="appartements-meubles" data-t-listing_slug="chambre-meublee" data-t-listing_price="12500.00" data-t-listing_currency="XOF" data-t-listing_location_title="Ouakam" data-t-listing_source="ed_sn" data-t-listing_product_slugs="boost-extends|listing" data-t-listing_context="view">
+                    782426623
+                    </a>
+                </div>
+            </div>
+            <form method="POST" action="https://www.expat-dakar.com/annonce/chambre-meublee-5255574/view-phone" accept-charset="UTF-8" class="listing-item-contact__contact-phone__show" data-listing-show-phone data-target-container=".listing-item-contact__contact-phone__container--phone" data-target-toggle="listing-item-contact__contact-phone__container--visible" data-t-enquiry-show data-t-contact_type="phone" data-t-contact_context="listing" data-t-listing_id="5255574" data-t-listing_title="Chambre meublée" data-t-listing_type="classified" data-t-listing_category_title="Appartements meublés" data-t-listing_category_slug="appartements-meubles" data-t-listing_slug="chambre-meublee" data-t-listing_price="12500.00" data-t-listing_currency="XOF" data-t-listing_location_title="Ouakam" data-t-listing_source="ed_sn" data-t-listing_product_slugs="boost-extends|listing" data-t-listing_context="view">
+                <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                <button type="submit" class="btn btn-primary btn-block listing-item-contact__contact-phone__show-btn">
+                    <svg class="i i-phone btn__i btn__i--left" aria-hidden="true">
+                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#phone"></use>
+                    </svg>
+                    Afficher le numéro
+                </button>
+            </form>
+        </div>
+        <div class="listing-item-contact__contact-chat">
+            <div class="listing-item-contact__contact-chat__title">
+                Contacter via Chat
+            </div>
+            <object class="listing-item-contact__contact-chat__container listing-item-contact__contact-chat__container--visible" alt="Contacter via Chat">
+                <div class="listing-item-contact__contact-chat__container-inner">
+                    <a class="btn btn-primary btn-block listing-item-contact__contact-chat__show-btn" aria-label="Contacter via Chat" data-chat-launch data-chat-submit-message-route="https://www.expat-dakar.com/compte/chat/messages/5255574" data-chat-header-route="https://www.expat-dakar.com/compte/chat/header/1208529/5255574" data-chat-status-route="https://www.expat-dakar.com/compte/chat/status/1208529" data-t-enquiry-show data-t-contact_type="chat" data-t-contact_context="listing" data-t-listing_id="5255574" data-t-listing_title="Chambre meublée" data-t-listing_type="classified" data-t-listing_category_title="Appartements meublés" data-t-listing_category_slug="appartements-meubles" data-t-listing_slug="chambre-meublee" data-t-listing_price="12500.00" data-t-listing_currency="XOF" data-t-listing_location_title="Ouakam" data-t-listing_source="ed_sn" data-t-listing_product_slugs="boost-extends|listing" data-t-listing_context="view">
+                        <svg class="i i-chat btn__i btn__i--left" aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chat"></use>
+                        </svg>
+                        Commencez à discuter
+                    </a>
+                </div>
+            </object>
+        </div>
+        <div class="listing-item-contact__enquiry__favourite">
+            <div class="listing-favourite listing-favourite--not-favourite" data-listing-favourite data-listing-favourite-active-class="listing-favourite--is-favourite" data-listing-favourite-inactive-class="listing-favourite--not-favourite">
+                <form method="POST" action="https://www.expat-dakar.com/favourites/chambre-meublee-5255574" accept-charset="UTF-8" class="listing-favourite__action listing-favourite__action--unfavourite" data-listing-favourite-unfavourite data-t-unfavourite>
+                    <input name="_method" type="hidden" value="DELETE">
+                    <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                    <button type="submit" class="btn btn-danger btn-block">
+                        <svg class="i i-heart btn__i btn__i--left" aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#heart"></use>
+                        </svg>
+                        Supprimer des favoris
+                    </button>
+                </form>
+                <form method="POST" action="https://www.expat-dakar.com/favourites/chambre-meublee-5255574" accept-charset="UTF-8" class="listing-favourite__action listing-favourite__action--favourite" data-listing-favourite-favourite data-t-favourite>
+                    <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                    <button type="submit" class="btn btn-secondary btn-block">
+                        <svg class="i i-heart btn__i btn__i--left" aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#heart"></use>
+                        </svg>
+                        Ajouter aux Favoris
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!--googleon: index-->
+<div class="listing-page__sidebar__inner listing-page__sidebar__inner--abuse" id="report">
+    <div class="listing-item-contact">
+        <div class="listing-item-contact__header">
+            <div class="listing-item-contact__header__title">
+            Signaler cette annonce
+            </div></div><form method="POST" action="https://www.expat-dakar.com/abuses" accept-charset="UTF-8" class="listing-item-contact__enquiry" data-validate-form data-form-blocking><input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa"><input name="listing_id" type="hidden" value="5255574"><input name="redirect" type="hidden" value="https://www.expat-dakar.com/annonce/chambre-meublee-5255574"><div class="form-group listing-item-contact__enquiry__form-group"><label for="report_name" class="listing-item-contact__enquiry__form-label">Votre Nom</label><input id="report_name" class="form-control listing-item-contact__enquiry__form-control" autocomplete="name" required name="name" type="text" value="moussa"><div class="errors"></div></div><div class="form-group listing-item-contact__enquiry__form-group"><label for="report_email" class="listing-item-contact__enquiry__form-label">Votre Email</label><input id="report_email" class="form-control listing-item-contact__enquiry__form-control" autocomplete="email" required name="email" type="email" value="moussamamari11@gmail.com"><div class="errors"></div></div><div class="form-group listing-item-contact__enquiry__form-group"><label for="report_mobile_number" class="listing-item-contact__enquiry__form-label">Votre num&egrave;ro t&eacute;l&eacute;phone</label><div class="input-group"><span class="input-group-prepend input-group-addon input-group-addon--select input-group-addon--mobile-country"><select class="form-control custom-select" data-filter-select required name="mobile_number_country"><option value="AD">AD (+376)</option><option value="AE">AE (+971)</option><option value="AF">AF (+93)</option><option value="AG">AG ()</option><option value="AI">AI (+1264)</option><option value="AL">AL (+355)</option><option value="AM">AM (+374)</option><option value="AO">AO (+244)</option><option value="AQ">AQ ()</option><option value="AR">AR (+54)</option><option value="AS">AS ()</option><option value="AT">AT (+43)</option><option value="AU">AU (+61)</option><option value="AW">AW (+297)</option><option value="AX">AX ()</option><option value="AZ">AZ (+994)</option><option value="BA">BA ()</option><option value="BB">BB (+1246)</option><option value="BD">BD (+880)</option><option value="BE">BE (+32)</option><option value="BF">BF (+226)</option><option value="BG">BG (+359)</option><option value="BH">BH (+973)</option><option value="BI">BI (+257)</option><option value="BJ">BJ (+229)</option><option value="BL">BL ()</option><option value="BM">BM (+1441)</option><option value="BN">BN ()</option><option value="BO">BO (+591)</option><option value="BQ">BQ ()</option><option value="BR">BR (+55)</option><option value="BS">BS ()</option><option value="BT">BT (+975)</option><option value="BV">BV ()</option><option value="BW">BW (+267)</option><option value="BY">BY (+375)</option><option value="BZ">BZ (+501)</option><option value="CA">CA (+1)</option><option value="CC">CC ()</option><option value="CD">CD ()</option><option value="CF">CF (+236)</option><option value="CG">CG (+242)</option><option value="CH">CH ()</option><option value="CI">CI ()</option><option value="CK">CK (+682)</option><option value="CL">CL (+56)</option><option value="CM">CM (+237)</option><option value="CN">CN (+86)</option><option value="CO">CO (+57)</option><option value="CR">CR (+506)</option><option value="CU">CU (+53)</option><option value="CV">CV (+238)</option><option value="CW">CW (+5999)</option><option value="CX">CX ()</option><option value="CY">CY (+357)</option><option value="CZ">CZ (+420)</option><option value="DE">DE (+49)</option><option value="DJ">DJ (+253)</option><option value="DK">DK (+45)</option><option value="DM">DM (+1767)</option><option value="DO">DO (+1)</option><option value="DZ">DZ (+213)</option><option value="EC">EC (+593)</option><option value="EE">EE (+372)</option><option value="EG">EG (+20)</option><option value="EH">EH ()</option><option value="ER">ER ()</option><option value="ES">ES (+34)</option><option value="ET">ET (+251)</option><option value="FI">FI (+358)</option><option value="FJ">FJ (+679)</option><option value="FK">FK (+500)</option><option value="FM">FM ()</option><option value="FO">FO (+298)</option><option value="FR">FR (+33)</option><option value="GA">GA (+241)</option><option value="GB">GB (+44)</option><option value="GD">GD (+1473)</option><option value="GE">GE (+995)</option><option value="GF">GF (+594)</option><option value="GG">GG (+44)</option><option value="GH">GH (+233)</option><option value="GI">GI (+350)</option><option value="GL">GL (+299)</option><option value="GM">GM (+220)</option><option value="GN">GN (+224)</option><option value="GP">GP (+590)</option><option value="GQ">GQ (+240)</option><option value="GR">GR (+30)</option><option value="GS">GS ()</option><option value="GT">GT (+502)</option><option value="GU">GU (+1671)</option><option value="GW">GW ()</option><option value="GY">GY (+592)</option><option value="HK">HK ()</option><option value="HM">HM ()</option><option value="HN">HN (+504)</option><option value="HR">HR (+385)</option><option value="HT">HT (+509)</option><option value="HU">HU (+36)</option><option value="ID">ID (+62)</option><option value="IE">IE (+353)</option><option value="IL">IL (+972)</option><option value="IM">IM (+44)</option><option value="IN">IN (+91)</option><option value="IO">IO ()</option><option value="IQ">IQ (+964)</option><option value="IR">IR (+98)</option><option value="IS">IS (+354)</option><option value="IT">IT (+39)</option><option value="JE">JE (+44)</option><option value="JM">JM (+1876)</option><option value="JO">JO (+962)</option><option value="JP">JP (+81)</option><option value="KE">KE (+254)</option><option value="KG">KG (+996)</option><option value="KH">KH (+855)</option><option value="KI">KI ()</option><option value="KM">KM (+269)</option><option value="KN">KN ()</option><option value="KP">KP ()</option><option value="KR">KR ()</option><option value="KW">KW (+965)</option><option value="KY">KY (+1345)</option><option value="KZ">KZ (+7)</option><option value="LA">LA ()</option><option value="LB">LB (+961)</option><option value="LC">LC ()</option><option value="LI">LI (+423)</option><option value="LK">LK (+94)</option><option value="LR">LR (+231)</option><option value="LS">LS (+266)</option><option value="LT">LT (+370)</option><option value="LU">LU (+352)</option><option value="LV">LV (+371)</option><option value="LY">LY (+218)</option><option value="MA">MA (+212)</option><option value="MC">MC ()</option><option value="MD">MD (+373)</option><option value="ME">ME (+382)</option><option value="MF">MF ()</option><option value="MG">MG (+261)</option><option value="MH">MH ()</option><option value="MK">MK (+389)</option><option value="ML">ML (+223)</option><option value="MM">MM (+95)</option><option value="MN">MN (+976)</option><option value="MO">MO (+853)</option><option value="MP">MP ()</option><option value="MQ">MQ (+596)</option><option value="MR">MR (+222)</option><option value="MS">MS (+1664)</option><option value="MT">MT (+356)</option><option value="MU">MU (+230)</option><option value="MV">MV (+960)</option><option value="MW">MW (+265)</option><option value="MX">MX (+52)</option><option value="MY">MY (+60)</option><option value="MZ">MZ (+258)</option><option value="NA">NA (+264)</option><option value="NC">NC (+687)</option><option value="NE">NE (+227)</option><option value="NF">NF ()</option><option value="NG">NG (+234)</option><option value="NI">NI (+505)</option><option value="NL">NL ()</option><option value="NO">NO (+47)</option><option value="NP">NP (+977)</option><option value="NR">NR (+674)</option><option value="NU">NU ()</option><option value="NZ">NZ (+64)</option><option value="OM">OM (+968)</option><option value="PA">PA (+507)</option><option value="PE">PE (+51)</option><option value="PF">PF (+689)</option><option value="PG">PG (+675)</option><option value="PH">PH (+63)</option><option value="PK">PK (+92)</option><option value="PL">PL (+48)</option><option value="PM">PM ()</option><option value="PN">PN ()</option><option value="PR">PR (+1)</option><option value="PS">PS ()</option><option value="PT">PT (+351)</option><option value="PW">PW ()</option><option value="PY">PY (+595)</option><option value="QA">QA (+974)</option><option value="RE">RE (+262)</option><option value="RO">RO (+40)</option><option value="RS">RS (+381)</option><option value="RU">RU ()</option><option value="RW">RW (+250)</option><option value="SA">SA (+966)</option><option value="SB">SB (+677)</option><option value="SC">SC (+248)</option><option value="SD">SD (+249)</option><option value="SE">SE (+46)</option><option value="SG">SG (+65)</option><option value="SH">SH ()</option><option value="SI">SI (+386)</option><option value="SJ">SJ ()</option><option value="SK">SK (+421)</option><option value="SL">SL (+232)</option><option value="SM">SM (+378)</option><option value="SN" selected="selected">SN (+221)</option><option value="SO">SO (+252)</option><option value="SR">SR (+597)</option><option value="SS">SS ()</option><option value="ST">ST ()</option><option value="SV">SV (+503)</option><option value="SX">SX ()</option><option value="SY">SY (+963)</option><option value="SZ">SZ (+268)</option><option value="TC">TC (+1649)</option><option value="TD">TD (+235)</option><option value="TF">TF ()</option><option value="TG">TG (+228)</option><option value="TH">TH (+66)</option><option value="TJ">TJ (+992)</option><option value="TK">TK ()</option><option value="TL">TL ()</option><option value="TM">TM (+993)</option><option value="TN">TN (+216)</option><option value="TO">TO ()</option><option value="TR">TR (+90)</option><option value="TT">TT (+1868)</option><option value="TV">TV ()</option><option value="TW">TW (+886)</option><option value="TZ">TZ (+255)</option><option value="UA">UA (+380)</option><option value="UG">UG (+256)</option><option value="UM">UM ()</option><option value="US">US (+1)</option><option value="UY">UY (+598)</option><option value="UZ">UZ (+998)</option><option value="VA">VA ()</option><option value="VC">VC ()</option><option value="VE">VE (+58)</option><option value="VG">VG ()</option><option value="VI">VI ()</option><option value="VN">VN (+84)</option><option value="VU">VU (+678)</option><option value="WF">WF ()</option><option value="WS">WS ()</option><option value="YE">YE (+967)</option><option value="YT">YT ()</option><option value="ZA">ZA (+27)</option><option value="ZM">ZM (+260)</option><option value="ZW">ZW (+263)</option></select></span><input id="report_mobile_number" class="form-control listing-item-contact__enquiry__form-control" autocomplete="mobile tel-national" required name="mobile_number" type="tel" value="77 802 84 21"></div><div class="errors"></div><div class="errors"></div></div><div class="form-group listing-item-contact__enquiry__form-group"><label for="report_abuse_type_id" class="listing-item-contact__enquiry__form-label">Raison</label><select class="form-control custom-select listing-item-contact__enquiry__form-control" data-filter-select required id="report_abuse_type_id" name="abuse_type_id"><option value="2">Ad is a copy or fake</option><option value="1">Ad is in wrong Category</option><option value="7">Business is closed</option><option value="12">Business No Longer Exists</option><option value="11">False Advertising</option><option value="5">Fraud</option><option value="8">Inappropriate Content</option><option value="10">Incorrect Contact Information</option><option value="9">Listing is not in the right category</option><option value="3">Please support your claims as to why this advert is fraudulent</option><option value="4">Spam</option></select><div class="errors"></div></div><div class="form-group listing-item-contact__enquiry__form-group"><label for="report_comment" class="listing-item-contact__enquiry__form-label">Commentaire</label><textarea class="form-control listing-item-contact__enquiry__form-control" required rows="5" id="report_comment" name="comment" cols="50"></textarea><div class="errors"></div></div><div class="listing-item-contact__enquiry__submit"><a href="#" class="btn btn-outline-primary listing-item-contact__enquiry__submit-button" data-listing-report-abuse>
+Annuler
+</a><button type="submit" class="btn btn-primary listing-item-contact__enquiry__submit-button" id="submit">
+Signaler
+</button></div></form></div></div><div class="listing-page__sidebar__inner listing-page__sidebar__inner--push-notification" data-onesignal="{&quot;subscribeElement&quot;:&quot;[data-onesignal-subscribe]&quot;,&quot;unsubscribeElement&quot;:&quot;[data-onesignal-unsubscribe]&quot;,&quot;showClass&quot;:&quot;listing-item-push-notification--visible&quot;,&quot;hideClass&quot;:&quot;listing-item-push-notification--hidden&quot;}"><div class="listing-item-push-notification listing-item-push-notification--visible" data-onesignal-subscribe><div class="listing-item-push-notification__icon"><div class="ic listing-item-push-notification__icon-inner"><svg class="i i-bell-ring-outline " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#bell-ring-outline"></use></svg></div></div><div class="listing-item-push-notification__content"><div class="listing-item-push-notification__title">
+Activer les notifications
+</div><div class="listing-item-push-notification__description">
+Pour recevoir les dernières mises à jour et actualités
+</div><div class="listing-item-push-notification__cta"><span class="btn btn-secondary">
+Souscrire
+</span></div></div></div><div class="listing-item-push-notification listing-item-push-notification--hidden" data-onesignal-unsubscribe><div class="listing-item-push-notification__icon"><div class="ic listing-item-push-notification__icon-inner"><svg class="i i-bell-off-outline " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#bell-off-outline"></use></svg></div></div><div class="listing-item-push-notification__content"><div class="listing-item-push-notification__title">
+Désactiver les notifications
+</div><div class="listing-item-push-notification__description">
+Pour ne plus recevoir les dernières mises à jour et actualités
+</div><div class="listing-item-push-notification__cta"><span class="btn btn-secondary">
+Se désabonner
+</span></div></div></div></div><div class="listing-page__sidebar__inner listing-page__sidebar__inner--report"><div class="listing-item-report"><a href="#report" class="btn btn-secondary btn-block listing-item-report__link" data-listing-report-abuse><svg class="i i-alert listing-item-report__link-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#alert"></use></svg>
+Signaler cette annonce
+</a></div></div></div></div></div></div></div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -2,10 +2,11 @@ from sqlalchemy import Column, Integer, String,Boolean,DateTime,Float,ForeignKey
 from flask_login import UserMixin
 from sqlalchemy.orm import relationship
 
+
 from .config import Base,engine,Session
 from .front import app
 import os
-from sqlalchemy import desc
+from sqlalchemy import desc,asc
 import datetime
 #
 
@@ -52,6 +53,7 @@ Base.metadata.create_all(engine)
 # Add some data
 session = Session()   
 
+
 def add_user(user: User):
     session.add(user)
     session.commit()
@@ -60,12 +62,14 @@ def add_task(task: Task):
     session.add(task)
     session.commit()
 
-#tous les multimetia
 
 
-def getAllImmobilier():
-    immobiliers=session.query(Task).filter_by(libelle="Immobilier").all()
-    return immobiliers
+
+#find by id task
+def findTaskeById(id_task:int):
+    #session.query(Task).get(id=id_task)
+    return session.query(Task).filter(Task.id==id_task).first()
+
 def getAllMaison():
     maisons=session.query(Task).filter_by(libelle="Maison").all()
     return maisons
@@ -80,7 +84,80 @@ def getUserBuEmail(email:String):
 def getUserById(id:int):
     user=session.query(User).get(int(id))
     return user
+#========================================Immobilier============================
+def getAllImmobilier():
+    immobiliers=session.query(Task).filter_by(libelle="Immobilier").all()
+    return immobiliers
+#Appartements a louer
+def getAppartementAlouer():
+    return session.query(Task).filter_by(title="Appartement à louer").all()
+#Appartements meublés
+def getAppartementMeubler():
+    return session.query(Task).filter_by(title="Appartement meublé ").all()
+#Terrains à vendre
+def getTerainsAVendre():
+    return session.query(Task).filter_by(title="Terrains à vendre").all()
+#Maison à vendre
+def getMaisonAVendre():
+    return session.query(Task).filter_by(title="Maison à vendre").all()
+#Maison à louer
+def getMaisonAlouer():
+    return session.query(Task).filter_by(title="Maison à louer").all()
+#Chambre à louer
+def getChambreAlouer():
+    return session.query(Task).filter_by(title="Chambre à louer").all()
+#--ville
+#all dakar
+def getAllDakarImmobilier():
+    return (session.query(Task).filter(Task.ville== "Dakar",Task.libelle=="Immobilier").all())
+#all Touba
+def getAllToubaImmobilier():
+    return (session.query(Task).filter(Task.ville== "Touba",Task.libelle=="Immobilier").all())
+#all Thies
+def getAllThiesImmobilier():
+    return (session.query(Task).filter(Task.ville== "Thies",Task.libelle=="Immobilier").all())
+#---etat
+#all Neuf
+def getAllNeufImmobilier():
+    return (session.query(Task).filter(Task.etat== "Neuf",Task.libelle=="Immobilier").all())
+#all Venant
+def getAllVenantImmobilier():
+    return (session.query(Task).filter(Task.etat== "Venant",Task.libelle=="Immobilier").all())
+#all Occasion
+def getAllOccasionImmobilier():
+    return (session.query(Task).filter(Task.etat== "Occasion",Task.libelle=="Immobilier").all())
+#all Reconditionné
+def getAllReconditionnéImmobilier():
+    return (session.query(Task).filter(Task.etat== "Reconditionné",Task.libelle=="Immobilier").all())
 
+#par date datetime.datetime.utcnow()
+def getAllDateImmobilier():
+    return session.query(Task).filter(Task.created_date== datetime.datetime.utcnow(),Task.libelle=="Immobilier").all()
+#
+def listerParPrixCroissantImmobilier():
+    return session.query(Task).filter(Task.prix <= 10000,Task.libelle=="Immobilier").order_by(asc(Task.prix)).all()
+#
+def listerParPrixDecroissantImmobilier():
+    return session.query(Task).filter(Task.prix>= 100000,Task.libelle=="Immobilier").order_by(desc(Task.prix)).all()
+#tirer title
+def listerPaTitleImmobilier(title:String):
+   return session.query(Task).filter(Task.title==title,Task.libelle=="Immobilier").all()
+#lister par itervalle de prix
+def getAllPrixImmobiler(min:float,max:float):
+     return session.query(Task).filter(Task.prix >= min, Task.prix <= max,Task.libelle=="Immobilier").all()
+
+#==============================================================================================fin immobilier==========
+
+#===========================prix========================
+#all prix
+def getAllPrix(min:float,max:float):
+    #list = session.query(Task).filter_by(Task.prix >= min and Task.prix <= max).all()
+    #list=vehicules=session.query(Task).filter_by(Task.prix>=min).all()
+    #multimedias=session.query(Task).filter_by(libelle="Multimedia").all()
+    return (session.query(Task).filter(Task.prix >= min, Task.prix <= max,Task.libelle=="Multimedia").all())
+    
+
+    
 #=====================Multimedia===================================
 #all multimedia
 def getAllMultimedia():
@@ -108,7 +185,47 @@ def getAllTV():
 def getAllTelephones():
     telephones=session.query(Task).filter_by(title="Telephones").all()
     return telephones
+#all acceesoires
+def getAllAccessoires():
+    accessoires=session.query(Task).filter_by(title="Accessoires").all()
+    return accessoires
+#--ville
+#all dakar
+def getAllDakarMultimedia():
+    return (session.query(Task).filter(Task.ville== "Dakar",Task.libelle=="Multimedia").all())
+#all Touba
+def getAllToubaMultimedia():
+    return (session.query(Task).filter(Task.ville== "Touba",Task.libelle=="Multimedia").all())
+#all Thies
+def getAllThiesMultimedia():
+    return (session.query(Task).filter(Task.ville== "Thies",Task.libelle=="Multimedia").all())
+#---etat
+#all Neuf
+def getAllNeufMultimedia():
+    return (session.query(Task).filter(Task.etat== "Neuf",Task.libelle=="Multimedia").all())
+#all Venant
+def getAllVenantMultimedia():
+    return (session.query(Task).filter(Task.etat== "Venant",Task.libelle=="Multimedia").all())
+#all Occasion
+def getAllOccasionMultimedia():
+    return (session.query(Task).filter(Task.etat== "Occasion",Task.libelle=="Multimedia").all())
+#all Reconditionné
+def getAllReconditionnéMultimedia():
+    return (session.query(Task).filter(Task.etat== "Reconditionné",Task.libelle=="Multimedia").all())
 
+#par date datetime.datetime.utcnow()
+def getAllDateMultimedia():
+    return session.query(Task).filter(Task.created_date== datetime.datetime.utcnow(),Task.libelle=="Multimedia").all()
+#
+def listerParPrixCroissant():
+    return session.query(Task).filter(Task.prix <= 10000,Task.libelle=="Multimedia").order_by(asc(Task.prix)).all()
+#
+def listerParPrixDecroissant():
+    return session.query(Task).filter(Task.prix>= 100000,Task.libelle=="Multimedia").order_by(desc(Task.prix)).all()
+#tirer title
+def listerPaTitleMultimedia(title:String):
+   return session.query(Task).filter(Task.title==title,Task.libelle=="Multimedia").all()
+#==============================================================================================================
 
 """
 ----------upload

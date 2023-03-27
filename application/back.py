@@ -16,8 +16,6 @@ app.config['SECRET_KEY'] = 'ma_clé_secrète_ici'
 def password():
     return render_template("front/connexion/password.html")
 
-
-
 @app.route("/create_task",methods=['GET', 'POST'])
 @login_required
 def create_task():
@@ -38,7 +36,6 @@ def create_task():
         user=User(id=10,name="nom",email="email",password="password",role="role",image="filename")
        
         task=Task(libelle=libelle,title=titre,text=text,description=description,pays="senegal",ville=ville,quartier=quartier,etat=etat,image=filename,prix=prix,user_id=current_user.id)
-        
         #(libelle={self.libelle}, title={self.title}, description={self.description},pays={self.pays}, ville={self.ville}, quartier={self.quartier}, etat={self.etat}, image={self.image})
         add_task(task)
         """
@@ -147,6 +144,8 @@ def create_user():
         return redirect(url_for('index'))
     #return render_template("front/immobilier/index.html")
     return render_template("front/connexion/register.html",form=form)
+
+
 
 
 """

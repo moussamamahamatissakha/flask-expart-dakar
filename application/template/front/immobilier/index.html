@@ -24,10 +24,10 @@
                                                         </a>
                                                     </li>
                                                     <li id="breadcrumbs-category-annonces" class="breadcrumbs__list-item">
-                                                        <a href="#" class="breadcrumbs__list-item__link">Annonces</a>
+                                                        <a href="{{url_for('index_immobilier')}}" class="breadcrumbs__list-item__link">Annonces</a>
                                                     </li>
                                                     <li id="breadcrumbs-category-multimedia" class="breadcrumbs__list-item">
-                                                        <a href="#" class="breadcrumbs__list-item__link">Multim&eacute;dia</a>
+                                                        <a href="{{url_for('index_immobilier')}}" class="breadcrumbs__list-item__link">Immobi&eacute;lier {{title}}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -39,10 +39,10 @@
                                     <div class="listings-header__title">
                                         <div class="listings-header-title">
                                             <h1 class="listings-header-title__title">
-                                            Multimédia - Sénégal
+                                            Immobilier - Sénégal
                                             </h1>
                                             <span class="listings-header-title__count">
-                                            14590 résultats trouvés
+                                                {{tableau.all}} résultats trouvés
                                             </span>
                                         </div>
                                         <div class="listings-header-refine-search">
@@ -62,6 +62,9 @@
                                                 </span>
                                             </div>
                                         </div>
+
+
+
                                         <div class="listings-header-alert-form" data-alert-form>
                                             <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
                                                 <input name="_token" type="hidden" value="">
@@ -95,7 +98,7 @@
                                 <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
                                     <div class="listings-cards__list-item ">
                                         <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
-                                            <a href="#" class="listing-card__inner" id=""  >
+                                            <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
                                             <div class="listing-card__aside">
                                                 <div class="listing-card__image">
                                                     <div class="listing-card__image__inner-container">
@@ -260,7 +263,7 @@
 
 
             <div class="search__filter" id="filters" data-search-filter>
-                <form method="GET" action="" accept-charset="UTF-8" >
+           
                     <div class="filters">
                         <div class="filters-overlay__header">
                             <a href="#filters" class="filters-overlay__header__button" >
@@ -274,36 +277,46 @@
                     </div>
                     <div class="filters__inner">
                         <div class="filter-group" style="order: 10">
+                            <form action="{{url_for('filter_by_libelleImmobilier')}}" method="post">
                             <div class="filter-group__title">
                                 <label for="search-filter">
                                     Filtrer les r&eacute;sultats
                                 </label></div><div class="filter-group__content">
                                     <div class="filter">
                                         <div class="filter__text">
-                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="q" type="search">
+                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="title" type="search">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </form>
                             <div class="filter-group" style="order: 20">
                                 <div class="filter-group__title">
                                 Trier par
                                 </div>
-                                <div class="filter_group__content">
-                                    <div class="filter">
-                                        <div class="filter__text">
-                                            <label for="sort" class="sr-only">
-                                                Trier par
-                                            </label>
-                                            <select class="form-control custom-select"  name="sort">
-                                                <option value="offers" selected="selected">Offres spéciales</option>
-                                                <option value="latest">Plus récentes</option>
-                                                <option value="lowest-price">Prix décroissants</option>
-                                                <option value="highest-price">Prix croissants</option>
-                                            </select>
+                                <form action="{{url_for('sortImmobilier')}}" method="get">
+                                    <div class="filter_group__content">
+                                        <div class="filter">
+                                            <div class="filter__text">
+                                                <label for="sort" class="sr-only">
+                                                    Trier par
+                                                </label>
+                                                <select class="form-control custom-select"  name="sort">
+                                                   <option value="recent" selected="selected"> Plus récentes</option>
+                                                   <option value="decroissant">Prix décroissants</option>
+                                                    <option value="croissant">Prix croissants</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </div><br>
+                                    <button type="submit" class="btn btn-primary btn-block filters__submit-button">
+                                        <svg class="i i-filter " aria-hidden="true">
+                                            <use></use>
+                                        </svg>
+                                                Ok
+                                    </button>
+                                </form>
+                               
                             </div>
                             <div class="filter-group" style="order: 60">
                                 <div class="filter-group__title">
@@ -318,7 +331,7 @@
 
                                                     </use>
                                                 </svg>
-                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-0">
+                                                <a href="{{url_for('index_immobilier')}}" class="filter__category-list-item__title filter__category-list-item__title--level-0">
                                                 Annonces
                                                 </a>
                                             </li>
@@ -331,7 +344,7 @@
                                                         <use href="#"></use>
                                                     </svg>
                                                 </a>
-                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-1">
+                                                <a href="{{url_for('index_immobilier')}}" class="filter__category-list-item__title filter__category-list-item__title--level-1">
                                                 Immobilier
                                                 </a>
                                             </li>
@@ -344,9 +357,9 @@
                                                             <li id="" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    5480
+                                                                    {{tableau.aptAlouer}}
                                                                     </span>
-                                                                    <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-2">
+                                                                    <a href="{{url_for('AppartementAlouer')}}" class="filter__category-list-item__title filter__category-list-item__title--level-2">
                                                                     Appartement à louer
                                                                     </a>
                                                                 </h2>
@@ -354,9 +367,9 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.aptMeuble}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('appartementMeuble')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
@@ -368,9 +381,9 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.terrainVendre}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('terainsAVendre')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
@@ -382,9 +395,9 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.maisonVendre}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('maisonAVendre')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
@@ -396,9 +409,9 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.maisonLouer}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('maisonAlouer')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
@@ -410,9 +423,9 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.chambre}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('chambreAlouer')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
@@ -438,7 +451,7 @@
                                 <div class="filter">
                                     <ul id="filter-country" class="filter__list">
                                         <li id="country" class="filter__list-item filter__list-item--has-content active">
-                                            <a href="#" class="filter__list-item__title">
+                                            <a href="{{url_for('index_immobilier')}}" class="filter__list-item__title">
                                             Sénégal
                                             </a>
                                         </li>
@@ -448,31 +461,32 @@
                                             <span class="filter__list-item__count">
                                             2
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
+                                            <a href="{{url_for('index_immobilier')}}" class="filter__list-item__title">
                                             Autres
                                             </a>
                                         </li>
                                         <li id="region-dakar" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                            14413
+                                                {{tableau.dakar}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
+                                            <a href="{{url_for('dakarImmobilier')}}" class="filter__list-item__title">
                                             Dakar
                                             </a>
                                         </li>
                                         <li id="region-diourbel" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                            10
+                                                {{tableau.touba}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
-                                            Diourbel
+                                            <a href="{{url_for('toubaImmobilier')}}" class="filter__list-item__title">
+                                            Touba
                                             </a>
                                         </li>
                                         <li id="region-fatick" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
-                                            <span class="filter__list-item__count">1
+                                            <span class="filter__list-item__count">
+                                                {{tableau.thies}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
-                                            Fatick
+                                            <a href="{{url_for('thiesImmobilier')}}" class="filter__list-item__title">
+                                            Thies
                                             </a>
                                         </li>
                                         <li class="filter__list-expander" data-search-filter-expander><span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
@@ -500,14 +514,17 @@
                                 <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
                                     <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
                                 </svg></label></div><div id="filter-items-price" class="toggle-input-target filter-group__content">
+                                    
+                                    <form action="{{url_for('listeprixImmobiler')}}" method="post">
+                                    
                                     <div class="filter">
                                         <div class="filter__range">
                                             <div class="filter__range__inner">
                                                 <div class="filter__range__min">
-                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="min-price" type="number">
+                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="minPrice" type="number">
                                                 </div>
                                                 <div class="filter__range__max">
-                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="max-price" type="number">
+                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="maxPrice" type="number">
                                                 </div>
                                             </div>
                                         </div>
@@ -529,33 +546,33 @@
                                         <ul id="filter-list-condition" class="filter__list" data-search-filter-group data-search-filter-group-count="4">
                                             <li id="condition-used" class="filter__list-item " data-search-filter-item data-search-filter-item-count="1311" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                1311
+                                                    {{tableau.occasion}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=used" class="filter__list-item__title">
+                                                <a href="{{url_for('occasionImmobilier')}}" class="filter__list-item__title">
                                                     D&#039;occasion
                                                 </a>
                                             </li>
                                             <li id="condition-new" class="filter__list-item " data-search-filter-item data-search-filter-item-count="7895" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                7895
+                                                    {{tableau.neuf}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=new" class="filter__list-item__title">
+                                                <a href="{{url_for('neufImmobilier')}}" class="filter__list-item__title">
                                                 Neuf
                                                 </a>
                                             </li>
                                             <li id="condition-refurbished" class="filter__list-item " data-search-filter-item data-search-filter-item-count="157" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                157
+                                                    {{tableau.recondisionne}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=refurbished" class="filter__list-item__title">
+                                                <a href="{{url_for('reconditionnéImmobilier')}}" class="filter__list-item__title">
                                                 Réconditionné
                                                 </a>
                                             </li>
                                             <li id="condition-used-abroad" class="filter__list-item " data-search-filter-item data-search-filter-item-count="5167" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                5167
+                                                    {{tableau.venant}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=used-abroad" class="filter__list-item__title">
+                                                <a href="{{url_for('venantImmobilier')}}" class="filter__list-item__title">
                                                 Venant
                                                 </a>
                                             </li>
@@ -588,9 +605,10 @@
                                             Filtrer
                         </button>
                     </div>
+                </form>
                 </div>
             </div>
-        </form>
+      
     </div>
 </div>
 </div>
