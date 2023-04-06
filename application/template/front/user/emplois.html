@@ -1,9 +1,7 @@
 {% extends "layouts/base.html" %}
-
 {% block title %}
     {{super()}} | Home
 {% endblock %}
-
 {% block container %}
 <div class="search">
     <div class="search__container">
@@ -24,10 +22,10 @@
                                                         </a>
                                                     </li>
                                                     <li id="breadcrumbs-category-annonces" class="breadcrumbs__list-item">
-                                                        <a href="#" class="breadcrumbs__list-item__link">Annonces</a>
+                                                        <a href="{{url_for('index_immobilier')}}" class="breadcrumbs__list-item__link">Annonces</a>
                                                     </li>
                                                     <li id="breadcrumbs-category-multimedia" class="breadcrumbs__list-item">
-                                                        <a href="#" class="breadcrumbs__list-item__link">Maison{{title}}</a>
+                                                        <a href="{{url_for('index_immobilier')}}" class="breadcrumbs__list-item__link">Immobi&eacute;lier {{title}}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -39,7 +37,7 @@
                                     <div class="listings-header__title">
                                         <div class="listings-header-title">
                                             <h1 class="listings-header-title__title">
-                                            Maison - Sénégal
+                                            Article - {{current_user.name}}
                                             </h1>
                                             <span class="listings-header-title__count">
                                                 {{tableau.all}} résultats trouvés
@@ -62,6 +60,9 @@
                                                 </span>
                                             </div>
                                         </div>
+
+
+
                                         <div class="listings-header-alert-form" data-alert-form>
                                             <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
                                                 <input name="_token" type="hidden" value="">
@@ -80,26 +81,17 @@
                                                 </div>
                                             </form>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
                            
-
-
                             {% for article in articles %}
-
-
-
-
+                                
                             <div class="listings-cards">
                                 <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
                                     <div class="listings-cards__list-item ">
-
-                                        {% if article.id %2 == 0 %}
                                         <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
-                                            <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
+                                            <a href="#" class="listing-card__inner" id=""  >
                                             <div class="listing-card__aside">
                                                 <div class="listing-card__image">
                                                     <div class="listing-card__image__inner-container">
@@ -107,8 +99,8 @@
                                                             <use href="#"></use>
                                                         </svg>
                                                         <div class="listing-card__image__inner">
-                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
-                                                          
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/emplois/' + article.image) }}" alt="" loading="lazy">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,7 +110,12 @@
                                                             <use href="#"></use>
                                                         </svg>
                                                         <span class="listing-priority__title">
-                                                        A La Une
+                                                            {% if article.published == 0 %}
+                                                            Non Publié
+                                                            {% else %}
+                                                            Publié    
+                                                            {% endif %}
+                                                        
                                                         </span>
                                                     </span>
                                                 </div>
@@ -129,38 +126,16 @@
                                                 <div class="listing-card__content__inner">
                                                     <div class="listing-card__header">
                                                         <div class="listing-card__header-content">
+                                                         
+                
                                                             <div class="listing-card__header__title">
-                                                                {{article.description}}
+                                                                {{article.libelle}}
+                                                                
                                                             </div>
                                                             <div class="listing-card__header__tags">
-                                                                
-                                                                
-                                                                {% if article.etat =="Venant" %}
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                {{article.etat}}
-                                                            </span>
-                                                            {% endif %}
-                                                            {% if article.etat =="Neuf" %}
-                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
-                                                                {{article.etat}}
-                                                            </span>
-                                                            {% endif %}
-                                                            {% if article.etat =="Reconditionné" %}
-                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
-                                                                {{article.etat}}
-                                                            </span>
-                                                            {% endif %}
-                                                            {% if article.etat =="Occasion" %}
-                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                {{article.etat}}
-                                                            </span>
-                                                            {% endif %}
-                                                             
-
-
-
-
-
+                                                                    {{article.etat}}
+                                                                </span>
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
                                                                     {{article.title}}
                                                                 </span>
@@ -173,9 +148,12 @@
                                                                 <p>{{article.published_date}} 
                                                             </div>
                                                         </div>
+                                                       
+                                                       
                                                         <div class="listing-card__header-aside">
-                                                            <div class="listing-card__header__business-image">
+                                                            <div class="listing-card__header__business-image"> 
                                                                 <object class="listing-card__business-image" alt="">
+                                                                    
                                                                     <a href="#" class="listing-card__business-image__inner-container">
                                                                         <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
                                                                             <use href="#"></use>
@@ -186,125 +164,45 @@
                                                                         </div>
                                                                         <div class="listing-card__image__inner">
                                                                             <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
-                                                                          
+                                                                         
                                                                         </div>
+                                                                       
                                                                         
                                                                     
                                                                       
                                                                     </div>
                                                                     </a>
+                                                                    
                                                                 </object>
+                                                                
                                                             </div>
-                                                            {% else %}  
-                                                            <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-silver">
-                                                                <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
-                                                                <div class="listing-card__aside">
-                                                                    <div class="listing-card__image">
-                                                                        <div class="listing-card__image__inner-container">
-                                                                            <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
-                                                                                <use href="#"></use>
-                                                                            </svg>
-                                                                            <div class="listing-card__image__inner">
-                                                                                <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
-                                                                              
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="listing-card__priority">
-                                                                        <span class="listing-priority listing-priority--silver">
-                                                                            <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
-                                                                                <use href="#"></use>
-                                                                            </svg>
-                                                                            <span class="listing-priority__title">
-                                                                           * VIP
-                                                                            </span>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                    
-                                                                {{ loop.index + pagination.skip }}
-                                                                <div class="listing-card__content 1">
-                                                                    <div class="listing-card__content__inner">
-                                                                        <div class="listing-card__header">
-                                                                            <div class="listing-card__header-content">
-                                                                                <div class="listing-card__header__title">
-                                                                                    {{article.description}}
-                                                                                </div>
-                                                                                <div class="listing-card__header__tags">
-                                                                                    {% if article.etat =="Venant" %}
-                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                                    {{article.etat}}
-                                                                                </span>
-                                                                                {% endif %}
-                                                                                {% if article.etat =="Neuf" %}
-                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
-                                                                                    {{article.etat}}
-                                                                                </span>
-                                                                                {% endif %}
-                                                                                {% if article.etat =="Reconditionné" %}
-                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
-                                                                                    {{article.etat}}
-                                                                                </span>
-                                                                                {% endif %}
-                                                                                {% if article.etat =="Occasion" %}
-                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                                    {{article.etat}}
-                                                                                </span>
-                                                                                {% endif %}
-                                                                                 
-
-
-
-                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
-                                                                                        {{article.title}}
-                                                                                    </span>
-                                                                                </div>
-                                                                                <div class="listing-card__header__location">
-                                                                                    <svg class="i i-gmaps " aria-hidden="true">
-                                                                                        <use href="#"></use>
-                                                                                    </svg>
-                                                                                    {{article.quartier}}, {{article.ville}}
-                                                                                    <p>{{article.published_date}} 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="listing-card__header-aside">
-                                                                                <div class="listing-card__header__business-image">
-                                                                                    <object class="listing-card__business-image" alt="">
-                                                                                        <a href="#" class="listing-card__business-image__inner-container">
-                                                                                            <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
-                                                                                                <use href="#"></use>
-                                                                                            </svg>
-                                                                                            <div class="listing-card__business-image__inner">
-                    
-                                                                                               
-                                                                                            </div>
-                                                                                            <div class="listing-card__image__inner">
-                                                                                                <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
-                                                                                              
-                                                                                            </div>
-                                                                                            
-                                                                                        
-                                                                                          
-                                                                                        </div>
-                                                                                        </a>
-                                                                                    </object>
-                                                                                </div>
-                                                                                {% endif %} 
-
-
-
-
-
-
-
+                                                            
                                                         </div>
+                                                       
                                                     </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                  
                                                     
                                                     <div class="listing-card__info-bar">
                                                         <div class="listing-card__info-bar__price">
                                                             <span class="listing-card__price">
                                                                 <span class="listing-card__price__value 1">
-                                                                    {{article.prix}} F Cfa
+                                                                   
+                                                                    {% if article.published == 0 %}
+                                                                   <form action="{{url_for('publishedEmploisById')}}" method="post">
+                                                                    <input type="hidden" name="idArtcle" value="{{article.id}}">
+                                                                    <button type="submit" class="bg-success text-white">published</button>
+                                                                   </form>
+                                                                    {% else %} 
+                                                                  
+                                                                   <form action="{{url_for('dePublishedEmploisById')}}" method="post">
+                                                                    <input type="hidden" name="idArtcle" value="{{article.id}}">
+                                                                    <button type="submit" class="bg-danger text-white">unpublished</button>
+                                                                   </form>
+                                                                   {% endif %}
+                                                                  
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -392,7 +290,7 @@
 
 
             <div class="search__filter" id="filters" data-search-filter>
-                <form method="GET" action="" accept-charset="UTF-8" >
+           
                     <div class="filters">
                         <div class="filters-overlay__header">
                             <a href="#filters" class="filters-overlay__header__button" >
@@ -406,25 +304,24 @@
                     </div>
                     <div class="filters__inner">
                         <div class="filter-group" style="order: 10">
-                            <form action="{{url_for('filter_by_libelleMaison')}}" method="post">
-                                <div class="filter-group__title">
-                                    <label for="search-filter">
-                                        Filtrer les r&eacute;sultats
-                                    </label></div><div class="filter-group__content">
-                                        <div class="filter">
-                                            <div class="filter__text">
-                                                <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="title" type="search">
-                                            </div>
+                            <form action="{{url_for('filter_by_libelleImmobilier')}}" method="post">
+                            <div class="filter-group__title">
+                                <label for="search-filter">
+                                    Filtrer les r&eacute;sultats
+                                </label></div><div class="filter-group__content">
+                                    <div class="filter">
+                                        <div class="filter__text">
+                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="title" type="search">
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-
+                            </div>
+                        </form>
                             <div class="filter-group" style="order: 20">
                                 <div class="filter-group__title">
                                 Trier par
                                 </div>
-                                <form action="{{url_for('sortMaison')}}" method="get">
+                                <form action="{{url_for('sortImmobilier')}}" method="get">
                                     <div class="filter_group__content">
                                         <div class="filter">
                                             <div class="filter__text">
@@ -443,10 +340,10 @@
                                         <svg class="i i-filter " aria-hidden="true">
                                             <use></use>
                                         </svg>
-                                                        Ok
+                                                Ok
                                     </button>
                                 </form>
-
+                               
                             </div>
                             <div class="filter-group" style="order: 60">
                                 <div class="filter-group__title">
@@ -461,23 +358,11 @@
 
                                                     </use>
                                                 </svg>
-                                                <a href="{{url_for('index_maison')}}" class="filter__category-list-item__title filter__category-list-item__title--level-0">
+                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-0">
                                                 Annonces
                                                 </a>
                                             </li>
-                                            <li id="parent-category-multimedia" class="filter__category-list-item filter__category-list-item--level-1 filter__category-list-item--has-content">
-                                                <svg class="i i-electronics filter__category-list-item__icon" aria-hidden="true">
-                                                    <use href="#"></use>
-                                                </svg>
-                                                <a href="#" class="filter__list-item__cancel-link">
-                                                    <svg class="i i-close filter__list-item__cancel-icon" aria-hidden="true">
-                                                        <use href="#"></use>
-                                                    </svg>
-                                                </a>
-                                                <a href="{{url_for('index_maison')}}" class="filter__category-list-item__title filter__category-list-item__title--level-1">
-                                                Maison
-                                                </a>
-                                            </li>
+                                        
                                         </ul>
                                         <ul class="filter__category-list filter__category-list--level-0">
                                             <li id="category-annonces" class="filter__category-list-item filter__category-list-item--level-0 ">
@@ -487,23 +372,23 @@
                                                             <li id="" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                        {{tableau.mobilier}}
+                                                                    
                                                                     </span>
-                                                                    <a href="{{url_for('getMobilierss')}}" class="filter__category-list-item__title filter__category-list-item__title--level-2">
-                                                                    Mobilier
+                                                                    <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-2">
+                                                                    Maisons
                                                                     </a>
                                                                 </h2>
                                                             </li>
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                        {{tableau.electromenager}}
+                                                                       
                                                                     </span>
-                                                                    <a href="{{url_for('getElectromenagers')}}" class="
+                                                                    <a href="#" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                    Electromenager
+                                                                    Multimedia
                                                                     </a>
 
                                                                 </h2>
@@ -511,13 +396,13 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                        {{tableau.decoration}}
+                                                                       
                                                                     </span>
-                                                                    <a href="{{url_for('getDecorations')}}" class="
+                                                                    <a href="#" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                    Décoration,ligne de maison
+                                                                    Immobilier
                                                                     </a>
 
                                                                 </h2>
@@ -525,13 +410,13 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                        {{tableau.vaiselle}}
+                                                                     
                                                                     </span>
-                                                                    <a href="{{url_for('getVaiselles')}}" class="
+                                                                    <a href="#" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                    Vaiselle
+                                                                    Vehicules
                                                                     </a>
 
                                                                 </h2>
@@ -539,18 +424,18 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                        {{tableau.jardinage}}
+                                                                       
                                                                     </span>
-                                                                    <a href="{{url_for('getJardinages')}}" class="
+                                                                    <a href="#" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                   Jardinage,Bricolage
+                                                                        Offres d'emplois
                                                                     </a>
 
                                                                 </h2>
                                                             </li>
-                                                            
+                                                           
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -568,41 +453,34 @@
                                 <div class="filter">
                                     <ul id="filter-country" class="filter__list">
                                         <li id="country" class="filter__list-item filter__list-item--has-content active">
-                                            <a href="#" class="filter__list-item__title">
+                                            <a href="{{url_for('index_immobilier')}}" class="filter__list-item__title">
                                             Sénégal
                                             </a>
                                         </li>
                                     </ul>
                                     <ul id="filter-region" class="filter__list filter__list--level-1" data-search-filter-group data-search-filter-group-count="11">
-                                        <li id="region-autres" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content" >
-                                            <span class="filter__list-item__count">
-                                                {{tableau.all}}
-                                            </span>
-                                            <a href="#" class="filter__list-item__title">
-                                            Autres
-                                            </a>
-                                        </li>
+                                      
                                         <li id="region-dakar" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                                {{tableau.dakar}}
+                                              
                                             </span>
-                                            <a href="{{url_for('getAllDakarMaisons')}}" class="filter__list-item__title">
+                                            <a href="{{url_for('dakarImmobilier')}}" class="filter__list-item__title">
                                             Dakar
                                             </a>
                                         </li>
                                         <li id="region-diourbel" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                                {{tableau.touba}}
+                                              
                                             </span>
-                                            <a href="{{url_for('getAllToubaMaisons')}}" class="filter__list-item__title">
+                                            <a href="{{url_for('toubaImmobilier')}}" class="filter__list-item__title">
                                             Touba
                                             </a>
                                         </li>
                                         <li id="region-fatick" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                                {{tableau.thies}}
+                                               
                                             </span>
-                                            <a href="{{url_for('getAllThiesMaisons')}}" class="filter__list-item__title">
+                                            <a href="{{url_for('thiesImmobilier')}}" class="filter__list-item__title">
                                             Thies
                                             </a>
                                         </li>
@@ -632,22 +510,22 @@
                                     <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
                                 </svg></label></div><div id="filter-items-price" class="toggle-input-target filter-group__content">
                                     
-                                    <form action="{{url_for('listeprixMaison')}}" method="post">
-                                   
-                                        <div class="filter">
-                                            <div class="filter__range">
-                                                <div class="filter__range__inner">
-                                                    <div class="filter__range__min">
-                                                        <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="minPrice" type="number">
-                                                    </div>
-                                                    <div class="filter__range__max">
-                                                        <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="maxPrice" type="number">
-                                                    </div>
+                                    <form action="{{url_for('listeprixImmobiler')}}" method="post">
+                                    
+                                    <div class="filter">
+                                        <div class="filter__range">
+                                            <div class="filter__range__inner">
+                                                <div class="filter__range__min">
+                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="minPrice" type="number">
+                                                </div>
+                                                <div class="filter__range__max">
+                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="maxPrice" type="number">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <div id="filter-condition" class="filter-group" style="order: 1000">
                                 <input type="checkbox" id="toggle-condition" class="toggle-input" />
                                 <div id="label-condition" class="filter-group__header">
@@ -665,7 +543,7 @@
                                                 <span class="filter__list-item__count">
                                                     {{tableau.occasion}}
                                                 </span>
-                                                <a href="{{url_for('getAllOccasionMaisons')}}" class="filter__list-item__title">
+                                                <a href="{{url_for('occasionImmobilier')}}" class="filter__list-item__title">
                                                     D&#039;occasion
                                                 </a>
                                             </li>
@@ -673,7 +551,7 @@
                                                 <span class="filter__list-item__count">
                                                     {{tableau.neuf}}
                                                 </span>
-                                                <a href="{{url_for('getAllNeufMaisons')}}" class="filter__list-item__title">
+                                                <a href="{{url_for('neufImmobilier')}}" class="filter__list-item__title">
                                                 Neuf
                                                 </a>
                                             </li>
@@ -681,7 +559,7 @@
                                                 <span class="filter__list-item__count">
                                                     {{tableau.recondisionne}}
                                                 </span>
-                                                <a href="{{url_for('getAllReconditionnéMaisons')}}" class="filter__list-item__title">
+                                                <a href="{{url_for('reconditionnéImmobilier')}}" class="filter__list-item__title">
                                                 Réconditionné
                                                 </a>
                                             </li>
@@ -689,7 +567,7 @@
                                                 <span class="filter__list-item__count">
                                                     {{tableau.venant}}
                                                 </span>
-                                                <a href="{{url_for('getAllVenantMaisons')}}" class="filter__list-item__title">
+                                                <a href="{{url_for('venantImmobilier')}}" class="filter__list-item__title">
                                                 Venant
                                                 </a>
                                             </li>
@@ -714,21 +592,18 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="filters__submit">
                         <button type="submit" class="btn btn-primary btn-block filters__submit-button">
                             <svg class="i i-filter " aria-hidden="true">
-                                <use></use>
+                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#filter"></use>
                             </svg>
                                             Filtrer
                         </button>
                     </div>
                 </form>
-
-
                 </div>
             </div>
-        </form>
+      
     </div>
 </div>
 </div>

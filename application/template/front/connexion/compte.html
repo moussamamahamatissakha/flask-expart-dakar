@@ -31,7 +31,19 @@
     </script></head><body class="category-root--default"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D5748K"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div class="wrap"><header class="header" data-sticky="{&quot;type&quot;:&quot;header&quot;}"><div class="header__inner"><a href="https://www.expat-dakar.com" class="header-logo"><span class="header-logo__brand">
 Expat-Dakar
-</span><img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar"></a><span class="header-locale-spacer">&nbsp;</span><span class="header-menu-toggle"><a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle aria-label="Menu"><svg class="i i-menu header-menu-toggle__button-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#menu"></use></svg></a></span><div class="header-cta"><a href="https://www.expat-dakar.com/compte/listing/create/listing" class="btn btn-primary header-cta__button"><span class="header-cta__button-title">
+</span>
+<img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar"></a>
+<span class="header-locale-spacer">&nbsp;</span>
+<span class="header-menu-toggle">
+    <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle aria-label="Menu">
+        <svg class="i i-menu header-menu-toggle__button-icon" aria-hidden="true">
+            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#menu"></use>
+        </svg>
+    </a>
+</span>
+<div class="header-cta">
+    <a href="{{url_for('create_task')}}" class="btn btn-primary header-cta__button">
+        <span class="header-cta__button-title">
 Vendre
 </span></a></div><div class="header__buttons-section "><div class="cta-credit"><a href="https://www.expat-dakar.com/compte/credit-bundles" class="btn btn-secondary cta-credit__button"><span class="cta-credit__button-title">
 Crédits
@@ -43,11 +55,19 @@ Bienvenue sur Expat-Dakar !
 2023-03-15
 </span><span class="notification-card__cta">
 Créez votre première annonce
-</span></div></a></div></div></div></div><div class="header-auth">
+</span></div></a></div></div></div></div>
+<div class="header-auth">
     <div class="dropdown header-auth__item header-auth__item--dropdown">
-        <span class="header-user-dropdown" data-toggle="dropdown"><svg class="i i-account avatar__icon" aria-hidden="true">
-            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use>
-        </svg></span></span><div class="dropdown-menu dropdown-menu-right">
+        <span class="header-user-dropdown" data-toggle="dropdown">
+        
+            <svg class="i i-account avatar__icon" aria-hidden="true">
+                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use>
+            </svg>
+        </span>
+    
+    
+    
+    </span><div class="dropdown-menu dropdown-menu-right">
             <a href="{{ url_for('compte') }}" class="dropdown-item">
 Compte &amp; Profil
 </a><a href="{{ url_for('compte') }}" class="dropdown-item">
@@ -59,10 +79,33 @@ Mes Profil &amp; CV
 <a href="{{url_for('logout')}}" class="dropdown-item">
 Déconnexion
 </a>
-</div></div></div></div><div class="global-search"><div class="global-search__inner">
-    <form method="GET" action="https://www.expat-dakar.com/annonces" accept-charset="UTF-8" class="global-search__form"><div class="global-search__query"><label for="q" class="sr-only">Mots cl&eacute;s</label><input placeholder="Je recherche..." class="form-control autocomplete global-search__query-input" data-autocomplete="{&quot;appendTo&quot;:&quot;.global-search__inner&quot;}" data-url="https://www.expat-dakar.com/ajax/suggestions?is_business=0" name="q" type="text" id="q"><svg class="i i-magnify global-search__query-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#magnify"></use></svg></div><button type="submit" class="btn global-search__button"><svg class="i i-magnify global-search__button__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#magnify"></use></svg><span hidden>
-Rechercher
-</span></button></form></div></div></div></header>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="global-search">
+            <div class="global-search__inner">
+                <form method="GET" action="https://www.expat-dakar.com/annonces" accept-charset="UTF-8" class="global-search__form">
+                    <div class="global-search__query">
+                        <label for="q" class="sr-only">Mots cl&eacute;s</label>
+                        <input placeholder="Je recherche..." class="form-control autocomplete global-search__query-input" data-autocomplete="{&quot;appendTo&quot;:&quot;.global-search__inner&quot;}" data-url="https://www.expat-dakar.com/ajax/suggestions?is_business=0" name="q" type="text" id="q">
+                        <svg class="i i-magnify global-search__query-icon" aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#magnify"></use>
+                        </svg>
+                    </div>
+                    <button type="submit" class="btn global-search__button">
+                        <svg class="i i-magnify global-search__button__icon" aria-hidden="true"><
+                            use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#magnify"></use>
+                        </svg>
+                        <span hidden>
+                        Rechercher
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
 
 
 <nav class="header-nav" data-header-nav><div class="header-nav__inner-container">
@@ -90,7 +133,8 @@ Maison
         </a>
     </li>
     <li class="header-nav__inner__item header-nav__inner__item--businesses">
-        <a href="#" class="header-nav__inner__item__link header-nav__inner__item__link--businesses"><svg class="i i-briefcase header-nav__inner__item__category-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#briefcase"></use></svg>
+        <a href="#" class="header-nav__inner__item__link header-nav__inner__item__link--businesses">
+            <svg class="i i-briefcase header-nav__inner__item__category-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#briefcase"></use></svg>
 Les Boutiques
 </a></li><li class="header-nav__inner__item header-nav__inner__item--businesses">
     <a href="#" class="header-nav__inner__item__link header-nav__inner__item__link--deals"><svg class="i i-handshake header-nav__inner__item__category-icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#handshake"></use></svg>
@@ -99,65 +143,150 @@ Promo
 
 </div></nav><div class="user"><div class="user__header"><div class="user__header-inner"><div class="user-header"><div class="user-header__title">
 Tableau de bord
-</div><div class="user-header__quick-links"><a href="https://www.expat-dakar.com/compte/favourites" class="user-header__quick-links__item"><svg class="i i-heart user-header__quick-links__item__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#heart"></use></svg><span class="user-header__quick-links__item__title">
+</div><div class="user-header__quick-links">
+    <a href="{{url_for('favories')}}" class="user-header__quick-links__item">
+        <svg class="i i-heart user-header__quick-links__item__icon" aria-hidden="true">
+            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#heart"></use>
+        </svg>
+        <span class="user-header__quick-links__item__title">
+
+
+
+            
 Mes Favoris
 </span><span class="user-header__quick-links__item__count">
-0
-</span></a><a href="https://www.expat-dakar.com/compte/credit-bundles" class="user-header__quick-links__item"><span class="user-header__quick-links__item__title">
+{{taille}}
+</span></a><a href="https://www.expat-dakar.com/compte/credit-bundles" class="user-header__quick-links__item">
+    <span class="user-header__quick-links__item__title">
 Crédits
 </span><span class="user-header__quick-links__item__count">
 0
-</span></a></div></div></div></div><div class="user__main"><div class="user__main-inner"><div class="user__content"><div class="user-page"><div class="user-page__container"><div class="user-page__inner"><div class="user-page__header"><div class="user-page__header__title">
-Compte &amp; Profil
-</div></div><div class="user-page__notice"><div class="user-page__notice__icon"><svg class="i i-email " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#email"></use></svg></div><div class="user-page__notice__content"><div class="user-page__notice__description">
-Un e-mail a été envoyé à <strong>
-    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd1d3c9cfcfddd1ddd1ddced58d8dfcdbd1ddd5d092dfd3d1">
-        {{current_user.email}}
-    </a></strong>. 
-    Veuillez cliquer sur le lien dans ce message pour confirmer votre adresse e-mail et pouvoir postuler à des emplois et recevoir vos alertes quotidiennes.
-    </div>
-    <div class="user-page__notice__actions">
-        <form method="POST" action="https://www.expat-dakar.com/compte/profile/resend-email" accept-charset="UTF-8" data-validate-form>
-            <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa"><button type="submit" class="btn btn-primary" id="resend-email">
-Renvoyer l&#039;e-mail de confirmation
-</button></form></div></div></div><div class="user-page-tabs"><ul class="nav nav-tabs user-page-tabs__list" role="tablist"><li class="nav-item user-page-tabs__list-item"><a href="#profile" class="nav-link active user-page-tabs__list-tab" data-toggle="tab" role="tab">
-Profil
-</a></li><li class="nav-item user-page-tabs__list-item"><a href="#account" class="nav-link user-page-tabs__list-tab" data-toggle="tab" role="tab">
-Compte
-</a></li><li class="nav-item user-page-tabs__list-item"><a href="#notifications" class="nav-link user-page-tabs__list-tab" data-toggle="tab" role="tab">
-Notifications
-</a></li></ul></div><div class="tab-content user-page-tab-pages"><div class="tab-pane active user-page-tab-pages__item" id="profile" role="tabpanel"><div class="user-page-tab-pages__item-container"><div class="user-page-tab-pages__item-inner"><div class="user-page-narrow-form"><div class="user-page__avatar"><div class="user-page__avatar__current"><div class="user-page__avatar__file"><span class="avatar"><svg class="i i-account avatar__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use></svg></span></div></div><div class="user-page__avatar__upload"><form method="POST" action="https://www.expat-dakar.com/compte/profile/profile/avatar" accept-charset="UTF-8" data-validate-form enctype="multipart/form-data"><input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa"><div class="form-group"><label for="avatar">Avatar</label><input required class="form-control" accept=".jpg,.jpeg,.png" name="avatar" type="file" id="avatar"><div class="errors"></div></div><button type="submit" class="btn btn-primary" id="submit-avatar">
-Télécharger
-</button></form></div></div></div></div></div>
-<form method="POST" action="https://www.expat-dakar.com/compte/profile/profile" accept-charset="UTF-8" data-validate-form>
-    <input name="_method" type="hidden" value="PUT">
-    <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
-    <div class="user-page-tab-pages__item-container">
-        <div class="user-page-tab-pages__item-inner">
-            <div class="user-page-narrow-form">
-                <div class="form-group">
-                    <label for="username">Nom &amp; Pr&eacute;nom</label>
-                    <input class="form-control" autocomplete="username" name="username" type="text" value="moussa" id="username">
-                    <div class="errors">
-
+</span></a></div></div></div></div><div class="user__main">
+    <div class="user__main-inner">
+        <div class="user__content">
+            <div class="user-page">
+                <div class="user-page__container">
+                    <div class="user-page__inner">
+                        <div class="user-page__header">
+                            <div class="user-page__header__title">
+                            Compte &amp; Profil
+                            </div>
+                        </div>
+                        <div class="user-page__notice">
+                            <div class="user-page__notice__icon">
+                                <svg class="i i-email " aria-hidden="true">
+                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#email"></use>
+                                </svg>
+                            </div>
+                            <div class="user-page__notice__content">
+                                <div class="user-page__notice__description">
+                                Un e-mail a été envoyé à 
+                                <strong>
+                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd1d3c9cfcfddd1ddd1ddced58d8dfcdbd1ddd5d092dfd3d1">
+                                        {{current_user.email}}
+                                    </a>
+                                </strong>. 
+                                Veuillez cliquer sur le lien dans ce message pour confirmer votre adresse e-mail et pouvoir postuler à des emplois et recevoir vos alertes quotidiennes.
+                            </div>
+                            <div class="user-page__notice__actions">
+                                <form method="POST" action="https://www.expat-dakar.com/compte/profile/resend-email" accept-charset="UTF-8" data-validate-form>
+                                    <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                                    <button type="submit" class="btn btn-primary" id="resend-email">
+                                    Renvoyer l&#039;e-mail de confirmation
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="properties[hide-phone-number]">Masquer le num&eacute;ro de t&eacute;l&eacute;phone</label>
-                    <select class="form-control custom-select" data-filter-select id="properties[hide-phone-number]" name="properties[hide-phone-number]">
-                        <option value="" selected="selected">Veuillez selectioner un</option>
-                        <option value="yes">Oui</option><option value="no">Non</option>
-                        <option value="not-applicable">N/A</option></select><div class="errors">
+                    <div class="user-page-tabs">
+                        <ul class="nav nav-tabs user-page-tabs__list" role="tablist">
+                            <li class="nav-item user-page-tabs__list-item">
+                                <a href="#profile" class="nav-link active user-page-tabs__list-tab" data-toggle="tab" role="tab">
+                                    Profil
+                                </a>
+                            </li>
+                            <li class="nav-item user-page-tabs__list-item">
+                                <a href="#account" class="nav-link user-page-tabs__list-tab" data-toggle="tab" role="tab">
+                                Compte
+                                </a>
+                            </li>
+                            <li class="nav-item user-page-tabs__list-item">
+                                <a href="#notifications" class="nav-link user-page-tabs__list-tab" data-toggle="tab" role="tab">
+                                Notifications
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content user-page-tab-pages">
+                        <div class="tab-pane active user-page-tab-pages__item" id="profile" role="tabpanel">
+                            <div class="user-page-tab-pages__item-container">
+                                <div class="user-page-tab-pages__item-inner">
+                                    <div class="user-page-narrow-form">
+                                        <div class="user-page__avatar">
+                                            <div class="user-page__avatar__current">
+                                                {% if  current_user.image %}
+                                                    
+                                              
+                                                <img src="{{ url_for('static',filename='images/users/' + current_user.image) }}" width="100px" class="img-circle" alt="Responsive Circle Image">
+         
+                                                {% else %}
+                                                <div class="user-page__avatar__file">
+                                                    <span class="avatar">
+                                                        <svg class="i i-account avatar__icon" aria-hidden="true">
+                                                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use>
+                                                         </svg>
+                                                     </span>
+                                                </div>
+                                                {% endif %}
 
-                        </div></div><div class="form-group"><label for="location_id">Ville</label>
-                            <select id="location_id" class="form-control custom-select " data-filter-select name="location_id" required>
-                                <option value="">
-                                </option>
-                                <optgroup label="Dakar">
-                                    <option value="2978" data-latitude="" data-longitude="">
+                                            </div>
+                                            <div class="user-page__avatar__upload">
+                                                <form method="POST" action="{{url_for('updateImageUser')}}" accept-charset="UTF-8" data-validate-form enctype="multipart/form-data">
+                                                    <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                                                    <div class="form-group">
+                                                        <label for="avatar">Avatar</label>
+                                                        <input required class="form-control" accept=".jpg,.jpeg,.png" name="file" type="file" id="file">
+                                                        <div class="errors">
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary" id="submit-avatar">
+                                                    Télécharger
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form method="POST" action="https://www.expat-dakar.com/compte/profile/profile" accept-charset="UTF-8" data-validate-form>
+                                <input name="_method" type="hidden" value="PUT">
+                                <input name="_token" type="hidden" value="JgzZRNFdZYo6JgzkYw9tESHfaD8oJsBUpOVC84Fa">
+                                <div class="user-page-tab-pages__item-container">
+                                    <div class="user-page-tab-pages__item-inner">
+                                        <div class="user-page-narrow-form">
+                                            <div class="form-group">
+                                                <label for="username">Nom &amp; Pr&eacute;nom</label>
+                                                <input class="form-control" autocomplete="username" name="username" type="text" value="moussa" id="username">
+                                                <div class="errors">
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="properties[hide-phone-number]">Masquer le num&eacute;ro de t&eacute;l&eacute;phone</label>
+                                                <select class="form-control custom-select" data-filter-select id="properties[hide-phone-number]" name="properties[hide-phone-number]">
+                                                    <option value="" selected="selected">Veuillez selectioner un</option>
+                                                    <option value="yes">Oui</option><option value="no">Non</option>
+                                                    <option value="not-applicable">N/A</option></select><div class="errors">
+
+                                                    </div></div><div class="form-group"><label for="location_id">Ville</label>
+                                                        <select id="location_id" class="form-control custom-select " data-filter-select name="location_id" required>
+                                                            <option value="">
+                                                            </option>
+                                                            <optgroup label="Dakar">
+                                                                <option value="2978" data-latitude="" data-longitude="">
 
 
-Palmarin
+                            Palmarin
 </option>
 </optgroup></select><div class="errors"></div></div><div class="form-group"><label for="properties[delivery-offered]">Livraison offerte</label><select class="form-control custom-select" data-filter-select id="properties[delivery-offered]" name="properties[delivery-offered]"><option value="" selected="selected">Veuillez selectioner un</option><option value="yes">Oui</option><option value="no">Non</option><option value="not-applicable">N/A</option></select><div class="errors"></div></div><div class="form-group"><label for="properties[delivery-details]">D&eacute;tails de livraison</label><textarea class="form-control" rows="3" data-pagedown name="properties[delivery-details]" cols="50" id="properties[delivery-details]"></textarea><div class="errors"></div></div></div><div class="user-page__actions"><button type="submit" class="btn btn-primary user-page__actions__btn" id="submit-profile">
 Enregistrer
@@ -209,31 +338,107 @@ Demander à exporter vos données
 Telegram
 </span></label></div></div><div class="user-page__actions"><button type="submit" class="btn btn-primary user-page__actions__btn">
 Mettre à jour mes paramètres de notifications
-</button></div></div></div></form></div></div></div></div></div></div><div class="user__sidebar"><div class="user__sidebar-inner"><ul class="menu-nav__list"><li class="menu-nav__list-item menu-nav__list-item__avatar__file"><div class="menu-nav__list-item__avatar__icon"><span class="avatar"><svg class="i i-account avatar__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use></svg></span></div></li><li class="menu-nav__list-item menu-nav__list-item__header menu-nav__list-item__header-user"><a href="https://www.expat-dakar.com/compte/profile" class="menu-nav__list-item__link menu-nav__list-item__link-header">
-Compte &amp; Profil
-</a></li><li class="menu-nav__list-item"><a href="https://www.expat-dakar.com/compte/profile" class="menu-nav__list-item__link">
+</button></div></div></div></form></div></div></div></div></div></div>
 
-Nom :{{current_user.name}}
-</a></li><li class="menu-nav__list-item menu-nav__list-item__notifications"><a class="menu-nav__list-item__link" href="https://www.expat-dakar.com/compte/notifications"><span class="menu-nav__list-item__link__profile-icon"><svg class="i i-bell " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#bell"></use></svg></span>
-Notifications
-</a>
-</li>
-<li class="menu-nav__list-item"><div class="menu-nav__list-item__logout">
-    <a href="{{url_for('logout')}}" class="menu-nav__list-item__link" title="Logout">
-        <span class="menu-nav__list-item__link__profile-icon">
-            <svg class="i i-key " aria-hidden="true">
-                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
-            </svg>
-        </span>
-        Déconnexion
-    </a>
-</li>
-</div></li>
-<hr class="menu-nav__list-item__divider">
-<li class="menu-nav__list-item menu-nav__list-item__user-navigation "><a href="https://www.expat-dakar.com" class="menu-nav__list-item__link ">
-Accueil
-</a></li>
-</ul></div></div></div></div></div>
+<div class="user__sidebar">
+    <div class="user__sidebar-inner">
+        <ul class="menu-nav__list">
+            <li class="menu-nav__list-item menu-nav__list-item__avatar__file">
+                {% if  current_user.image %}
+                                                    
+                <img src="{{ url_for('static',filename='images/users/' + current_user.image) }}" width="90px" class="img-circle" alt="Responsive Circle Image">
+                {% else %}
+                <div class="user-page__avatar__file">
+                    <span class="avatar">
+                        <svg class="i i-account avatar__icon" aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#account"></use>
+                         </svg>
+                     </span>
+                </div>
+                {% endif %}
+                                                    
+            </li>
+            <li class="menu-nav__list-item">
+                <a href="https://www.expat-dakar.com/compte/profile" class="menu-nav__list-item__link">
+
+                    Nom :{{current_user.name}}
+                </a>
+            </li>
+
+            <li class="menu-nav__list-item menu-nav__list-item__notifications">
+                <a class="menu-nav__list-item__link" href="https://www.expat-dakar.com/compte/notifications"><span class="menu-nav__list-item__link__profile-icon"><svg class="i i-bell " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#bell"></use></svg></span>
+                Notifications
+                </a>
+            </li>
+            <hr>
+            <li class="menu-nav__list-item">
+                <div class="menu-nav__list-item__logout">
+                <a href="{{url_for('allArticleUser')}}" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">
+                        <svg class="i i-key " aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
+                        </svg>
+                    </span>
+                    mes articles
+                </a>
+            </li>
+            <li class="menu-nav__list-item">
+                <div class="menu-nav__list-item__logout">
+                <a href="{{url_for('create_emplois')}}" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">
+                        <svg class="i i-key " aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
+                        </svg>
+                    </span>
+                    create emplois
+                </a>
+            </li>
+
+            <li class="menu-nav__list-item">
+                <div class="menu-nav__list-item__logout">
+                <a href="{{url_for('allEmploisUser')}}" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">
+                        <svg class="i i-key " aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
+                        </svg>
+                    </span>
+                    mes emplois
+                </a>
+            </li>
+            <li class="menu-nav__list-item">
+                <div class="menu-nav__list-item__logout">
+                <a href="{{url_for('favories')}}" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">
+                        <svg class="i i-key " aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
+                        </svg>
+                    </span>
+                    mes favories
+                </a>
+            </li>
+
+            <li class="menu-nav__list-item"><div class="menu-nav__list-item__logout">
+                <a href="{{url_for('logout')}}" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">
+                        <svg class="i i-key " aria-hidden="true">
+                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#key"></use>
+                        </svg>
+                    </span>
+                    Déconnexion
+                </a>
+            </li>
+
+            </div></li>
+            <hr class="menu-nav__list-item__divider">
+
+            <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+                <a href="https://www.expat-dakar.com" class="menu-nav__list-item__link ">
+                Accueil
+                </a>
+            </li>
+        </ul>
+    </div>
+</div></div></div></div>
 <section class="home-newsletter"><div class="home-newsletter__container"><div class="home-newsletter__inner"><div class="home-newsletter__content"><div class="home-newsletter__title">
 Restez informés avec notre newsletter
 </div><p class="home-newsletter__subtitle">

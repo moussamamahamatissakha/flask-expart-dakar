@@ -27,46 +27,7 @@
 
             <div class="listing-page__content">
                 <div class="listing-item">
-
-
-                    <div class="listing-item__gallery">
-                        <div class="gallery-container" data-listing-gallery>
-                            <div class="gallery-inner gallery-inner--main gallery-inner--main-has-thumbs gallery-inner--priority-default" data-listing-gallery-main data-slider-container>
-                                <ul class="gallery gallery--main " data-slider-wrapper>
-                                    <li class="gallery__image gallery__image--main swiper-slide-active" data-slider-item="0">
-                                        <div class="gallery__image__inner-container gallery__image__inner-container--main">
-                                            <svg class="i i-home gallery__image__placeholder gallery__image__placeholder--custom" aria-hidden="true">
-                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#home"></use>
-                                            </svg>
-                                            <div class="gallery__image__inner">
-                                                <img class="gallery__image__resource vh-img"   src="{{ url_for('static', filename='images/tasks/' + article.image) }}" loading="eager" alt="Chambre meublée image 1" >
-                                                          
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
-                                </ul>
-                                <span class="gallery__slider-nav gallery__slider-nav--prev" data-slider-prev-arrow>
-                                    <svg class="i i-chevron-left gallery__slider-nav__icon" aria-hidden="true">
-                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-left"></use>
-                                    </svg>
-                                </span>
-                                <span class="gallery__slider-nav gallery__slider-nav--next" data-slider-next-arrow>
-                                    <svg class="i i-chevron-right gallery__slider-nav__icon" aria-hidden="true">
-                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-right"></use>
-                                    </svg>
-                                </span>
-                                <span class="gallery__close" data-listing-gallery-close>
-                                    <svg class="i i-close gallery__close__icon" aria-hidden="true">
-                                        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#close"></use>
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                        
+            
                     
                     <div class="listing-item__info"><div class="listing-item__details">
                         <div class="listing-item__details__inner"><div class="listing-item__details__date">
@@ -77,17 +38,56 @@
 Référence de l&#039;annonce :
 {{article.id}}
 </div></div></div><span class="listing-item__price"><span class="listing-card__price__value 1">
-    {{article.prix}} F Cfa
+   Non Defini
 </span>
 </span>
 <h1 class="listing-item__header">
-    {{article.content}}
+    {{article.libelle}}
 </h1>
-<div class="listing-item__address"><svg class="i i-gmaps listing-item__address__icon" aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#gmaps"></use></svg><span class="listing-item__address-location">
+<div class="listing-item__address">
+    <svg class="i i-gmaps listing-item__address__icon" aria-hidden="true">
+        <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#gmaps">
+
+        </use>
+    </svg>
+    <span class="listing-item__address-location">
     {{article.quartier}}
-</span><span class="listing-item__address-region">
+    </span>
+<span class="listing-item__address-region">
     {{article.ville}}
-</span></div><div class="listing-item__title">
+</span>
+</div>
+<div class="listing-item__address">
+    <h1 class="listing-item__header"> Details</h1>
+
+    <span class="listing-item__address-location">
+        {% if article.secteur_activite %}
+        Employeur    :         {{article.secteur_activite}} <br><br>
+        {% endif %}
+        {% if article.type_contrat %}
+        Type de contrat    :         {{article.type_contrat}} <br><br>
+        {% endif %}
+        {% if article.niveau_emplois %}
+        Niveau d'emploi    :         {{article.niveau_emplois}} <br><br>
+        {% endif %}
+        {% if article.niveau_etude %}
+        Niveau d'étude    :         {{article.niveau_etude}} <br><br>
+        {% endif %}
+        {% if article.experience %}
+        Des années d'expérience :   {{article.experience}} <br><br>
+        {% endif %}
+        {% if article.nombre_poste %}
+        Nombre de postes :   {{article.nombre_poste}} <br><br>
+        {% endif %}
+        {% if article.date_limit_candidature %}
+        Date limite de candidateure :   {{article.date_limit_candidature}} <br><br>
+        {% endif %}
+        
+    </span>
+    
+
+</div>
+<div class="listing-item__title">
 Description
 
 </div>
@@ -117,7 +117,6 @@ Partager
                 <div class="listing-item-transparency__member">
                     <div class="listing-item-transparency__image">
                         <span class="avatar">
-
                             <svg class="i i-account " aria-hidden="true">
                                 {% if  current_user.image %}
                                 <img class="gallery__image__resource vh-img"   src="{{ url_for('static', filename='images/users/' + article.users.image) }}" loading="eager" alt="Chambre meublée image 1" >                                
@@ -130,11 +129,7 @@ Partager
                                      </span>
                                 </div>
                                 {% endif %}
-                           
-                            </svg>
-                        
-                      
-                        
+                          </svg>
                         </span>
                     </div>
                     <div class="listing-item-transparency__title">

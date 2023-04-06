@@ -64,6 +64,8 @@
                                         </div>
 
                                         <div class="listings-header-alert-form" data-alert-form>
+
+
                                             <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
                                                 <input name="_token" type="hidden" value="">
                                                 <input name="" type="hidden" value="">
@@ -80,7 +82,7 @@
                                                     </button>
                                                 </div>
                                             </form>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -96,8 +98,11 @@
                             <div class="listings-cards">
                                 <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
                                     <div class="listings-cards__list-item ">
+
+                                        {% if article.id %2 == 0 %}
+
                                         <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
-                                            <a href="#" class="listing-card__inner" id=""  >
+                                            <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
                                             <div class="listing-card__aside">
                                                 <div class="listing-card__image">
                                                     <div class="listing-card__image__inner-container">
@@ -105,7 +110,7 @@
                                                             <use href="#"></use>
                                                         </svg>
                                                         <div class="listing-card__image__inner">
-                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
                                                           
                                                         </div>
                                                     </div>
@@ -130,9 +135,30 @@
                                                             <div class="listing-card__header__title">
                                                                 {{article.description}}
                                                             </div><div class="listing-card__header__tags">
+                                                                
+                                                                {% if article.etat =="Venant" %}
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                    {{article.etat}}
-                                                                </span>
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Neuf" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Reconditionné" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Occasion" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+
+
+
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
                                                                     {{article.title}}
                                                                 </span>
@@ -157,7 +183,7 @@
                                                                            
                                                                         </div>
                                                                         <div class="listing-card__image__inner">
-                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
                                                                           
                                                                         </div>
                                                                         
@@ -167,8 +193,121 @@
                                                                     </a>
                                                                 </object>
                                                             </div>
+                                                            {% else %}                     
+                                                                <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-silver">
+                                                                    <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
+                                                                    <div class="listing-card__aside">
+                                                                        <div class="listing-card__image">
+                                                                            <div class="listing-card__image__inner-container">
+                                                                                <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
+                                                                                    <use href="#"></use>
+                                                                                </svg>
+                                                                                <div class="listing-card__image__inner">
+                                                                                    <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                                                
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="listing-card__priority">
+                                                                            <span class="listing-priority listing-priority--silver">
+                                                                                <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
+                                                                                    <use href="#"></use>
+                                                                                </svg>
+                                                                                <span class="listing-priority__title">
+                                                                                * VIP
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {{ loop.index + pagination.skip }}
+                                                                    <div class="listing-card__content 1">
+                                                                        <div class="listing-card__content__inner">
+                                                                            <div class="listing-card__header">
+                                                                                <div class="listing-card__header-content">
+                                                                                    <div class="listing-card__header__title">
+                                                                                        {{article.description}}
+                                                                                    </div>
+                                                                                    <div class="listing-card__header__tags">
+                                                                                        {% if article.etat =="Venant" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Neuf" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Reconditionné" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Occasion" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                        
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
+                                                                                            {{article.title}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="listing-card__header__location">
+                                                                                        <svg class="i i-gmaps " aria-hidden="true">
+                                                                                            <use href="#"></use>
+                                                                                        </svg>
+                                                                                        {{article.quartier}}, {{article.ville}}
+                                                                                        <p>{{article.published_date}} 
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="listing-card__header-aside">
+                                                                                    <div class="listing-card__header__business-image">
+                                                                                        <object class="listing-card__business-image" alt="">
+                                                                                            <a href="#" class="listing-card__business-image__inner-container">
+                                                                                                <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
+                                                                                                    <use href="#"></use>
+                                                                                                </svg>
+                                                                                                <div class="listing-card__business-image__inner">
+
+                                                                                                
+                                                                                                </div>
+                                                                                                <div class="listing-card__image__inner">
+                                                                                                    <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                                                                
+                                                                                                </div>
+                                                                                                
+                                                                                            
+                                                                                            
+                                                                                            </div>
+                                                                                            </a>
+                                                                                        </object>
+                                                                                    </div>
+                                                            {% endif %}
+
+
+
+
+
+
+
+
+
+
                                                         </div>
                                                     </div>
+
+
+
+
+
+
+
+
+
+
+
                                                     
                                                     <div class="listing-card__info-bar">
                                                         <div class="listing-card__info-bar__price">
@@ -274,8 +413,10 @@
                             </svg>
                         </a>
                     </div>
+
                     <div class="filters__inner">
                         <div class="filter-group" style="order: 10">
+
                         <form action="{{url_for('filter_by_libelle')}}" method="post">
                             <div class="filter-group__title">
                                 <label for="search-filter">
@@ -293,6 +434,7 @@
                                 <div class="filter-group__title">
                                 Trier par
                                 </div>
+
                                 <form action="{{url_for('sort')}}" method="get">
                                 <div class="filter_group__content">
                                     <div class="filter">
@@ -511,7 +653,8 @@
                                  Prix
                                 <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
                                     <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
-                                </svg></label></div><div id="filter-items-price" class="toggle-input-target filter-group__content">
+                                </svg></label></div>
+                                <div id="filter-items-price" class="toggle-input-target filter-group__content">
                                    
                                    
                                     <form action="{{url_for('prix')}}" method="post">

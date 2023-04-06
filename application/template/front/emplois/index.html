@@ -27,7 +27,7 @@
                                                         <a href="#" class="breadcrumbs__list-item__link">Annonces</a>
                                                     </li>
                                                     <li id="breadcrumbs-category-multimedia" class="breadcrumbs__list-item">
-                                                        <a href="#" class="breadcrumbs__list-item__link">Multim&eacute;dia</a>
+                                                        <a href="#" class="breadcrumbs__list-item__link">Multim&eacute;dia{{title}}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -42,7 +42,7 @@
                                             Multimédia - Sénégal
                                             </h1>
                                             <span class="listings-header-title__count">
-                                            14590 résultats trouvés
+                                            {{tableau.all}} résultats trouvés
                                             </span>
                                         </div>
                                         <div class="listings-header-refine-search">
@@ -62,7 +62,10 @@
                                                 </span>
                                             </div>
                                         </div>
+
                                         <div class="listings-header-alert-form" data-alert-form>
+
+
                                             <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
                                                 <input name="_token" type="hidden" value="">
                                                 <input name="" type="hidden" value="">
@@ -79,12 +82,12 @@
                                                     </button>
                                                 </div>
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                            
-
 
                             {% for article in articles %}
 
@@ -94,8 +97,11 @@
                             <div class="listings-cards">
                                 <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
                                     <div class="listings-cards__list-item ">
+                                        
+                                        {% if article.id %2 == 0 %}
+
                                         <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
-                                            <a href="#" class="listing-card__inner" id=""  >
+                                            <a href="{{url_for('detailEmplois',id=article.id)}}" class="listing-card__inner" id=""  >
                                             <div class="listing-card__aside">
                                                 <div class="listing-card__image">
                                                     <div class="listing-card__image__inner-container">
@@ -103,7 +109,7 @@
                                                             <use href="#"></use>
                                                         </svg>
                                                         <div class="listing-card__image__inner">
-                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/emplois/' + article.image) }}" alt="" loading="lazy">
                                                           
                                                         </div>
                                                     </div>
@@ -126,10 +132,10 @@
                                                     <div class="listing-card__header">
                                                         <div class="listing-card__header-content">
                                                             <div class="listing-card__header__title">
-                                                                {{article.description}}
+                                                                {{article.libelle}}
                                                             </div><div class="listing-card__header__tags">
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
-                                                                    {{article.etat}}
+                                                                   
                                                                 </span>
                                                                 <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
                                                                     {{article.title}}
@@ -155,7 +161,7 @@
                                                                            
                                                                         </div>
                                                                         <div class="listing-card__image__inner">
-                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/' + article.image) }}" alt="" loading="lazy">
+                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/emplois/' + article.image) }}" alt="" loading="lazy">
                                                                           
                                                                         </div>
                                                                         
@@ -165,6 +171,86 @@
                                                                     </a>
                                                                 </object>
                                                             </div>
+                                                            {% else %}  
+                                                            <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-silver">
+                                                                <a href="{{url_for('detailEmplois',id=article.id)}}" class="listing-card__inner" id=""  >
+                                                                <div class="listing-card__aside">
+                                                                    <div class="listing-card__image">
+                                                                        <div class="listing-card__image__inner-container">
+                                                                            <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
+                                                                                <use href="#"></use>
+                                                                            </svg>
+                                                                            <div class="listing-card__image__inner">
+                                                                                <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/emplois/' + article.image) }}" alt="" loading="lazy">
+                                                                              
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="listing-card__priority">
+                                                                        <span class="listing-priority listing-priority--silver">
+                                                                            <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
+                                                                                <use href="#"></use>
+                                                                            </svg>
+                                                                            <span class="listing-priority__title">
+                                                                            * VIP
+                                                                            </span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                    
+                                                                {{ loop.index + pagination.skip }}
+                                                                <div class="listing-card__content 1">
+                                                                    <div class="listing-card__content__inner">
+                                                                        <div class="listing-card__header">
+                                                                            <div class="listing-card__header-content">
+                                                                                <div class="listing-card__header__title">
+                                                                                    {{article.libelle}}
+                                                                                </div><div class="listing-card__header__tags">
+                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                                      
+                                                                                    </span>
+                                                                                    <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
+                                                                                        {{article.title}}
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="listing-card__header__location">
+                                                                                    <svg class="i i-gmaps " aria-hidden="true">
+                                                                                        <use href="#"></use>
+                                                                                    </svg>
+                                                                                    {{article.quartier}}, {{article.ville}}
+                                                                                    <p>{{article.published_date}} 
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="listing-card__header-aside">
+                                                                                <div class="listing-card__header__business-image">
+                                                                                    <object class="listing-card__business-image" alt="">
+                                                                                        <a href="#" class="listing-card__business-image__inner-container">
+                                                                                            <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
+                                                                                                <use href="#"></use>
+                                                                                            </svg>
+                                                                                            <div class="listing-card__business-image__inner">
+                    
+                                                                                               
+                                                                                            </div>
+                                                                                            <div class="listing-card__image__inner">
+                                                                                                <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/emplois/' + article.image) }}" alt="" loading="lazy">
+                                                                                              
+                                                                                            </div>
+                                                                                            
+                                                                                        
+                                                                                          
+                                                                                        </div>
+                                                                                        </a>
+                                                                                    </object>
+                                                                                </div>
+                                                                                {% endif %}
+
+
+
+
+
+
+
                                                         </div>
                                                     </div>
                                                     
@@ -172,7 +258,7 @@
                                                         <div class="listing-card__info-bar__price">
                                                             <span class="listing-card__price">
                                                                 <span class="listing-card__price__value 1">
-                                                                    {{article.prix}} F Cfa
+                                                                  
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -260,7 +346,7 @@
 
 
             <div class="search__filter" id="filters" data-search-filter>
-                <form method="GET" action="" accept-charset="UTF-8" >
+               
                     <div class="filters">
                         <div class="filters-overlay__header">
                             <a href="#filters" class="filters-overlay__header__button" >
@@ -272,23 +358,29 @@
                             </svg>
                         </a>
                     </div>
+
                     <div class="filters__inner">
                         <div class="filter-group" style="order: 10">
+
+                        <form action="{{url_for('filter_by_libelle')}}" method="post">
                             <div class="filter-group__title">
                                 <label for="search-filter">
                                     Filtrer les r&eacute;sultats
                                 </label></div><div class="filter-group__content">
                                     <div class="filter">
                                         <div class="filter__text">
-                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="q" type="search">
+                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="title" type="search">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </form>
                             <div class="filter-group" style="order: 20">
                                 <div class="filter-group__title">
                                 Trier par
                                 </div>
+
+                                <form action="{{url_for('sort')}}" method="get">
                                 <div class="filter_group__content">
                                     <div class="filter">
                                         <div class="filter__text">
@@ -296,14 +388,20 @@
                                                 Trier par
                                             </label>
                                             <select class="form-control custom-select"  name="sort">
-                                                <option value="offers" selected="selected">Offres spéciales</option>
-                                                <option value="latest">Plus récentes</option>
-                                                <option value="lowest-price">Prix décroissants</option>
-                                                <option value="highest-price">Prix croissants</option>
+                                               <option value="recent" selected="selected">Offre Spécial </option>
+                                               <option value="decroissant">Plus récentes</option>
+                                              
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div><br>
+                                <button type="submit" class="btn btn-primary btn-block filters__submit-button">
+                                    <svg class="i i-filter " aria-hidden="true">
+                                        <use></use>
+                                    </svg>
+                                                    Ok
+                                </button>
+                            </form>
                             </div>
                             <div class="filter-group" style="order: 60">
                                 <div class="filter-group__title">
@@ -318,7 +416,7 @@
 
                                                     </use>
                                                 </svg>
-                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-0">
+                                                <a href="{{url_for('index_emplois')}}" class="filter__category-list-item__title filter__category-list-item__title--level-0">
                                                 Annonces
                                                 </a>
                                             </li>
@@ -331,8 +429,8 @@
                                                         <use href="#"></use>
                                                     </svg>
                                                 </a>
-                                                <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-1">
-                                                Multimédia
+                                                <a href="{{url_for('index_emplois')}}" class="filter__category-list-item__title filter__category-list-item__title--level-1">
+                                                Emplois
                                                 </a>
                                             </li>
                                         </ul>
@@ -344,23 +442,23 @@
                                                             <li id="" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    5480
+                                                                        {{tableau.administratif}}
                                                                     </span>
-                                                                    <a href="#" class="filter__category-list-item__title filter__category-list-item__title--level-2">
-                                                                    Emploi vente et Commercial
+                                                                    <a href="{{url_for('getAdministratifs')}}" class="filter__category-list-item__title filter__category-list-item__title--level-2">
+                                                                        Administratif
                                                                     </a>
                                                                 </h2>
                                                             </li>
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.securite}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('getSecurites')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                        Emploi Marketing et Communication
+                                                                        Securite
                                                                     </a>
 
                                                                 </h2>
@@ -368,17 +466,32 @@
                                                             <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
                                                                 <h2 class="filter__category-list-item__container">
                                                                     <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
-                                                                    3385
+                                                                        {{tableau.agricole}}
                                                                     </span>
-                                                                    <a href="#" class="
+                                                                    <a href="{{url_for('getAgricoles')}}" class="
                                                                             filter__category-list-item__title
                                                                             filter__category-list-item__title--level-2
                                                                         ">
-                                                                        Emploi Social
+                                                                        Agricoles
                                                                     </a>
 
                                                                 </h2>
                                                             </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.ingenierie}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getIngenieries')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                        Ingenieries
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -412,25 +525,26 @@
                                         </li>
                                         <li id="region-dakar" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                            14413
+                                                {{tableau.dakar}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
+                                            <a href="{{url_for('getAllDakarEmploiss')}}" class="filter__list-item__title">
                                             Dakar
                                             </a>
                                         </li>
                                         <li id="region-diourbel" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
                                             <span class="filter__list-item__count">
-                                            10
+                                                {{tableau.touba}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
-                                            Diourbel
+                                            <a href="{{url_for('getAllToubEmploiss')}}" class="filter__list-item__title">
+                                            Touba
                                             </a>
                                         </li>
                                         <li id="region-fatick" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
-                                            <span class="filter__list-item__count">1
+                                            <span class="filter__list-item__count">
+                                                {{tableau.thies}}
                                             </span>
-                                            <a href="#" class="filter__list-item__title">
-                                            Fatick
+                                            <a href="{{url_for('getAllThiesEmploiss')}}" class="filter__list-item__title">
+                                            Thies
                                             </a>
                                         </li>
                                         <li class="filter__list-expander" data-search-filter-expander><span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
@@ -450,33 +564,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="filter-price" class="filter-group" style="order: 1000">
-                            <input type="checkbox" id="toggle-price" class="toggle-input" />
-                            <div id="label-price" class="filter-group__header">
-                                <label class="filter-group__title" for="toggle-price">
-                                 Prix
-                                <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
-                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
-                                </svg></label></div><div id="filter-items-price" class="toggle-input-target filter-group__content">
-                                    <div class="filter">
-                                        <div class="filter__range">
-                                            <div class="filter__range__inner">
-                                                <div class="filter__range__min">
-                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="min-price" type="number">
-                                                </div>
-                                                <div class="filter__range__max">
-                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="max-price" type="number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
                             <div id="filter-condition" class="filter-group" style="order: 1000">
                                 <input type="checkbox" id="toggle-condition" class="toggle-input" />
                                 <div id="label-condition" class="filter-group__header">
                                     <label class="filter-group__title" for="toggle-condition">
-                                            Etat
+                                            Type Contrat
                                         <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
                                             <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
                                         </svg>
@@ -487,36 +580,21 @@
                                         <ul id="filter-list-condition" class="filter__list" data-search-filter-group data-search-filter-group-count="4">
                                             <li id="condition-used" class="filter__list-item " data-search-filter-item data-search-filter-item-count="1311" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                1311
+                                                {{tableau.plein}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=used" class="filter__list-item__title">
-                                                    D&#039;occasion
+                                                <a href="{{url_for('getAllTempsPleins')}}" class="filter__list-item__title">
+                                                   Temps plein
                                                 </a>
                                             </li>
                                             <li id="condition-new" class="filter__list-item " data-search-filter-item data-search-filter-item-count="7895" data-search-filter-item-active="0">
                                                 <span class="filter__list-item__count">
-                                                7895
+                                                    {{tableau.partiel}}
                                                 </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=new" class="filter__list-item__title">
-                                                Neuf
+                                                <a href="{{url_for('getAllTempsPartiels')}}" class="filter__list-item__title">
+                                                Temps Partiel
                                                 </a>
                                             </li>
-                                            <li id="condition-refurbished" class="filter__list-item " data-search-filter-item data-search-filter-item-count="157" data-search-filter-item-active="0">
-                                                <span class="filter__list-item__count">
-                                                157
-                                                </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=refurbished" class="filter__list-item__title">
-                                                Réconditionné
-                                                </a>
-                                            </li>
-                                            <li id="condition-used-abroad" class="filter__list-item " data-search-filter-item data-search-filter-item-count="5167" data-search-filter-item-active="0">
-                                                <span class="filter__list-item__count">
-                                                5167
-                                                </span>
-                                                <a href="https://www.expat-dakar.com/multimedia?condition=used-abroad" class="filter__list-item__title">
-                                                Venant
-                                                </a>
-                                            </li>
+                                           
                                             <li class="filter__list-expander" data-search-filter-expander>
                                                 <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
                                                 Afficher plus
@@ -541,14 +619,15 @@
                     <div class="filters__submit">
                         <button type="submit" class="btn btn-primary btn-block filters__submit-button">
                             <svg class="i i-filter " aria-hidden="true">
-                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#filter"></use>
+                                <use></use>
                             </svg>
                                             Filtrer
                         </button>
                     </div>
+                </form>
                 </div>
             </div>
-        </form>
+       
     </div>
 </div>
 </div>

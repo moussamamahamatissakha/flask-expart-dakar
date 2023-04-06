@@ -5,290 +5,772 @@
 {% endblock %}
 
 {% block container %}
-{% block a %}
-{% endblock a %}
-
 <div class="search">
-    <div class="listings-page-search__header">
-        <h2>Véhicules</h2>
-    </div>
-    <div class="listings-page-search__content" data-search-filter>
-        <div class="listings-page-search__hero-section-image">
-            <img class="listings-page-search__hero-image" alt="vehicles" src="https://www.expat-dakar.com/assets/ed-site/img/static/car-search-hero-desktop.ebd18baa.png" loading="lazy" />
-        </div><div class="listings-page-search__filters">
-            <div class="listings-page-search__filters__inner">
-                <ul class="nav nav-tabs listings-page-search__filters-tabs" role="tablist">
-                    <li class="listings-page-search__filters-tab">
-                        <a href="#vehicules" class="nav-link listings-page-search__filters-tab__link active" data-toggle="tab" role="tab" title="Toutes les catégories">
-                            <svg class="i i-categories listings-page-search__filters-tab__link-icon" aria-hidden="true">
-                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#categories"></use>
-                            </svg>
-                            <span class="listings-page-search__filters-tab__link-title">
-                            Toutes les catégories
-                            </span>
-                        </a>
-                    </li>
-                    <li class="listings-page-search__filters-tab">
-                        <a href="#" class="nav-link listings-page-search__filters-tab__link " data-toggle="tab" role="tab" title="Voitures">
-                            <svg class="i i-voitures listings-page-search__filters-tab__link-icon" aria-hidden="true">
-                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#voitures"></use>
-                            </svg>
-                            <span class="listings-page-search__filters-tab__link-title">
-                            Voitures
-                            </span>
-                        </a>
-                    </li>
-                
-                </ul>
-                <div class="tab-content listings-page-search__filters-all-tabs-content">
-                    <div class="tab-pane active" id="vehicules" role="tabpanel">
-                        <h5>Toutes les catégories</h5>
-                        <form method="GET" action="https://www.expat-dakar.com/category-landing-page" accept-charset="UTF-8">
-                            <div class="listings-page-search__filters-tab-content-input" data-search-filter-group data-search-filter-group-count="5" data-search-filter-expand-min-size="4" data-search-filter-group-no-sort>
-                                <input name="root-category" type="hidden" value="vehicules">
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                    <select class="form-control listings-page-search__filters-tab-content-input-field" name="category">
-                                        <option selected="selected" value="">Catégorie</option>
-                                        <option value="vehicules">Véhicules</option>
-                                      
-                                      
-                                    </select>
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                    <select class="form-control listings-page-search__filters-tab-content-input-field" name="region">
-                                        <option selected="selected" value="">Lieux</option>
-                                        <option value="autres">Autres</option>
-                                        <option value="dakar">Dakar</option>
-                                        <option value="diourbel">Diourbel</option>
-                                    </select>
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                    <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Min Prix" min="0" max="999999999999" step="1" name="min-price" type="number">
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                    <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Max Prix" min="0" max="999999999999" step="1" name="max-price" type="number">
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                    <select class="form-control listings-page-search__filters-tab-content-input-field" id="condition" name="condition">
-                                        <option selected="selected" value="">Etat</option>
-                                        <option value="new">Neuf</option>
-                                   
-                                        <option value="used-abroad">Venant</option>
-                                    </select>
-                                </span>
-                                <div class="listings-page-search__filters-tab-content-buttons1">
-                                    <div class="filter__list-expander btn btn-tall listings-page-search__filters-tab-content-buttons--advanced" data-search-filter-expander>
-                                        <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
-                                        Recherche avancée
-                                        </span><span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
-                                        Recherche normale
-                                        </span>
+    <div class="search__container">
+        <div class="search__row">
+            <div class="search__content-row-container">
+                <div class="search__content-row">
+                    <div class="search__content">
+                        <div id="listings">
+                            <div class="listings-header">
+                                <div class="listings-header__inner">
+                                    <div class="listings-header__nav">
+                                        <div class="listings-header-breadcrumbs">
+                                            <div class="breadcrumbs" data-cy="breadcrumbs">
+                                                <ul class="breadcrumbs__list">
+                                                    <li class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">
+                                                        Accueil
+                                                        </a>
+                                                    </li>
+                                                    <li id="breadcrumbs-category-annonces" class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">Annonces</a>
+                                                    </li>
+                                                    <li id="breadcrumbs-category-multimedia" class="breadcrumbs__list-item">
+                                                        <a href="#" class="breadcrumbs__list-item__link">Vehicule{{title}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-tall listings-page-search__filters-tab-content-buttons--search">
-                                    Recherche
-                                    </button>
+                                    <div class="listings-header__filter-tags">
+
+                                    </div>
+                                    <div class="listings-header__title">
+                                        <div class="listings-header-title">
+                                            <h1 class="listings-header-title__title">
+                                            Multimédia - Sénégal
+                                            </h1>
+                                            <span class="listings-header-title__count">
+                                            {{tableau.all}} résultats trouvés
+                                            </span>
+                                        </div>
+                                        <div class="listings-header-refine-search">
+                                            <a href="#" class="btn btn-primary btn-sm listings-header-refine-search__button" data-search-filter-toggle>
+                                                <svg class="i i-filter " aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                            Filtrer
+                                            </a>
+                                        </div>
+                                        <div class="listings-header-alert listings-header-alert--guest">
+                                            <span class="btn btn-sm btn-primary listings-header-alert__button" data-alert-form-toggle>
+                                                <svg class="i i-email " aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                                Sauvegarder la recherche
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="listings-header-alert-form" data-alert-form>
+
+
+                                            <form method="POST" action="" accept-charset="UTF-8" data-validate-form data-form-blocking class="listings-header-alert-form__inner" data-t-saved_search>
+                                                <input name="_token" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <input name="" type="hidden" value="">
+                                                <div class="listings-header-alert-form__email">
+                                                    <label for="email" class="sr-only">Email</label>
+                                                    <input class="form-control" autocomplete="email" placeholder="Email" required name="email" type="email" id="email">
+                                                    <div class="errors"></div>
+                                                </div>
+                                                <div class="listings-header-alert-form__submit">
+                                                    <button class="btn btn-primary btn-block listings-header-alert-form__button" type="submit" id="create-alert">
+                                                        Souscrire
+                                                    </button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane " id="voitures" role="tabpanel">
-                        <h5>Voitures</h5>
-                        <form method="GET" action="https://www.expat-dakar.com/category-landing-page" accept-charset="UTF-8">
-                            <div class="listings-page-search__filters-tab-content-input" data-search-filter-group data-search-filter-group-count="7" data-search-filter-expand-min-size="4" data-search-filter-group-no-sort>
-                                <input name="category" type="hidden" value="voitures">
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=7 data-search-filter-item-active="0">
-                                    <select class="form-control listings-page-search__filters-tab-content-input-field" name="region">
-                                        <option selected="selected" value="">Lieux</option>
-                                        <option value="autres">Autres</option>
-                                        <option value="dakar">Dakar</option>
-                                  
-                                     
-                                    </select>
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=7 data-search-filter-item-active="0">
-                                    <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Min Prix" min="0" max="999999999999" step="1" name="min-price" type="number">
-                                </span>
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=7 data-search-filter-item-active="0">
-                                    <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Max Prix" min="0" max="999999999999" step="1" name="max-price" type="number">
-                                </span>
-                            
-                                <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=7 data-search-filter-item-active="0">
-                                    <select class="form-control listings-page-search__filters-tab-content-input-field" id="car-body-types" name="car-body-types">
-                                        <option selected="selected" value="">Carrosserie</option>
-                            
-                                    
-                                    </select>
-                                </span>
-                                <div class="listings-page-search__filters-tab-content-buttons1">
-                                    <div class="filter__list-expander btn btn-tall listings-page-search__filters-tab-content-buttons--advanced" data-search-filter-expander>
-                                        <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
-                                        Recherche avancée
-                                        </span>
-                                        <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
-                                        Recherche normale
-                                        </span>
+                           
+
+
+                            {% for article in articles %}
+
+
+
+
+                            <div class="listings-cards">
+                                <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
+                                    <div class="listings-cards__list-item ">
+
+                                        {% if article.id %2 == 0 %}
+
+                                        <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-gold">
+                                            <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
+                                            <div class="listing-card__aside">
+                                                <div class="listing-card__image">
+                                                    <div class="listing-card__image__inner-container">
+                                                        <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
+                                                            <use href="#"></use>
+                                                        </svg>
+                                                        <div class="listing-card__image__inner">
+                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="listing-card__priority">
+                                                    <span class="listing-priority listing-priority--gold">
+                                                        <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
+                                                            <use href="#"></use>
+                                                        </svg>
+                                                        <span class="listing-priority__title">
+                                                        A La Une
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {{ loop.index + pagination.skip }}
+                                            <div class="listing-card__content 1">
+                                                <div class="listing-card__content__inner">
+                                                    <div class="listing-card__header">
+                                                        <div class="listing-card__header-content">
+                                                            <div class="listing-card__header__title">
+                                                                {{article.content}}
+                                                            </div><div class="listing-card__header__tags">
+                                                                
+                                                                {% if article.etat =="Venant" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Neuf" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Reconditionné" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+                                                            {% if article.etat =="Occasion" %}
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                {{article.etat}}
+                                                            </span>
+                                                            {% endif %}
+
+
+
+                                                                <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
+                                                                    {{article.text}}
+                                                                </span>
+                                                            </div>
+                                                            <div class="listing-card__header__location">
+                                                                <svg class="i i-gmaps " aria-hidden="true">
+                                                                    <use href="#"></use>
+                                                                </svg>
+                                                                {{article.quartier}}, {{article.ville}}
+                                                                <p>{{article.published_date}} 
+                                                            </div>
+                                                        </div>
+                                                        <div class="listing-card__header-aside">
+                                                            <div class="listing-card__header__business-image">
+                                                                <object class="listing-card__business-image" alt="">
+                                                                    <a href="#" class="listing-card__business-image__inner-container">
+                                                                        <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
+                                                                            <use href="#"></use>
+                                                                        </svg>
+                                                                        <div class="listing-card__business-image__inner">
+
+                                                                           
+                                                                        </div>
+                                                                        <div class="listing-card__image__inner">
+                                                                            <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                                          
+                                                                        </div>
+                                                                        
+                                                                    
+                                                                      
+                                                                    </div>
+                                                                    </a>
+                                                                </object>
+                                                            </div>
+                                                            {% else %}                     
+                                                                <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--priority listing-card--priority-silver">
+                                                                    <a href="{{url_for('detail',id=article.id)}}" class="listing-card__inner" id=""  >
+                                                                    <div class="listing-card__aside">
+                                                                        <div class="listing-card__image">
+                                                                            <div class="listing-card__image__inner-container">
+                                                                                <svg class="i i-electronics listing-card__image__placeholder" aria-hidden="true">
+                                                                                    <use href="#"></use>
+                                                                                </svg>
+                                                                                <div class="listing-card__image__inner">
+                                                                                    <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                                                
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="listing-card__priority">
+                                                                            <span class="listing-priority listing-priority--silver">
+                                                                                <svg class="i i-priority-star listing-priority__icon" aria-hidden="true">
+                                                                                    <use href="#"></use>
+                                                                                </svg>
+                                                                                <span class="listing-priority__title">
+                                                                                * VIP
+                                                                                </span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    {{ loop.index + pagination.skip }}
+                                                                    <div class="listing-card__content 1">
+                                                                        <div class="listing-card__content__inner">
+                                                                            <div class="listing-card__header">
+                                                                                <div class="listing-card__header-content">
+                                                                                    <div class="listing-card__header__title">
+                                                                                        {{article.content}}
+                                                                                    </div>
+                                                                                    <div class="listing-card__header__tags">
+                                                                                        {% if article.etat =="Venant" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Neuf" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_new">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Reconditionné" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_refurbished">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                    {% if article.etat =="Occasion" %}
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--condition listing-card__header__tags__item--condition_used-abroad">
+                                                                                        {{article.etat}}
+                                                                                    </span>
+                                                                                    {% endif %}
+                                                                                        
+                                                                                        <span class="listing-card__header__tags__item listing-card__header__tags__item--make listing-card__header__tags__item--make_hp-hewlett-packard">
+                                                                                            {{article.text}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    <div class="listing-card__header__location">
+                                                                                        <svg class="i i-gmaps " aria-hidden="true">
+                                                                                            <use href="#"></use>
+                                                                                        </svg>
+                                                                                        {{article.quartier}}, {{article.ville}}
+                                                                                        <p>{{article.published_date}} 
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="listing-card__header-aside">
+                                                                                    <div class="listing-card__header__business-image">
+                                                                                        <object class="listing-card__business-image" alt="">
+                                                                                            <a href="#" class="listing-card__business-image__inner-container">
+                                                                                                <svg class="i i-briefcase listing-card__business-image__placeholder" aria-hidden="true">
+                                                                                                    <use href="#"></use>
+                                                                                                </svg>
+                                                                                                <div class="listing-card__business-image__inner">
+
+                                                                                                
+                                                                                                </div>
+                                                                                                <div class="listing-card__image__inner">
+                                                                                                    <img class="listing-card__image__resource vh-img"  src="{{ url_for('static', filename='images/tasks/' + article.image) }}" alt="" loading="lazy">
+                                                                                                
+                                                                                                </div>
+                                                                                                
+                                                                                            
+                                                                                            
+                                                                                            </div>
+                                                                                            </a>
+                                                                                        </object>
+                                                                                    </div>
+                                                            {% endif %}
+
+
+
+
+
+
+
+
+
+
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                                                    
+                                                    <div class="listing-card__info-bar">
+                                                        <div class="listing-card__info-bar__price">
+                                                            <span class="listing-card__price">
+                                                                <span class="listing-card__price__value 1">
+                                                                    {{article.prix}} F Cfa
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                        <!--googleoff: index-->
+                                                        <div class="listing-card__info-bar__contact">
+                                                            <object class="listing-card__contact listing-card__contact--phone" alt="Contacter par Téléphone">
+                                                                <form method="POST" action="" accept-charset="UTF-8" class="listing-card__contact__container" >
+                                                                    <input name="_token" type="hidden" value="PwhhBe4xZWUiwbvnuZO2XBGd5ym6Zpnf2EYg5M3v">
+                                                                    <button type="submit" class="listing-card__contact__icon-outer" aria-label="Contacter par Téléphone">
+                                                                        <svg class="i i-phone listing-card__contact__icon" aria-hidden="true">
+                                                                            <use href="#"></use>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <div class="listing-card__contact__number">
+                                                                <a >
+                                                                    778097550
+                                                                </a>
+                                                                <a >
+                                                                    778097550
+                                                                </a>
+                                                                <a >
+                                                                    778097550
+                                                                    
+                                                                </a>
+                                                                </div>
+                                                            </form>
+                                                        </object>
+                                                        <object class="listing-card__contact listing-card__contact--whatsapp" alt="Contacter par WhatsApp">
+                                                            <div class="listing-card__contact__container">
+                                                                <a class="listing-card__contact__icon-outer" rel="noopener noindex nofollow" href="#" >
+                                                                    <svg class="i i-whatsapp listing-card__contact__icon" aria-hidden="true">
+                                                                        <use href="#">
+
+                                                                        </use>
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                        </object>
+                                                        <object class="listing-card__contact listing-card__contact--chat" alt="">
+                                                            <form method="GET" action="" accept-charset="UTF-8" class="listing-card__contact__container">
+                                                            <input name="redirect" type="hidden" value="">
+                                                            <input name="require_mobile_verified" type="hidden" value="1">
+                                                            <input name="trigger_contact[id]" type="hidden" value="5502425">
+                                                            <input name="trigger_contact[type]" type="hidden" value="chat">
+                                                            <button type="submit" class="listing-card__contact__icon-outer" aria-label="Contacter via Chat">
+                                                                <svg class="i i-chat listing-card__contact__icon" aria-hidden="true">
+                                                                    <use href="#"></use>
+                                                                </svg>
+                                                            </button>
+                                                        </form>
+                                                    </object>
+   
+                                                </div>
+                                                
+                                                <!--googleon: index-->
+                                            </div>
+                                            
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-tall listings-page-search__filters-tab-content-buttons--search">
-                                    Recherche
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane " id="motos-scooters" role="tabpanel">
-                    <h5>Motos &amp; scooters</h5>
-                    <form method="GET" action="https://www.expat-dakar.com/category-landing-page" accept-charset="UTF-8">
-                        <div class="listings-page-search__filters-tab-content-input" data-search-filter-group data-search-filter-group-count="5" data-search-filter-expand-min-size="4" data-search-filter-group-no-sort>
-                            <input name="category" type="hidden" value="motos-scooters">
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                <select class="form-control listings-page-search__filters-tab-content-input-field" name="region">
-                                    <option selected="selected" value="">Lieux</option>
-                                    <option value="autres">Autres</option>
-                                 
-                        
-                                </select>
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Min Prix" min="0" max="999999999999" step="1" name="min-price" type="number">
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Max Prix" min="0" max="999999999999" step="1" name="max-price" type="number">
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                <select class="form-control listings-page-search__filters-tab-content-input-field" id="condition" name="condition">
-                                    <option selected="selected" value="">Etat</option>
-                                    <option value="new">Neuf</option>
-                                   
-                                </select>
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=5 data-search-filter-item-active="0">
-                                <select class="form-control listings-page-search__filters-tab-content-input-field" id="make" name="make">
-                                    <option selected="selected" value="">Marque</option>
-                                    <option value="honda">Honda</option>
-                                    <option value="volkswagen">Volkswagen</option>
+                                </a>
                                 
-                                </select>
-                            </span>
-                            <div class="listings-page-search__filters-tab-content-buttons1">
-                                <div class="filter__list-expanderbtn btn-tall listings-page-search__filters-tab-content-buttons--advanced" data-search-filter-expander>
-                                    <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
-                                    Recherche avancée
-                                    </span>
-                                    <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
-                                    Recherche normale
-                                    </span>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-tall listings-page-search__filters-tab-content-buttons--search">
-                                Recherche
-                                </button>
                             </div>
+                            
                         </div>
-                    </form>
-                </div>
-                <div class="tab-pane " id="location-de-voiture" role="tabpanel">
-                    <h5>Location de voiture</h5>
-                    <form method="GET" action="https://www.expat-dakar.com/category-landing-page" accept-charset="UTF-8">
-                        <div class="listings-page-search__filters-tab-content-input" data-search-filter-group data-search-filter-group-count="3" data-search-filter-expand-min-size="4" data-search-filter-group-no-sort>
-                            <input name="category" type="hidden" value="location-de-voiture">
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=3 data-search-filter-item-active="0">
-                                <select class="form-control listings-page-search__filters-tab-content-input-field" name="region">
-                                    <option selected="selected" value="">Lieux</option>
+                        
+                    </div>
+
                     
-                                    <option value="saint-louis">Saint-Louis</option>
-                                    <option value="sine-saloum">Sine saloum</option>
-                                    <option value="sedhiou">Sédhiou</option>
-                                    
-                                </select>
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=3 data-search-filter-item-active="0">
-                                <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Min Prix" min="0" max="999999999999" step="1" name="min-price" type="number">
-                            </span>
-                            <span class="listings-page-search__filters-tab-content-input-field-container" data-search-filter-item data-search-filter-item-count=3 data-search-filter-item-active="0">
-                                <input class="form-control listings-page-search__filters-tab-content-input-field" placeholder="Max Prix" min="0" max="999999999999" step="1" name="max-price" type="number">
-                            </span>
-                            <div class="listings-page-search__filters-tab-content-buttonsright">
-                                <button type="submit" class="btn btn-primary btn-tall listings-page-search__filters-tab-content-buttons--search">
-                                Recherche
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
+              
+               
+                {% endfor %}
+                <a href=""> {{ pagination.links }}</a>
+             
+
+                                                    
                 
             </div>
-        </div>
-        <div class="listings-page-search__spacer">&nbsp;
+           
 
-        </div><div class="listings-page-search__brands">
-            <div class="listings-page-search__title">
-                <h5 class="listings-page-search__title-name">
-                Parcourir par les plus populaires
-                </h5>
-                <a href="https://www.expat-dakar.com/voitures" class="listings-page-search__view-all viewable">
-                Tout voir
-                </a>
-            </div>
-            <div class="listings-page-search__brands-icons listings-page-search__small-screen" data-search-filter-group data-search-filter-toggle-group data-search-filter-group-count="9" data-search-filter-expand-min-size="6">
-                <a href="https://www.expat-dakar.com/voitures/chevrolet" class="listings-page-search__brands-icon" data-search-filter-item data-search-filter-item-count=9 data-search-filter-item-active="0">
-                    <img width="50" height="50" alt="Chevrolet" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/chevrolet.aadcdadf.svg" loading="lazy" />
-                    <span>Chevrolet</span>
-                </a>
-             
-                <div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander>
-                    <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
-                    Afficher plus
-                    </span>
-                    <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
-                    Afficher moins
-                    </span>
-                </div>
-            </div>
-            <div class="listings-page-search__brands-icons listings-page-search__wide-screen">
-                <a href="https://www.expat-dakar.com/voitures/chevrolet" class="listings-page-search__brands-icon">
-                    <img width="50" height="50" alt="Chevrolet" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/chevrolet.aadcdadf.svg" loading="lazy" />
-                    <span>Chevrolet</span>
-                </a>
-              
-                <div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander>
-                    <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
-                    Afficher plus
-                    </span>
-                    <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
-                    Afficher moins
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="listings-page-search__spacer">&nbsp;
+           
 
-        </div>
-        <div class="listings-page-search__new-products-section">
-            <h5 class="listings-page-search__title-name">
-                Découvrez les nouveaux produits
-            </h5>
-            <div class="listings-page-search__new-products listings-page-search__small-screen" data-search-filter-group data-search-filter-toggle-group data-search-filter-group-count="4" data-search-filter-expand-min-size="1">
-                <div class="listings-page-search__new-product" data-search-filter-item data-search-filter-item-count = 4 data-search-filter-item-active="0">
-                    <div class="listings-page-search__new-product__image-container">
-                        <img class="listings-page-search__new-product__image" alt="ui.vehicle.vehicles-section-details.discover-new-products.description.top.title-1" src="https://www.expat-dakar.com/assets/ed-site/img/static/new-cars.0760debf.png" loading="lazy" />
+
+
+
+
+            <div class="search__filter" id="filters" data-search-filter>
+               
+                    <div class="filters">
+                        <div class="filters-overlay__header">
+                            <a href="#filters" class="filters-overlay__header__button" >
+                            Fermer
+                            <svg class="i i-close filters-overlay__header__button-icon" aria-hidden="true">
+                                <use href="#">
+
+                                </use>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="listings-page-search__new-product__image-overlay">
-                        <h2 class="listings-page-search__new-product__title">
-                            Voitures neuves
-                        </h2>
-                        <div class="listings-page-search__new-product__description">
-                        Regardez les voitures les plus récentes que nous avons à offrir.
+
+                    <div class="filters__inner">
+                        <div class="filter-group" style="order: 10">
+
+                        <form action="{{url_for('filter_by_libelleVehicule')}}" method="post">
+                            <div class="filter-group__title">
+                                <label for="search-filter">
+                                    Filtrer les r&eacute;sultats
+                                </label></div><div class="filter-group__content">
+                                    <div class="filter">
+                                        <div class="filter__text">
+                                            <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="title" type="search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                            <div class="filter-group" style="order: 20">
+                                <div class="filter-group__title">
+                                Trier par
+                                </div>
+
+                                <form action="{{url_for('sortVehicule')}}" method="get">
+                                <div class="filter_group__content">
+                                    <div class="filter">
+                                        <div class="filter__text">
+                                            <label for="sort" class="sr-only">
+                                                Trier par
+                                            </label>
+                                            <select class="form-control custom-select"  name="sort1">
+                                               <option value="recent" selected="selected"> Plus récentes</option>
+                                               <option value="decroissant">Prix décroissants</option>
+                                                <option value="croissant">Prix croissants</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><br>
+                                <button type="submit" class="btn btn-primary btn-block filters__submit-button">
+                                    <svg class="i i-filter " aria-hidden="true">
+                                        <use></use>
+                                    </svg>
+                                                    Ok
+                                </button>
+                            </form>
+                            </div>
+                            <div class="filter-group" style="order: 60">
+                                <div class="filter-group__title">
+                                Catégories
+                                </div>
+                                <div class="filter-group__content">
+                                    <div class="filter">
+                                        <ul class="filter__category-list filter__category-list--level-0">
+                                            <li id="parent-category-annonces" class="filter__category-list-item filter__category-list-item--level-0 filter__category-list-item--has-content">
+                                                <svg class="i i-categories filter__category-list-item__icon" aria-hidden="true">
+                                                    <use href="#">
+
+                                                    </use>
+                                                </svg>
+                                                <a href="{{url_for('all_vehicules')}}" class="filter__category-list-item__title filter__category-list-item__title--level-0">
+                                                Annonces
+                                                </a>
+                                            </li>
+                                            <li id="parent-category-multimedia" class="filter__category-list-item filter__category-list-item--level-1 filter__category-list-item--has-content">
+                                                <svg class="i i-electronics filter__category-list-item__icon" aria-hidden="true">
+                                                    <use href="#"></use>
+                                                </svg>
+                                                <a href="#" class="filter__list-item__cancel-link">
+                                                    <svg class="i i-close filter__list-item__cancel-icon" aria-hidden="true">
+                                                        <use href="#"></use>
+                                                    </svg>
+                                                </a>
+                                                <a href="{{url_for('all_vehicules')}}" class="filter__category-list-item__title filter__category-list-item__title--level-1">
+                                                vehicles
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="filter__category-list filter__category-list--level-0">
+                                            <li id="category-annonces" class="filter__category-list-item filter__category-list-item--level-0 ">
+                                                <ul class="filter__category-list filter__category-list--level-1">
+                                                    <li id="category-multimedia" class="filter__category-list-item filter__category-list-item--level-1 ">
+                                                        <ul class="filter__category-list filter__category-list--level-2">
+                                                            <li id="" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.voiture}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getVoitureVehicule')}}" class="filter__category-list-item__title filter__category-list-item__title--level-2">
+                                                                    Voitures
+                                                                    </a>
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.moto}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getMotosVehicule')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Motos & Scotters
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.locationVoiture}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getLocationVoituress')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Location de Voiture
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.equipementAndPiece}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getEquipementAndPiecess')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Equipéments & piéces
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.camions}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getCamionss')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Camions & semi-remorques
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                            <li id="category-telephones" class="filter__category-list-item filter__category-list-item--level-2 filter__category-list-item--has-content">
+                                                                <h2 class="filter__category-list-item__container">
+                                                                    <span class="filter__category-list-item__count filter__category-list-item__count--level-2">
+                                                                        {{tableau.bateau}}
+                                                                    </span>
+                                                                    <a href="{{url_for('getBateaus')}}" class="
+                                                                            filter__category-list-item__title
+                                                                            filter__category-list-item__title--level-2
+                                                                        ">
+                                                                    Bateau
+                                                                    </a>
+
+                                                                </h2>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-group" style="order: 70">
+                                <div class="filter-group__title">
+                            Lieux
+                            </div>
+                            <div class="filter-group__content">
+                                <div class="filter">
+                                    <ul id="filter-country" class="filter__list">
+                                        <li id="country" class="filter__list-item filter__list-item--has-content active">
+                                            <a href="#" class="filter__list-item__title">
+                                            Sénégal
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul id="filter-region" class="filter__list filter__list--level-1" data-search-filter-group data-search-filter-group-count="11">
+                                        <li id="region-autres" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content" >
+                                            <span class="filter__list-item__count">
+                                            2
+                                            </span>
+                                            <a href="#" class="filter__list-item__title">
+                                            Autres
+                                            </a>
+                                        </li>
+                                        <li id="region-dakar" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">
+                                                {{tableau.dakar}}
+                                            </span>
+                                            <a href="{{url_for('getAllDakarVehicules')}}" class="filter__list-item__title">
+                                            Dakar
+                                            </a>
+                                        </li>
+                                        <li id="region-diourbel" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">
+                                                {{tableau.touba}}
+                                            </span>
+                                            <a href="{{url_for('getAllToubVehicules')}}" class="filter__list-item__title">
+                                            Touba
+                                            </a>
+                                        </li>
+                                        <li id="region-fatick" class="filter__list-item filter__list-item--level-1 filter__list-item--has-content">
+                                            <span class="filter__list-item__count">
+                                                {{tableau.thies}}
+                                            </span>
+                                            <a href="{{url_for('getAllThiesVehicules')}}" class="filter__list-item__title">
+                                            Thies
+                                            </a>
+                                        </li>
+                                        <li class="filter__list-expander" data-search-filter-expander><span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
+                                            Afficher plus
+                                            <svg class="i i-chevron-down filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                            </svg>
+                                            </span>
+                                            <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
+                                            Afficher moins
+                                            <svg class="i i-chevron-up filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-up"></use>
+                                            </svg>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="listings-page-search__new-product__button">
-                            <a href="https://www.expat-dakar.com/voitures?condition=new" class="btn listings-page-search__new-product__button-link">
-                            Recherche
-                            </a>
+                        <div id="filter-price" class="filter-group" style="order: 1000">
+                            <input type="checkbox" id="toggle-price" class="toggle-input" />
+                            <div id="label-price" class="filter-group__header">
+                                <label class="filter-group__title" for="toggle-price">
+                                 Prix
+                                <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
+                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                </svg></label></div>
+                                <div id="filter-items-price" class="toggle-input-target filter-group__content">
+                                   
+                                   
+                                    <form action="{{url_for('listeprixVehicule')}}" method="post">
+                                   
+                                    <div class="filter">
+                                        <div class="filter__range">
+                                            <div class="filter__range__inner">
+                                                <div class="filter__range__min">
+                                                    <input class="form-control filter__range__min-input" placeholder="Min" min="0" max="999999999999" step="1" name="minPrice" type="number">
+                                                </div>
+                                                <div class="filter__range__max">
+                                                    <input class="form-control filter__range__max-input" placeholder="Max" min="0" max="999999999999" step="1" name="maxPrice" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="filter-condition" class="filter-group" style="order: 1000">
+                                <input type="checkbox" id="toggle-condition" class="toggle-input" />
+                                <div id="label-condition" class="filter-group__header">
+                                    <label class="filter-group__title" for="toggle-condition">
+                                            Etat
+                                        <svg class="i i-chevron-down filter-group__title-icon" aria-hidden="true">
+                                            <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down"></use>
+                                        </svg>
+                                    </label>
+                                </div>
+                                <div id="filter-items-condition" class="toggle-input-target filter-group__content">
+                                    <div class="filter">
+                                        <ul id="filter-list-condition" class="filter__list" data-search-filter-group data-search-filter-group-count="4">
+                                            <li id="condition-used" class="filter__list-item " data-search-filter-item data-search-filter-item-count="1311" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                {{tableau.occasion}}
+                                                </span>
+                                                <a href="{{url_for('getAllOccasionVehicules')}}" class="filter__list-item__title">
+                                                    D&#039;occasion
+                                                </a>
+                                            </li>
+                                            <li id="condition-new" class="filter__list-item " data-search-filter-item data-search-filter-item-count="7895" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                    {{tableau.neuf}}
+                                                </span>
+                                                <a href="{{url_for('getAllNeufVehicules')}}" class="filter__list-item__title">
+                                                Neuf
+                                                </a>
+                                            </li>
+                                            <li id="condition-refurbished" class="filter__list-item " data-search-filter-item data-search-filter-item-count="157" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                {{tableau.recondisionne}}
+                                                </span>
+                                                <a href="{{url_for('getAllReconditionnéVehicules')}}" class="filter__list-item__title">
+                                                Réconditionné
+                                                </a>
+                                            </li>
+                                            <li id="condition-used-abroad" class="filter__list-item " data-search-filter-item data-search-filter-item-count="5167" data-search-filter-item-active="0">
+                                                <span class="filter__list-item__count">
+                                                    {{tableau.venant}}
+                                                </span>
+                                                <a href="{{url_for('getAllVenantVehicules')}}" class="filter__list-item__title">
+                                                Venant
+                                                </a>
+                                            </li>
+                                            <li class="filter__list-expander" data-search-filter-expander>
+                                                <span data-search-filter-expander-open class="filter__list-expander__item filter__list-expander__item--expand">
+                                                Afficher plus
+                                                <svg class="i i-chevron-down filter__list-expander__item__icon" aria-hidden="true">
+                                                    <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-down">
+                                                    </use>
+                                                </svg>
+                                            </span>
+                                            <span data-search-filter-expander-close class="filter__list-expander__item filter__list-expander__item--contract">
+                                                    Afficher moins
+                                            <svg class="i i-chevron-up filter__list-expander__item__icon" aria-hidden="true">
+                                                <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#chevron-up">
+
+                                                </use>
+                                            </svg>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                    <div class="filters__submit">
+                        <button type="submit" class="btn btn-primary btn-block filters__submit-button">
+                            <svg class="i i-filter " aria-hidden="true">
+                                <use></use>
+                            </svg>
+                                            Filtrer
+                        </button>
+                    </div>
+                </form>
                 </div>
-             
             </div>
-        </div>
+       
     </div>
 </div>
- 
+</div>
+
+                                    </ul>
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div>
+                 </div> 
+            </div> 
+           
+        </div>
+        
+    </div>
+</div>
+    
+</div>
+
+
+
 {% endblock %}

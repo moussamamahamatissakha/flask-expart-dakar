@@ -102,7 +102,7 @@
   </ins>
   <header class="header" data-sticky="{&quot;type&quot;:&quot;header&quot;}">
     <div class="header__inner">
-      <a href="#" class="header-logo">
+      <a href="{{ url_for('index')}}" class="header-logo">
         <span class="header-logo__brand">
       Expat-Dakar
       </span>
@@ -226,11 +226,7 @@
         Maison
         </a>
       </li>
-      <li class="header-nav__inner__item">
-        <a href="{{ url_for('index_contact') }}" class="header-nav__inner__item__link">
-        contact
-        </a>
-      </li>
+    
 
     </ul>
     <ul class="header-nav__inner__right">

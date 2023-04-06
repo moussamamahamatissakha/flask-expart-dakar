@@ -110,7 +110,7 @@ Tout parcourir
 </div>
 <div class="home-categories__item">
   <div class="home-category" data-home-category>
-    <a href="https://www.expat-dakar.com/immobilier" class="home-category__header" data-home-category-trigger>
+    <a href="{{ url_for('index_immobilier')}}" class="home-category__header" data-home-category-trigger>
       <span class="home-category__header__icon">
         <svg class="i i-home home-category__header__icon-inner" aria-hidden="true">
           <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#home">
@@ -142,7 +142,7 @@ Tout parcourir
 </div>
 <div class="home-categories__item">
   <div class="home-category" data-home-category>
-    <a href="https://www.expat-dakar.com/multimedia" class="home-category__header" data-home-category-trigger>
+    <a href="{{ url_for('index_multimedia')}}" class="home-category__header" data-home-category-trigger>
       <span class="home-category__header__icon">
         <svg class="i i-electronics home-category__header__icon-inner" aria-hidden="true">
           <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#electronics">
@@ -163,16 +163,43 @@ Tout parcourir
   <div class="home-category__content">
     <ul class="home-category__list">
       <li class="home-category__list-item">
-        <a href="https://www.expat-dakar.com/ordinateurs" class="home-category__list-item__link">
+        <a href="{{ url_for('ordinateurs')}}" class="home-category__list-item__link">
 Ordinateurs
-</a></li><li class="home-category__list-item"><a href="https://www.expat-dakar.com/telephones" class="home-category__list-item__link">
+</a>
+
+
+</li>
+<li class="home-category__list-item">
+  <a href="{{ url_for('telephones')}}" class="home-category__list-item__link">
 Téléphones
 </a></li>
-</ul><a href="https://www.expat-dakar.com/multimedia" class="home-category__cta"><span class="home-category__cta__title">
+</li>
+<li class="home-category__list-item">
+  <a href="{{ url_for('tablettes')}}" class="home-category__list-item__link">
+Tablettes
+</a></li>
+
+<li class="home-category__list-item">
+  <a href="{{ url_for('imprimantes')}}" class="home-category__list-item__link">
+Imprimantes
+</a></li>
+
+<li class="home-category__list-item">
+  <a href="{{ url_for('accessoires')}}" class="home-category__list-item__link">
+Accessoires
+</a></li>
+
+
+
+</ul>
+<a href="{{ url_for('index_multimedia')}}" class="home-category__cta"><span class="home-category__cta__title">
 Tout parcourir
 </span><span class="home-category__cta__count badge">
 14484
-</span></a></div></div></div><div class="home-categories__item"><div class="home-category" data-home-category>
+</span></a></div></div></div>
+
+
+<div class="home-categories__item"><div class="home-category" data-home-category>
   <a href="https://www.expat-dakar.com/maison" class="home-category__header" data-home-category-trigger>
     <span class="home-category__header__icon"><svg class="i i-home home-category__header__icon-inner" aria-hidden="true">
       <use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/category.1af8f532.svg#home"></use></svg>
